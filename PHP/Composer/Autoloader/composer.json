@@ -1,0 +1,16 @@
+{
+    "name": "viraj/code",
+    "authors": [
+        {
+            "name": "Viraj Surve",
+            "email": "virajsurve710@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\":"Core/",
+            "Http\\":"Http/"
+        }
+    }
+}

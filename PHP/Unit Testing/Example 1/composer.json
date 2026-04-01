@@ -1,0 +1,31 @@
+{
+    "name": "viraj/code",
+    "authors": [
+        {
+            "name": "Viraj Surve",
+            "email": "virajsurve710@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^13.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.4"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

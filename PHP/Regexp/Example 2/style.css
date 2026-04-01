@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    /* The 'display: flex' from before is still useful for centering the main container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #0056b3;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box; 
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+input.invalid, select.invalid {
+    border-color: #dc3545;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.error {
+    color: #dc3545;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-top: 5px;
+    min-height: 1.2em;
+}
+
+#result {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+/* Success page specific styles */
+.success-message {
+    text-align: center;
+    padding: 20px;
+}
+.success-message h1 {
+    color: #155724;
+}
+
+/* NEW: Style to position the logout button */
+.btn-logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: auto; /* Override the default 100% width */
+    padding: 10px 20px; /* Make it a bit smaller */
+    margin-top: 0;
+}
