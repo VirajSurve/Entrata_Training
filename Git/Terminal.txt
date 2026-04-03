@@ -1,0 +1,252 @@
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents
+$ mkdir student-notes
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents
+$ cd student-notes/
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes
+$ git init
+Initialized empty Git repository in C:/Users/viraj/Documents/student-notes/.git/
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git config --global user.name "Viraj Surve"
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git config --global user,email "virajsurve710@gmail.com"
+error: key does not contain a section: user,email
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ ^C
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git config --global user.email "virajsurve710@gmail.com"
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=schannel
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.email=virajsurve710@gmail.com
+user.name=Viraj Surve
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ echo "Linux Notes" > linux.txt
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ cat linux.txt
+Linux Notes
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        linux.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git add linux.txt
+warning: in the working copy of 'linux.txt', LF will be replaced by CRLF the next time Git touches it
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git commit -m "Added linux notes file"
+[master (root-commit) 7595737] Added linux notes file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 linux.txt
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git branch feature-git-notes
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git checkout feature-git-notes
+Switched to branch 'feature-git-notes'
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git branch
+* feature-git-notes
+  master
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ echo "Git Commands Notes" > git.txt
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git status
+On branch feature-git-notes
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        git.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git add git.txt
+warning: in the working copy of 'git.txt', LF will be replaced by CRLF the next time Git touches it
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git commit -m "Added git notes"
+[feature-git-notes 3e7b737] Added git notes
+ 1 file changed, 1 insertion(+)
+ create mode 100644 git.txt
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ echo "Nore Linux commands added" >> linux.txt
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git diff
+warning: in the working copy of 'linux.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/linux.txt b/linux.txt
+index f60bf54..5b64adf 100644
+--- a/linux.txt
++++ b/linux.txt
+@@ -1 +1,2 @@
+ Linux Notes
++Nore Linux commands added
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ ^C
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git log
+commit 3e7b7375f3be0361dc45eaac2b6295d3b71ce36b (HEAD -> feature-git-notes)
+Author: Viraj Surve <virajsurve710@gmail.com>
+Date:   Fri Apr 3 00:32:20 2026 +0530
+
+    Added git notes
+
+commit 75957370804489f6fcb00c943a6daed91f44af26 (master)
+Author: Viraj Surve <virajsurve710@gmail.com>
+Date:   Fri Apr 3 00:30:02 2026 +0530
+
+    Added linux notes file
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git add linux.txt
+git commit -m "Updated linux notes"
+warning: in the working copy of 'linux.txt', LF will be replaced by CRLF the next time Git touches it
+[feature-git-notes 6ebd945] Updated linux notes
+ 1 file changed, 1 insertion(+)
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git push --set-upstream origin feature-git-notes
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 501 bytes | 501.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/VirajSurve/student-notes.git
+ * [new branch]      feature-git-notes -> feature-git-notes
+branch 'feature-git-notes' set up to track 'origin/feature-git-notes'.
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git branch
+* feature-git-notes
+  master
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (feature-git-notes)
+$ git checkout master
+M       linux.txt
+Switched to branch 'master'
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git push -u origin master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/VirajSurve/student-notes/pull/new/master
+remote:
+To https://github.com/VirajSurve/student-notes.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ cat linux.txt
+Linux Notes
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git pull origin master
+From https://github.com/VirajSurve/student-notes
+ * branch            master     -> FETCH_HEAD
+Updating 7595737..7eff580
+Fast-forward
+ linux.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ cat linux.txt
+Linux Notes
+Hello from Linux - this line was edited by another user.
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git merge feature-git-notes
+Auto-merging linux.txt
+CONFLICT (content): Merge conflict in linux.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master|MERGING)
+$ ^C
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master|MERGING)
+$ cat linux.txt
+Linux Notes
+<<<<<<< HEAD
+Hello from Linux - this line was edited by another user.
+=======
+Nore Linux commands added
+>>>>>>> feature-git-notes
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master|MERGING)
+$ code
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master|MERGING)
+$ git add linux.txt
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master|MERGING)
+$ git commit -m "Resolved merge conflict in linux.txt"
+[master 0c36e78] Resolved merge conflict in linux.txt
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~/Documents/student-notes (master)
+$ git push origin master
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 684 bytes | 684.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/VirajSurve/student-notes.git
+   7eff580..0c36e78  master -> master

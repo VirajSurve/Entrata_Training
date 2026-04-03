@@ -1,0 +1,200 @@
+viraj@DESKTOP-K3HJN7T:~$ script linux_session.txt
+Script started, output log file is 'linux_session.txt'.
+viraj@DESKTOP-K3HJN7T:~$ whoami
+viraj
+viraj@DESKTOP-K3HJN7T:~$ who
+viraj    pts/1        2026-04-02 06:59
+viraj@DESKTOP-K3HJN7T:~$ users
+viraj
+viraj@DESKTOP-K3HJN7T:~$ id
+uid=1000(viraj) gid=1000(viraj) groups=1000(viraj),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+viraj@DESKTOP-K3HJN7T:~$ passwd
+Changing password for viraj.
+Current password:
+New password:
+Retype new password:
+The password has not been changed.
+New password:
+Retype new password:
+Sorry, passwords do not match.
+passwd: Authentication token manipulation error
+passwd: password unchanged
+viraj@DESKTOP-K3HJN7T:~$ passwd
+Changing password for viraj.
+Current password:
+New password:
+Retype new password:
+You must choose a longer password.
+New password:
+Retype new password:
+passwd: password updated successfully
+viraj@DESKTOP-K3HJN7T:~$ chage -l $USER
+Last password change                                    : Apr 02, 2026
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+viraj@DESKTOP-K3HJN7T:~$ chfn
+Password:
+Changing the user information for viraj
+Enter the new value, or press ENTER for the default
+        Full Name:
+        Room Number []: 12
+        Work Phone []: 1234567890
+        Home Phone []: 1234567890
+viraj@DESKTOP-K3HJN7T:~$ echo $SHELL
+/bin/bash
+viraj@DESKTOP-K3HJN7T:~$ chsh -s /bin/sh
+Password:
+viraj@DESKTOP-K3HJN7T:~$ chsh -s /bin/bash
+Password:
+viraj@DESKTOP-K3HJN7T:~$ finger
+Command 'finger' not found, but can be installed with:
+sudo apt install finger
+viraj@DESKTOP-K3HJN7T:~$ sudo apt install finger
+[sudo] password for viraj:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  finger
+0 upgraded, 1 newly installed, 0 to remove and 68 not upgraded.
+Need to get 16.9 kB of archives.
+After this operation, 51.2 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 finger amd64 0.17-17 [16.9 kB]
+Fetched 16.9 kB in 1s (14.0 kB/s)
+Selecting previously unselected package finger.
+(Reading database ... 42035 files and directories currently installed.)
+Preparing to unpack .../finger_0.17-17_amd64.deb ...
+Unpacking finger (0.17-17) ...
+Setting up finger (0.17-17) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+viraj@DESKTOP-K3HJN7T:~$ finger
+Login     Name       Tty      Idle  Login Time   Office     Office Phone
+viraj               *pts/1    8:53  Apr  2 06:59 12         123-456-7890
+viraj@DESKTOP-K3HJN7T:~$ pinky
+Login    Name                 TTY      Idle   When             Where
+viraj                        *pts/1    08:53  2026-04-02 06:59
+viraj@DESKTOP-K3HJN7T:~$ sudo useradd testuser
+viraj@DESKTOP-K3HJN7T:~$ id testuser
+uid=1001(testuser) gid=1001(testuser) groups=1001(testuser)
+viraj@DESKTOP-K3HJN7T:~$ users
+viraj
+viraj@DESKTOP-K3HJN7T:~$ id
+uid=1000(viraj) gid=1000(viraj) groups=1000(viraj),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+viraj@DESKTOP-K3HJN7T:~$ sudo useradd -m testuser
+useradd: user 'testuser' already exists
+viraj@DESKTOP-K3HJN7T:~$ sudo passwd testuser
+New password:
+Retype new password:
+passwd: password updated successfully
+viraj@DESKTOP-K3HJN7T:~$ sudo usermod -aG sudo testuser
+viraj@DESKTOP-K3HJN7T:~$ sudo usermod -s /bin/bash testuser
+viraj@DESKTOP-K3HJN7T:~$ sudo usermod -u 2000 testuser
+viraj@DESKTOP-K3HJN7T:~$ sudo userdel testuser
+viraj@DESKTOP-K3HJN7T:~$ sudo userdel -r testuser
+userdel: user 'testuser' does not exist
+viraj@DESKTOP-K3HJN7T:~$ exit
+exit
+Script done.
+viraj@DESKTOP-K3HJN7T:~$ cat linux_session.txt
+Script started on 2026-04-02 15:44:52+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="102" LINES="55"]
+viraj@DESKTOP-K3HJN7T:~$ whoami
+viraj
+viraj@DESKTOP-K3HJN7T:~$ who
+viraj    pts/1        2026-04-02 06:59
+viraj@DESKTOP-K3HJN7T:~$ users
+viraj
+viraj@DESKTOP-K3HJN7T:~$ id
+uid=1000(viraj) gid=1000(viraj) groups=1000(viraj),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+viraj@DESKTOP-K3HJN7T:~$ passwd
+Changing password for viraj.
+Current password:
+New password:
+Retype new password:
+The password has not been changed.
+New password:
+Retype new password:
+Sorry, passwords do not match.
+passwd: Authentication token manipulation error
+passwd: password unchanged
+viraj@DESKTOP-K3HJN7T:~$ passwd
+Changing password for viraj.
+Current password:
+New password:
+Retype new password:
+You must choose a longer password.
+New password:
+Retype new password:
+passwd: password updated successfully
+viraj@DESKTOP-K3HJN7T:~$ chage -l $USER
+Last password change                                    : Apr 02, 2026
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+viraj@DESKTOP-K3HJN7T:~$ chfn
+Password:
+Changing the user information for viraj
+Enter the new value, or press ENTER for the default
+        Full Name:
+        Room Number []: 12
+        Work Phone []: 1234567890
+        Home Phone []: 1234567890
+viraj@DESKTOP-K3HJN7T:~$ echo $SHELL
+/bin/bash
+viraj@DESKTOP-K3HJN7T:~$ chsh -s /bin/sh
+Password:
+viraj@DESKTOP-K3HJN7T:~$ chsh -s /bin/bash
+Password:
+viraj@DESKTOP-K3HJN7T:~$ finger
+Command 'finger' not found, but can be installed with:
+sudo apt install finger
+viraj@DESKTOP-K3HJN7T:~$ sudo apt install finger
+[sudo] password for viraj:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  finger
+0 upgraded, 1 newly installed, 0 to remove and 68 not upgraded.
+Need to get 16.9 kB of archives.
+After this operation, 51.2 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 finger amd64 0.17-17 [16.9 kB]
+Fetched 16.9 kB in 1s (14.0 kB/s)
+Selecting previously unselected package finger.
+(Reading database ... 42035 files and directories currently installed.)
+Preparing to unpack .../finger_0.17-17_amd64.deb ...
+Unpacking finger (0.17-17) ...
+Setting up finger (0.17-17) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+viraj@DESKTOP-K3HJN7T:~$ finger
+Login     Name       Tty      Idle  Login Time   Office     Office Phone
+viraj               *pts/1    8:53  Apr  2 06:59 12         123-456-7890
+viraj@DESKTOP-K3HJN7T:~$ pinky
+Login    Name                 TTY      Idle   When             Where
+viraj                        *pts/1    08:53  2026-04-02 06:59
+viraj@DESKTOP-K3HJN7T:~$ sudo useradd testuser
+viraj@DESKTOP-K3HJN7T:~$ id testuser
+uid=1001(testuser) gid=1001(testuser) groups=1001(testuser)
+viraj@DESKTOP-K3HJN7T:~$ users
+viraj
+viraj@DESKTOP-K3HJN7T:~$ id
+uid=1000(viraj) gid=1000(viraj) groups=1000(viraj),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+viraj@DESKTOP-K3HJN7T:~$ sudo useradd -m testuser
+useradd: user 'testuser' already exists
+viraj@DESKTOP-K3HJN7T:~$ sudo passwd testuser
+New password:
+Retype new password:
+passwd: password updated successfully
+viraj@DESKTOP-K3HJN7T:~$ sudo usermod -aG sudo testuser
+viraj@DESKTOP-K3HJN7T:~$ sudo usermod -s /bin/bash testuser
+viraj@DESKTOP-K3HJN7T:~$ sudo usermod -u 2000 testuser
+viraj@DESKTOP-K3HJN7T:~$ sudo userdel testuser
+viraj@DESKTOP-K3HJN7T:~$ sudo userdel -r testuser
+userdel: user 'testuser' does not exist
+viraj@DESKTOP-K3HJN7T:~$ exit

@@ -1,0 +1,300 @@
+viraj@DESKTOP-K3HJN7T:~$ cp file.txt lnxCmd/file2.txt
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt  file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cat file2.txt
+Linux practice.
+New Line.
+Hello World.
+I am viraj.
+This line was inserted using vi.
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ~
+viraj@DESKTOP-K3HJN7T:~$ cp -i file.txt lnxCmd/file2.txt
+cp: overwrite 'lnxCmd/file2.txt'? yes
+viraj@DESKTOP-K3HJN7T:~$ cp -r Demo_Project/ temp
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.txt    temp
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   file1.txt
+'Screenshot 2026-03-12 154405.png'                               lnxCmd
+viraj@DESKTOP-K3HJN7T:~$ cd temp/
+viraj@DESKTOP-K3HJN7T:~/temp$ ls
+Core  Public         composer.json  composer.phar  phpunit.xml  views
+Http  bootstrap.php  composer.lock  config.php     routes.php
+viraj@DESKTOP-K3HJN7T:~/temp$ cd ..
+viraj@DESKTOP-K3HJN7T:~$ mv file1.txt myFile.txt
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.txt     temp
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   lnxCmd
+'Screenshot 2026-03-12 154405.png'                               myFile.txt
+viraj@DESKTOP-K3HJN7T:~$ mv myFile.txt lnxCmd/
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt  file2.txt  myFile.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cat myFile.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ rm myFile.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt  file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ..
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.txt
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   lnxCmd
+'Screenshot 2026-03-12 154405.png'                               temp
+viraj@DESKTOP-K3HJN7T:~$ rm -r temp/
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.txt
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   lnxCmd
+'Screenshot 2026-03-12 154405.png'
+viraj@DESKTOP-K3HJN7T:~$ rename 's/.txt/.log/' *.txt
+Command 'rename' not found, but can be installed with:
+sudo apt install rename
+viraj@DESKTOP-K3HJN7T:~$ sudo apt install rename
+[sudo] password for viraj:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  rename
+0 upgraded, 1 newly installed, 0 to remove and 71 not upgraded.
+Need to get 20.3 kB of archives.
+After this operation, 63.5 kB of additional disk space will be used.
+Ign:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 rename all 2.02-1
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 rename all 2.02-1 [20.3 kB]
+Fetched 20.3 kB in 47s (436 B/s)
+Selecting previously unselected package rename.
+(Reading database ... 40812 files and directories currently installed.)
+Preparing to unpack .../archives/rename_2.02-1_all.deb ...
+Unpacking rename (2.02-1) ...
+Setting up rename (2.02-1) ...
+update-alternatives: using /usr/bin/file-rename to provide /usr/bin/rename (rename) in auto mode
+Processing triggers for man-db (2.12.0-4build2) ...
+viraj@DESKTOP-K3HJN7T:~$ rename 's/.txt/.log/' *.txt
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.log
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   lnxCmd
+'Screenshot 2026-03-12 154405.png'
+viraj@DESKTOP-K3HJN7T:~$ rename 's/.log/.txt/' *.log
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.txt
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   lnxCmd
+'Screenshot 2026-03-12 154405.png'
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt  file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ shred file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt  file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt  file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ shred file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt  file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ shred file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt  file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cat file2.txt
+*x  
+   5  ֑ (gq^  !  {   j? ƙ ?l ױ0S] :  o  i ^   T\(
+_  i lS ҷ  %  T  %'   %  J ŚJ   \ !&.  Zu~* }   ; I R& 0 ␦/L3ӌ ik  
+$)   b@ H eCm E      M   $  ,\  k    ; k O} `!19    &    B   H膏   A5  m : pR %։/e,v Wܘ  T  ? `  @9OZ   c   I#  n/ qH    H%]U   I  !  *!v  E [  V + 
+                                                && x   b  ɫ␦         
+ؕ  [P     l      _  
+                    N  e  L4< j y        ߬   9X   q  >  Nrd ^p^ .  ϙ  W h
+                                                                        1 D ¼   zb= 6  }   Wkqj     Ɋ-   p/  a@   ) F w-U,  #Wq 
+ Q1
+  / n C    ^f   *VA    zr       JzSm -  {O3 bK0&   *   9 I   ( n  ^`
+                                                                     Pɉ  vF  3۩ x   J "9    2   F x; 1
+k | F ^-C Z q    
+  ˪aI; 9 T   = J hWFј  C O␦%T     F  ?! 
+                                                k      WӚı R;  ݌[>y* 0  G  S  =␦tT[␦. ط f P   ~A l  Jhu` N ^ f   {  6B      ,TM 예 qL s@ vqz    ۏ U  d,= X =  o    
+ r + 
+    {|   Diѽ">p < yv %     i  é  %    BP8 l  ,jFh) j   *r u  ␦p
+                                                                >   [ \ e     w A $    7V _b *h o E>    x ,   ri
+ pĩ ,i 8+   ј    K  B ax  (      j B k  l+     8 VT k   ,p7 [  U u () n֡j| E׊ r U  7 o Wv     I?1$ " i      
+      `U歾   JC {l36@J Q    * uw ~ G# (𠼂 K:  8 z5   
+   Q x E麟*$#   #␦[ $ `   B g~    h  Zj X!  _ -wX F X 
+                                                       H ЯhR     e śB: ־   vh]  S^-ŗ ݴ    JW ĘqˑAde ,p r  dq \ &  0=4 |  [ 82 g  <lq WK \    S
+hA& < X    ^Q 5  5藙 ␦Ǻ  J `   ␦
+                                  I C!  K0 t Z]饟 Z  EN ߗ
+                                                         h |  tv     HJo-N      'W J ۧ +   K $ > ) c {3L s nԶ&  롁  < vk 7
+                      [Z   j 0 B  J CT T / tj= -  ? ۴      j    
+P c~ 7 ZW     ͍  b}   #h| B b   R   ~ʇo,<
+                                        Y  tĎ ( w   !u  ʆֆU    ?
+                                                                 ] ~^۳_P #  T    & 
+                                                                                      mo    N1 / AF     sF
+wbѲM   RV      "͟  ;   E!  i 45[cɃ P "  V    X-2  Ru e _ S3   %T Y}8W    T:  q"  $ wBn  p    '   (sp & I ʉ 
+    b / `$  P R Y ; O    Y +8P 7 `']= Y _  vZ ցz   +   y  Ajo  @c     G X WY VE bG        9 z Z <   Z  V,wgR1 :ެ      9    ~n  B sڨz  cK     z C 7J   F  iד  a      XbM3 h E aAӞ    $"E:        M W    - Z>+ 2  O aϣ i  X C          @ "U L   1G   ]   [*  %D  Q
+               ߷ 8   %   `   p y j    %  ▶_z0Rf ] 
+ 7r    iN) $ s &D9  3   
+*䳟 f @ [  b 5
+              ":  g       ۿ 2   oK i I+2  ␦   i 0<v6   |    4  
+  "  x `OZE  Pa  f  &$ #@×   fb  !I {>qF  G  XN  ;FR  C̳: $ 'i r  ;8$ K  $0
+                                                                          W ␦ܲ(<   z  c    ␦ -  N  "w|OZk   `   CsSu ln Jm I   |    PЗs ^ 
+5D(  G V  = }5ԍ o Q   E   Lé   EkmTOk } VtJ: W 
+                                            @    4h    % u  T?Ǜ
+                                                               +Bp?!<n Ș 4  ! `  v    8      D _E]ȥL{ Ɍ  F j &   )x O d 0
+ y   O  "5    J         V  ~!  ʓ aUm       w  n<~6  ~  } R ̪E  Z'-eoKI   _d ت/   d!G  \ ¹& 0Pq * 6ֆ )jW  E  
+
+ ڀEՖn       ?8 U ! S# D    6,(   1b   P?  DhpU_ 3TLCk궿 x #    b e /J l  
+                                                                          ^e  0p -b   gw)[&  n j dcG    %@o  v   s   ѣ@.(   / T+ 8 GT,޿Kp   {   +1 d C 1 N  +\I <ћ*Qg A n [ ,    Z~ uHۉ &!      0   N     Rz Z, N&5/  F  $"^ bQ8:  ]  
+  "= -      (Ԕ  'CaL  T   u  𪝅   z  Sdʹ p, : 2<4j ϝ 9   &  GAX  ݫ,   K /   C,Υ &39   
+  1 P䳯ґ  D#F   9 ␦ ␦P 12MU ҅  r  ?   >   x   ^ mqʿB w L * ~:vuQ    aĦ   e  Կg X 'G* 5 OKIg   A  #  Ł ]V ␦Űq  , <      5 J Ř y !3,zZC  ö 
+ 奶 K
+  @6 iQE}.ˢ }0 Jw  PU~  O  Z  l q: UY  '   O Y
+                                               0`\    E  8yt%|r6 #à␦4 ҇:n v p       u +d<pl  }   ԯ oPS   O@B u2   H␦  ) Y     A;ڣ  w   Mc& {  T  n˾   AJ {,O  Lq>y q @   5 #   6F؃  W iB  1  /Q)&!   ~> K  }$ $ޢ    
+6 b Nn [H y 㹭 ntxC  jN l*   L
+                              DӚ+   {!a; ]G .>␦L P Lꃣ$Zj Z]    L @ o    !h  _     1o    <  5[   lP  3 Q , [$ X7#    bB*  d  Tviraj@DESKTOP-K3HJN7T:~/lnxCmd$
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ shred -u file2.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+file1.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ..
+viraj@DESKTOP-K3HJN7T:~$ cp Demo_Project/composer.phar lnxCmd/
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+composer.phar  file1.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ split composer.phar
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+composer.phar  xah  xaq  xaz  xbi  xbr  xca  xcj  xcs  xdb  xdk  xdt  xec  xel  xeu  xfd  xfm
+file1.txt      xai  xar  xba  xbj  xbs  xcb  xck  xct  xdc  xdl  xdu  xed  xem  xev  xfe  xfn
+xaa            xaj  xas  xbb  xbk  xbt  xcc  xcl  xcu  xdd  xdm  xdv  xee  xen  xew  xff  xfo
+xab            xak  xat  xbc  xbl  xbu  xcd  xcm  xcv  xde  xdn  xdw  xef  xeo  xex  xfg  xfp
+xac            xal  xau  xbd  xbm  xbv  xce  xcn  xcw  xdf  xdo  xdx  xeg  xep  xey  xfh  xfq
+xad            xam  xav  xbe  xbn  xbw  xcf  xco  xcx  xdg  xdp  xdy  xeh  xeq  xez  xfi  xfr
+xae            xan  xaw  xbf  xbo  xbx  xcg  xcp  xcy  xdh  xdq  xdz  xei  xer  xfa  xfj
+xaf            xao  xax  xbg  xbp  xby  xch  xcq  xcz  xdi  xdr  xea  xej  xes  xfb  xfk
+xag            xap  xay  xbh  xbq  xbz  xci  xcr  xda  xdj  xds  xeb  xek  xet  xfc  xfl
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cat xaa
+#!/usr/bin/env php
+<?php
+/*
+ * This file is part of Composer.
+ *
+ * (c) Nils Adermann <naderman@naderman.de>
+ *     Jordi Boggiano <j.boggiano@seld.be>
+ *
+ * For the full copyright and license information, please view
+ * the license that is located at the bottom of this file.
+ */
+
+// Avoid APC causing random fatal errors per https://github.com/composer/composer/issues/264
+if (extension_loaded('apc') && filter_var(ini_get('apc.enable_cli'), FILTER_VALIDATE_BOOLEAN) && filter_var(ini_get('apc.cache_by_default'), FILTER_VALIDATE_BOOLEAN)) {
+    if (version_compare(phpversion('apc'), '3.0.12', '>=')) {
+        ini_set('apc.cache_by_default', 0);
+    } else {
+        fwrite(STDERR, 'Warning: APC <= 3.0.12 may cause fatal errors when running composer commands.'.PHP_EOL);
+        fwrite(STDERR, 'Update APC, or set apc.enable_cli or apc.cache_by_default to 0 in your php.ini.'.PHP_EOL);
+    }
+}
+
+if (!class_exists('Phar')) {
+    echo 'PHP\'s phar extension is missing. Composer requires it to run. Enable the extension or recompile php without --disable-phar then try again.' . PHP_EOL;
+    exit(1);
+}
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ^C
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ rm x
+Display all 148 possibilities? (y or n)
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ rm x
+rm: cannot remove 'x': No such file or directory
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ rm *x
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+composer.phar  xah  xaq  xba  xbj  xbs  xcc  xcl  xcu  xde  xdn  xdw  xeg  xep  xez  xfi  xfr
+file1.txt      xai  xar  xbb  xbk  xbt  xcd  xcm  xcv  xdf  xdo  xdy  xeh  xeq  xfa  xfj
+xaa            xaj  xas  xbc  xbl  xbu  xce  xcn  xcw  xdg  xdp  xdz  xei  xer  xfb  xfk
+xab            xak  xat  xbd  xbm  xbv  xcf  xco  xcy  xdh  xdq  xea  xej  xes  xfc  xfl
+xac            xal  xau  xbe  xbn  xbw  xcg  xcp  xcz  xdi  xdr  xeb  xek  xet  xfd  xfm
+xad            xam  xav  xbf  xbo  xby  xch  xcq  xda  xdj  xds  xec  xel  xeu  xfe  xfn
+xae            xan  xaw  xbg  xbp  xbz  xci  xcr  xdb  xdk  xdt  xed  xem  xev  xff  xfo
+xaf            xao  xay  xbh  xbq  xca  xcj  xcs  xdc  xdl  xdu  xee  xen  xew  xfg  xfp
+xag            xap  xaz  xbi  xbr  xcb  xck  xct  xdd  xdm  xdv  xef  xeo  xey  xfh  xfq
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ rm x*
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+composer.phar  file1.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ split composer.phar part_
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+composer.phar  part_an  part_bc  part_br  part_cg  part_cv  part_dk  part_dz  part_eo  part_fd
+file1.txt      part_ao  part_bd  part_bs  part_ch  part_cw  part_dl  part_ea  part_ep  part_fe
+part_aa        part_ap  part_be  part_bt  part_ci  part_cx  part_dm  part_eb  part_eq  part_ff
+part_ab        part_aq  part_bf  part_bu  part_cj  part_cy  part_dn  part_ec  part_er  part_fg
+part_ac        part_ar  part_bg  part_bv  part_ck  part_cz  part_do  part_ed  part_es  part_fh
+part_ad        part_as  part_bh  part_bw  part_cl  part_da  part_dp  part_ee  part_et  part_fi
+part_ae        part_at  part_bi  part_bx  part_cm  part_db  part_dq  part_ef  part_eu  part_fj
+part_af        part_au  part_bj  part_by  part_cn  part_dc  part_dr  part_eg  part_ev  part_fk
+part_ag        part_av  part_bk  part_bz  part_co  part_dd  part_ds  part_eh  part_ew  part_fl
+part_ah        part_aw  part_bl  part_ca  part_cp  part_de  part_dt  part_ei  part_ex  part_fm
+part_ai        part_ax  part_bm  part_cb  part_cq  part_df  part_du  part_ej  part_ey  part_fn
+part_aj        part_ay  part_bn  part_cc  part_cr  part_dg  part_dv  part_ek  part_ez  part_fo
+part_ak        part_az  part_bo  part_cd  part_cs  part_dh  part_dw  part_el  part_fa  part_fp
+part_al        part_ba  part_bp  part_ce  part_ct  part_di  part_dx  part_em  part_fb  part_fq
+part_am        part_bb  part_bq  part_cf  part_cu  part_dj  part_dy  part_en  part_fc  part_fr
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ rm part*
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+composer.phar  file1.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ..
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.txt
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   lnxCmd
+'Screenshot 2026-03-12 154405.png'
+viraj@DESKTOP-K3HJN7T:~$ cp file.txt myfile.txt
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.txt
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   lnxCmd
+'Screenshot 2026-03-12 154405.png'                               myfile.txt
+viraj@DESKTOP-K3HJN7T:~$ vim myfile.txt
+viraj@DESKTOP-K3HJN7T:~$ diff file.txt myfile.txt
+5a6
+> Hi this my myfile!
+viraj@DESKTOP-K3HJN7T:~$ cat file.txt myfile.txt
+Linux practice.
+New Line.
+Hello World.
+I am viraj.
+This line was inserted using vi.
+Linux practice.
+New Line.
+Hello World.
+I am viraj.
+This line was inserted using vi.
+Hi this my myfile!
+viraj@DESKTOP-K3HJN7T:~$ diff -y file.txt myfile.txt
+Linux practice.                                                 Linux practice.
+New Line.                                                       New Line.
+Hello World.                                                    Hello World.
+I am viraj.                                                     I am viraj.
+This line was inserted using vi.                                This line was inserted using vi.
+                                                              > Hi this my myfile!
+viraj@DESKTOP-K3HJN7T:~$ diff -i file.txt myfile.txt
+5a6
+> Hi this my myfile!
+viraj@DESKTOP-K3HJN7T:~$ diff -w file.txt myfile.txt
+5a6
+> Hi this my myfile!
+viraj@DESKTOP-K3HJN7T:~$ cmp file.txt myfile.txt
+cmp: EOF on file.txt after byte 84, line 5
+viraj@DESKTOP-K3HJN7T:~$ cmp -l file.txt myfile.txt
+cmp: EOF on file.txt after byte 84
+viraj@DESKTOP-K3HJN7T:~$ install myfile.txt lnxCmd/
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+composer.phar  file1.txt  myfile.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cat myfile.txt
+Linux practice.
+New Line.
+Hello World.
+I am viraj.
+This line was inserted using vi.
+Hi this my myfile!
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ rm myfile.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls
+composer.phar  file1.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ..
+viraj@DESKTOP-K3HJN7T:~$ install -m 755 myfile.txt lnxCmd/
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ ls -l
+total 3216
+-rw-r--r-- 1 viraj viraj 3288946 Apr  2 11:31 composer.phar
+-rw-r--r-- 1 viraj viraj       0 Apr  2 08:17 file1.txt
+-rwxr-xr-x 1 viraj viraj     103 Apr  2 11:48 myfile.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ~
+viraj@DESKTOP-K3HJN7T:~$ basename lnxCmd/myfile.txt
+myfile.txt
+viraj@DESKTOP-K3HJN7T:~$ basename lnxCmd/myfile.txt .txt
+myfile

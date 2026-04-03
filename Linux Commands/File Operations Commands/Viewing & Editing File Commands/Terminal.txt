@@ -1,0 +1,225 @@
+viraj@DESKTOP-K3HJN7T:~$ cat file.txt
+Linux practice
+New Line
+viraj@DESKTOP-K3HJN7T:~$ cat file.txt lnxCmd/file1.txt
+Linux practice
+New Line
+viraj@DESKTOP-K3HJN7T:~$ cat file.txt Demo_Project/routes.php
+Linux practice
+New Line
+<?php
+
+$router->get('/', 'index.php');
+$router->get('/about', 'about.php');
+$router->get('/contact', 'contact.php');
+
+$router->get('/notes', 'notes/index.php')->only('auth');
+$router->get('/note', 'notes/show.php');
+$router->delete('/note', 'notes/destroy.php');
+
+$router->get('/note/edit', 'notes/edit.php');
+$router->patch('/note', 'notes/update.php');
+
+$router->get('/notes/create', 'notes/create.php');
+$router->post('/notes', 'notes/store.php');
+
+$router->get('/register','registration/create.php')->only('guest');
+$router->post('/register','registration/store.php')->only('guest');
+
+$router->get('/login','session/create.php')->only('guest');
+$router->post('/session','session/store.php')->only('guest');
+$router->delete('/session','session/destroy.php')->only('auth');viraj@DESKTOP-K3HJN7T:~$
+viraj@DESKTOP-K3HJN7T:~$ cat -n file.txt
+     1  Linux practice
+     2  New Line
+viraj@DESKTOP-K3HJN7T:~$ cat Demo_Project/routes.php
+<?php
+
+$router->get('/', 'index.php');
+$router->get('/about', 'about.php');
+$router->get('/contact', 'contact.php');
+
+$router->get('/notes', 'notes/index.php')->only('auth');
+$router->get('/note', 'notes/show.php');
+$router->delete('/note', 'notes/destroy.php');
+
+$router->get('/note/edit', 'notes/edit.php');
+$router->patch('/note', 'notes/update.php');
+
+$router->get('/notes/create', 'notes/create.php');
+$router->post('/notes', 'notes/store.php');
+
+$router->get('/register','registration/create.php')->only('guest');
+$router->post('/register','registration/store.php')->only('guest');
+
+$router->get('/login','session/create.php')->only('guest');
+$router->post('/session','session/store.php')->only('guest');
+$router->delete('/session','session/destroy.php')->only('auth');viraj@DESKTOP-K3HJN7T:~$ cat Demo_Project/routes.php    ^C
+viraj@DESKTOP-K3HJN7T:~$ cat -s Demo_Project/routes.php
+<?php
+
+$router->get('/', 'index.php');
+$router->get('/about', 'about.php');
+$router->get('/contact', 'contact.php');
+
+$router->get('/notes', 'notes/index.php')->only('auth');
+$router->get('/note', 'notes/show.php');
+$router->delete('/note', 'notes/destroy.php');
+
+$router->get('/note/edit', 'notes/edit.php');
+$router->patch('/note', 'notes/update.php');
+
+$router->get('/notes/create', 'notes/create.php');
+$router->post('/notes', 'notes/store.php');
+
+$router->get('/register','registration/create.php')->only('guest');
+$router->post('/register','registration/store.php')->only('guest');
+
+$router->get('/login','session/create.php')->only('guest');
+$router->post('/session','session/store.php')->only('guest');
+$router->delete('/session','session/destroy.php')->only('auth');viraj@DESKTOP-K3HJN7T:~$
+viraj@DESKTOP-K3HJN7T:~$ cat -E Demo_Project/routes.php
+<?php^M$
+^M$
+$router->get('/', 'index.php');^M$
+$router->get('/about', 'about.php');^M$
+$router->get('/contact', 'contact.php');^M$
+^M$
+$router->get('/notes', 'notes/index.php')->only('auth');^M$
+$router->get('/note', 'notes/show.php');^M$
+$router->delete('/note', 'notes/destroy.php');^M$
+^M$
+$router->get('/note/edit', 'notes/edit.php');^M$
+$router->patch('/note', 'notes/update.php');^M$
+^M$
+$router->get('/notes/create', 'notes/create.php');^M$
+$router->post('/notes', 'notes/store.php');^M$
+^M$
+$router->get('/register','registration/create.php')->only('guest');^M$
+$router->post('/register','registration/store.php')->only('guest');^M$
+^M$
+$router->get('/login','session/create.php')->only('guest');^M$
+$router->post('/session','session/store.php')->only('guest');^M$
+$router->delete('/session','session/destroy.php')->only('auth');viraj@DESKTOP-K3HJN7T:~$
+viraj@DESKTOP-K3HJN7T:~$ less Demo_Project/composer.phar
+viraj@DESKTOP-K3HJN7T:~$ less -N Demo_Project/composer.phar
+viraj@DESKTOP-K3HJN7T:~$ more Demo_Project/composer.phar
+#!/usr/bin/env php
+<?php
+/*
+ * This file is part of Composer.
+ *
+ * (c) Nils Adermann <naderman@naderman.de>
+ *     Jordi Boggiano <j.boggiano@seld.be>
+ *
+ * For the full copyright and license information, please view
+ * the license that is located at the bottom of this file.
+ */
+
+// Avoid APC causing random fatal errors per https://github.com/composer/composer/issues/264
+if (extension_loaded('apc') && filter_var(ini_get('apc.enable_cli'), FILTER_VALIDATE_BOOLEAN) &
+& filter_var(ini_get('apc.cache_by_default'), FILTER_VALIDATE_BOOLEAN)) {
+    if (version_compare(phpversion('apc'), '3.0.12', '>=')) {
+        ini_set('apc.cache_by_default', 0);
+    } else {
+        fwrite(STDERR, 'Warning: APC <= 3.0.12 may cause fatal errors when running composer com
+mands.'.PHP_EOL);
+        fwrite(STDERR, 'Update APC, or set apc.enable_cli or apc.cache_by_default to 0 in your
+php.ini.'.PHP_EOL);
+    }
+}
+
+if (!class_exists('Phar')) {
+    echo 'PHP\'s phar extension is missing. Composer requires it to run. Enable the extension o
+r recompile php without --disable-phar then try again.' . PHP_EOL;
+    exit(1);
+}
+
+Phar::mapPhar('composer.phar');
+require 'phar://composer.phar/bin/composer';
+
+__HALT_COMPILER(); ?>
+<  
+viraj@DESKTOP-K3HJN7T:~$ head Demo_Project/composer.phar
+#!/usr/bin/env php
+<?php
+/*
+ * This file is part of Composer.
+ *
+ * (c) Nils Adermann <naderman@naderman.de>
+ *     Jordi Boggiano <j.boggiano@seld.be>
+ *
+ * For the full copyright and license information, please view
+ * the license that is located at the bottom of this file.
+viraj@DESKTOP-K3HJN7T:~$ head -n 5 Demo_Project/composer.phar
+#!/usr/bin/env php
+<?php
+/*
+ * This file is part of Composer.
+ *
+viraj@DESKTOP-K3HJN7T:~$ tail Demo_Project/composer.phar
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+B Y j  ' - k   ( P ;I7  k   o :   @  X  d␦u M*k Y4   PISYGBMBviraj@DESKTOP-K3HJN7T:~$ tail Demo_Project/composer.phar   ^C
+viraj@DESKTOP-K3HJN7T:~$ tail -n 5 Demo_Project/composer.phar
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+B Y j  ' - k   ( P ;I7  k   o :   @  X  d␦u M*k Y4   PISYGBMBviraj@DESKTOP-K3HJN7T:~$
+viraj@DESKTOP-K3HJN7T:~$ touch file1.txt
+viraj@DESKTOP-K3HJN7T:~$ file file.txt
+file.txt: ASCII text
+viraj@DESKTOP-K3HJN7T:~$ file Demo_Project/routes.php
+Demo_Project/routes.php: PHP script, ASCII text, with CRLF line terminators
+viraj@DESKTOP-K3HJN7T:~$ file Demo_Project/routes.php Screenshot\ 2026-03-12\ 154405.png How\ to\ Choose\ A\ First\ Programming\ Language\ \[U2lQWR6uIuo\].mp4
+Demo_Project/routes.php:                                      PHP script, ASCII text, with CRLF line terminators
+Screenshot 2026-03-12 154405.png:                             PNG image data, 696 x 699, 8-bit/color RGBA, non-interlaced
+How to Choose A First Programming Language [U2lQWR6uIuo].mp4: ISO Media, MP4 v2 [ISO 14496-14]
+viraj@DESKTOP-K3HJN7T:~$ nano file.txt
+viraj@DESKTOP-K3HJN7T:~$ cat file
+cat: file: No such file or directory
+viraj@DESKTOP-K3HJN7T:~$ cat file.txt
+Linux practice
+New Line
+Hello World
+I am viraj
+viraj@DESKTOP-K3HJN7T:~$ vi file.txt
+viraj@DESKTOP-K3HJN7T:~$ cat file.txt
+Linux practice.
+New Line.
+Hello World.
+I am viraj.
+This line was inserted using vim.
+viraj@DESKTOP-K3HJN7T:~$ vim file.txt
+viraj@DESKTOP-K3HJN7T:~$ sudo apt install vim
+[sudo] password for viraj:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  vim-common vim-runtime vim-tiny xxd
+Suggested packages:
+  ctags vim-doc vim-scripts indent
+The following packages will be upgraded:
+  vim vim-common vim-runtime vim-tiny xxd
+5 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 10.4 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] y
+0% [Working]^C
+viraj@DESKTOP-K3HJN7T:~$ wc file.txt
+ 5 15 84 file.txt
+viraj@DESKTOP-K3HJN7T:~$ wc -l file.txt
+5 file.txt
+viraj@DESKTOP-K3HJN7T:~$ wc -w file.txt
+15 file.txt
+viraj@DESKTOP-K3HJN7T:~$ wc -c file.txt
+84 file.txt

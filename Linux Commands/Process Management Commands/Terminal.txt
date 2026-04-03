@@ -1,0 +1,840 @@
+viraj@DESKTOP-K3HJN7T:~$ ps
+    PID TTY          TIME CMD
+    273 pts/0    00:00:05 bash
+  10308 pts/0    00:00:00 ps
+viraj@DESKTOP-K3HJN7T:~$ ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.2  22088 12888 ?        Ss   08:03   0:03 /sbin/init
+root           2  0.0  0.0   3120  2048 ?        Sl   08:03   0:00 /init
+root           6  0.1  0.0   3192  2212 ?        Sl   08:03   0:29 plan9 --control-socket 7 --log-leve
+root          42  0.0  0.2  50356 15744 ?        S<s  08:03   0:00 /usr/lib/systemd/systemd-journald
+root          99  0.0  0.1  25256  6144 ?        Ss   08:03   0:15 /usr/lib/systemd/systemd-udevd
+systemd+     107  0.0  0.2  21460 12544 ?        Ss   08:03   0:00 /usr/lib/systemd/systemd-resolved
+systemd+     108  0.0  0.1  91028  7680 ?        Ssl  08:03   0:00 /usr/lib/systemd/systemd-timesyncd
+root         155  0.0  0.0   4236  2560 ?        Ss   08:03   0:00 /usr/sbin/cron -f -P
+message+     156  0.0  0.0   9656  5120 ?        Ss   08:03   0:00 @dbus-daemon --system --address=sys
+root         163  0.0  0.1  17972  8320 ?        Ss   08:03   0:00 /usr/lib/systemd/systemd-logind
+root         174  0.0  0.0   3160  1792 hvc0     Ss+  08:03   0:00 /sbin/agetty -o -p -- \u --noclear
+root         185  0.0  0.0   3116  1920 tty1     Ss+  08:03   0:00 /sbin/agetty -o -p -- \u --noclear
+syslog       187  0.0  0.0 222508  5632 ?        Ssl  08:03   0:00 /usr/sbin/rsyslogd -n -iNONE
+root         192  0.0  0.3 107024 22528 ?        Ssl  08:03   0:00 /usr/bin/python3 /usr/share/unatten
+root         265  0.0  0.0   3124   896 ?        Ss   08:03   0:00 /init
+root         266  0.0  0.0   3140  1156 ?        S    08:03   0:01 /init
+viraj        273  0.0  0.0   6588  5504 pts/0    Ss   08:03   0:05 -bash
+root         275  0.0  0.0   6692  4224 pts/1    Ss   08:03   0:00 /bin/login -f
+viraj        322  0.0  0.1  20312 11264 ?        Ss   08:03   0:00 /usr/lib/systemd/systemd --user
+viraj        323  0.0  0.0  21156  3520 ?        S    08:03   0:00 (sd-pam)
+viraj        345  0.0  0.0   6056  4864 pts/1    S+   08:03   0:00 -bash
+polkitd     4936  0.0  0.1 308164  7680 ?        Ssl  09:03   0:00 /usr/lib/polkit-1/polkitd --no-debu
+root        9670  0.0  0.2 1756620 12800 ?       Ssl  12:42   0:00 /usr/libexec/wsl-pro-service
+root       10288  0.2  0.3 370084 19968 ?        Ssl  12:50   0:00 /usr/libexec/packagekitd
+root       10315  0.0  0.0  25260  3712 ?        S    12:50   0:00 (udev-worker)
+root       10316  0.0  0.0  25260  3712 ?        S    12:50   0:00 (udev-worker)
+viraj      10317  0.0  0.0   8280  4224 pts/0    R+   12:50   0:00 ps aux
+viraj@DESKTOP-K3HJN7T:~$ top
+top - 12:51:22 up  4:48,  1 user,  load average: 0.02, 0.01, 0.00
+Tasks:  27 total,   1 running,  26 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.2 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   5829.2 total,   5398.4 free,    441.6 used,    129.3 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   5387.6 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+     42 root      19  -1   50356  15744  14848 S   0.3   0.3   0:00.90 systemd-journal
+    156 message+  20   0    9656   5120   4480 S   0.3   0.1   0:00.55 dbus-daemon
+  10330 viraj     20   0    9320   5632   3456 R   0.3   0.1   0:00.06 top
+      1 root      20   0   22088  12888   9304 S   0.0   0.2   0:03.72 systemd
+      2 root      20   0    3120   2048   1920 S   0.0   0.0   0:00.01 init-systemd(Ub
+      6 root      20   0    3192   2212   1920 S   0.0   0.0   0:29.04 init
+     99 root      20   0   25256   6144   4864 S   0.0   0.1   0:15.70 systemd-udevd
+    107 systemd+  20   0   21460  12544  10496 S   0.0   0.2   0:00.29 systemd-resolve
+    108 systemd+  20   0   91028   7680   6784 S   0.0   0.1   0:00.46 systemd-timesyn
+    155 root      20   0    4236   2560   2432 S   0.0   0.0   0:00.11 cron
+    163 root      20   0   17972   8320   7552 S   0.0   0.1   0:00.34 systemd-logind
+    174 root      20   0    3160   1792   1792 S   0.0   0.0   0:00.02 agetty
+    185 root      20   0    3116   1920   1792 S   0.0   0.0   0:00.02 agetty
+    187 syslog    20   0  222508   5632   4480 S   0.0   0.1   0:00.23 rsyslogd
+    192 root      20   0  107024  22528  13312 S   0.0   0.4   0:00.17 unattended-upgr
+    265 root      20   0    3124    896    768 S   0.0   0.0   0:00.00 SessionLeader
+    266 root      20   0    3140   1156   1024 S   0.0   0.0   0:01.92 Relay(273)
+    273 viraj     20   0    6588   5504   3584 S   0.0   0.1   0:05.75 bash
+    275 root      20   0    6692   4224   3712 S   0.0   0.1   0:00.02 login
+    322 viraj     20   0   20312  11264   9216 S   0.0   0.2   0:00.30 systemd
+    323 viraj     20   0   21156   3520   1792 S   0.0   0.1   0:00.00 (sd-pam)
+    345 viraj     20   0    6056   4864   3328 S   0.0   0.1   0:00.03 bash
+   4936 polkitd   20   0  308164   7680   6912 S   0.0   0.1   0:00.65 polkitd
+   9670 root      20   0 1756620  12800  10880 S   0.0   0.2   0:00.20 wsl-pro-service
+  10288 root      20   0  370084  19968  17152 S   0.0   0.3   0:00.07 packagekitd
+  10337 root      20   0   25260   3712   2176 S   0.0   0.1   0:00.00 (udev-worker)
+  10338 root      20   0   25260   3712   2176 S   0.0   0.1   0:00.00 (udev-worker)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+viraj@DESKTOP-K3HJN7T:~$ htop
+viraj@DESKTOP-K3HJN7T:~$ uptime
+ 12:54:52 up  4:51,  1 user,  load average: 0.01, 0.00, 0.00
+viraj@DESKTOP-K3HJN7T:~$ w
+ 12:55:07 up  4:52,  1 user,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU  WHAT
+viraj    pts/1    -                06:59    5:55m  0.05s  0.03s -bash
+viraj@DESKTOP-K3HJN7T:~$ pidof bash
+345 273
+viraj@DESKTOP-K3HJN7T:~$ mpstat
+Linux 6.6.87.2-microsoft-standard-WSL2 (DESKTOP-K3HJN7T)        04/02/26        _x86_64_        (4 CPU)
+
+12:56:33     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:56:33     all    0.07    0.00    0.20    0.06    0.00    0.03    0.00    0.00    0.00   99.64
+viraj@DESKTOP-K3HJN7T:~$ pidof bash
+345 273
+viraj@DESKTOP-K3HJN7T:~$ pmap 345
+345:   -bash
+0000644e3e20f000    192K r---- bash
+0000644e3e23f000    956K r-x-- bash
+0000644e3e32e000    212K r---- bash
+0000644e3e363000     16K r---- bash
+0000644e3e367000     36K rw--- bash
+0000644e3e370000     44K rw---   [ anon ]
+0000644e6aeb3000   1436K rw---   [ anon ]
+0000772b10a00000    160K r---- libc.so.6
+0000772b10a28000   1568K r-x-- libc.so.6
+0000772b10bb0000    316K r---- libc.so.6
+0000772b10bff000     16K r---- libc.so.6
+0000772b10c03000      8K rw--- libc.so.6
+0000772b10c05000     52K rw---   [ anon ]
+0000772b10cd3000    356K r---- LC_CTYPE
+0000772b10d2c000      4K r---- LC_NUMERIC
+0000772b10d2d000      4K r---- LC_TIME
+0000772b10d2e000      4K r---- LC_COLLATE
+0000772b10d2f000      4K r---- LC_MONETARY
+0000772b10d30000      4K r---- SYS_LC_MESSAGES
+0000772b10d31000      4K r---- LC_PAPER
+0000772b10d32000     28K r--s- gconv-modules.cache
+0000772b10d39000     12K rw---   [ anon ]
+0000772b10d3c000     56K r---- libtinfo.so.6.4
+0000772b10d4a000     76K r-x-- libtinfo.so.6.4
+0000772b10d5d000     56K r---- libtinfo.so.6.4
+0000772b10d6b000     16K r---- libtinfo.so.6.4
+0000772b10d6f000      4K rw--- libtinfo.so.6.4
+0000772b10d70000      4K r---- LC_NAME
+0000772b10d71000      4K r---- LC_ADDRESS
+0000772b10d72000      4K r---- LC_TELEPHONE
+0000772b10d73000      4K r---- LC_MEASUREMENT
+0000772b10d74000      4K r---- LC_IDENTIFICATION
+0000772b10d75000      8K rw---   [ anon ]
+0000772b10d77000      4K r---- ld-linux-x86-64.so.2
+0000772b10d78000    172K r-x-- ld-linux-x86-64.so.2
+0000772b10da3000     40K r---- ld-linux-x86-64.so.2
+0000772b10dad000      8K r---- ld-linux-x86-64.so.2
+0000772b10daf000      8K rw--- ld-linux-x86-64.so.2
+00007ffd4b68a000    132K rw---   [ stack ]
+00007ffd4b74d000     16K r----   [ anon ]
+00007ffd4b751000      8K r-x--   [ anon ]
+ total             6056K
+viraj@DESKTOP-K3HJN7T:~$ pmap 273
+273:   -bash
+00005ed0745fd000    192K r---- bash
+00005ed07462d000    956K r-x-- bash
+00005ed07471c000    212K r---- bash
+00005ed074751000     16K r---- bash
+00005ed074755000     36K rw--- bash
+00005ed07475e000     44K rw---   [ anon ]
+00005ed07c3a6000   1968K rw---   [ anon ]
+00007a534d600000    160K r---- libc.so.6
+00007a534d628000   1568K r-x-- libc.so.6
+00007a534d7b0000    316K r---- libc.so.6
+00007a534d7ff000     16K r---- libc.so.6
+00007a534d803000      8K rw--- libc.so.6
+00007a534d805000     52K rw---   [ anon ]
+00007a534d8c2000    356K r---- LC_CTYPE
+00007a534d91b000      4K r---- LC_NUMERIC
+00007a534d91c000      4K r---- LC_TIME
+00007a534d91d000      4K r---- LC_COLLATE
+00007a534d91e000      4K r---- LC_MONETARY
+00007a534d91f000      4K r---- SYS_LC_MESSAGES
+00007a534d920000      4K r---- LC_PAPER
+00007a534d921000     28K r--s- gconv-modules.cache
+00007a534d928000     12K rw---   [ anon ]
+00007a534d92b000     56K r---- libtinfo.so.6.4
+00007a534d939000     76K r-x-- libtinfo.so.6.4
+00007a534d94c000     56K r---- libtinfo.so.6.4
+00007a534d95a000     16K r---- libtinfo.so.6.4
+00007a534d95e000      4K rw--- libtinfo.so.6.4
+00007a534d95f000      4K r---- LC_NAME
+00007a534d960000      4K r---- LC_ADDRESS
+00007a534d961000      4K r---- LC_TELEPHONE
+00007a534d962000      4K r---- LC_MEASUREMENT
+00007a534d963000      4K r---- LC_IDENTIFICATION
+00007a534d964000      8K rw---   [ anon ]
+00007a534d966000      4K r---- ld-linux-x86-64.so.2
+00007a534d967000    172K r-x-- ld-linux-x86-64.so.2
+00007a534d992000     40K r---- ld-linux-x86-64.so.2
+00007a534d99c000      8K r---- ld-linux-x86-64.so.2
+00007a534d99e000      8K rw--- ld-linux-x86-64.so.2
+00007ffdc0616000    132K rw---   [ stack ]
+00007ffdc0775000     16K r----   [ anon ]
+00007ffdc0779000      8K r-x--   [ anon ]
+ total             6588K
+viraj@DESKTOP-K3HJN7T:~$ pmap -x 345
+345:   -bash
+Address           Kbytes     RSS   Dirty Mode  Mapping
+0000644e3e20f000     192     188       0 r---- bash
+0000644e3e23f000     956     944       0 r-x-- bash
+0000644e3e32e000     212     120       0 r---- bash
+0000644e3e363000      16      16      16 r---- bash
+0000644e3e367000      36      36      36 rw--- bash
+0000644e3e370000      44      32      32 rw---   [ anon ]
+0000644e6aeb3000    1436    1368    1368 rw---   [ anon ]
+0000772b10a00000     160     156       0 r---- libc.so.6
+0000772b10a28000    1568    1412       0 r-x-- libc.so.6
+0000772b10bb0000     316     184       0 r---- libc.so.6
+0000772b10bff000      16      16      16 r---- libc.so.6
+0000772b10c03000       8       8       8 rw--- libc.so.6
+0000772b10c05000      52      24      24 rw---   [ anon ]
+0000772b10cd3000     356     128       0 r---- LC_CTYPE
+0000772b10d2c000       4       4       0 r---- LC_NUMERIC
+0000772b10d2d000       4       4       0 r---- LC_TIME
+0000772b10d2e000       4       4       0 r---- LC_COLLATE
+0000772b10d2f000       4       4       0 r---- LC_MONETARY
+0000772b10d30000       4       4       0 r---- SYS_LC_MESSAGES
+0000772b10d31000       4       4       0 r---- LC_PAPER
+0000772b10d32000      28      28       0 r--s- gconv-modules.cache
+0000772b10d39000      12       8       8 rw---   [ anon ]
+0000772b10d3c000      56      56       0 r---- libtinfo.so.6.4
+0000772b10d4a000      76      72       0 r-x-- libtinfo.so.6.4
+0000772b10d5d000      56      52       0 r---- libtinfo.so.6.4
+0000772b10d6b000      16      16      16 r---- libtinfo.so.6.4
+0000772b10d6f000       4       4       4 rw--- libtinfo.so.6.4
+0000772b10d70000       4       4       0 r---- LC_NAME
+0000772b10d71000       4       4       0 r---- LC_ADDRESS
+0000772b10d72000       4       4       0 r---- LC_TELEPHONE
+0000772b10d73000       4       4       0 r---- LC_MEASUREMENT
+0000772b10d74000       4       4       0 r---- LC_IDENTIFICATION
+0000772b10d75000       8       8       8 rw---   [ anon ]
+0000772b10d77000       4       4       0 r---- ld-linux-x86-64.so.2
+0000772b10d78000     172     172       0 r-x-- ld-linux-x86-64.so.2
+0000772b10da3000      40      40       0 r---- ld-linux-x86-64.so.2
+0000772b10dad000       8       8       8 r---- ld-linux-x86-64.so.2
+0000772b10daf000       8       8       8 rw--- ld-linux-x86-64.so.2
+00007ffd4b68a000     132     112     112 rw---   [ stack ]
+00007ffd4b74d000      16       0       0 r----   [ anon ]
+00007ffd4b751000       8       4       0 r-x--   [ anon ]
+---------------- ------- ------- -------
+total kB            6056    5268    1664
+viraj@DESKTOP-K3HJN7T:~$ sleep 60
+^Z
+[1]+  Stopped                 sleep 60
+viraj@DESKTOP-K3HJN7T:~$ bg %1
+[1]+ sleep 60 &
+viraj@DESKTOP-K3HJN7T:~$ ps
+    PID TTY          TIME CMD
+    273 pts/0    00:00:05 bash
+  10558 pts/0    00:00:00 sleep
+  10574 pts/0    00:00:00 ps
+viraj@DESKTOP-K3HJN7T:~$ ps
+    PID TTY          TIME CMD
+    273 pts/0    00:00:05 bash
+  10587 pts/0    00:00:00 ps
+[1]+  Done                    sleep 60
+viraj@DESKTOP-K3HJN7T:~$ sleep 60 bg %1
+sleep: invalid time interval ‘bg’
+sleep: invalid time interval ‘%1’
+Try 'sleep --help' for more information.
+viraj@DESKTOP-K3HJN7T:~$ sleep 60
+^Z
+[1]+  Stopped                 sleep 60
+viraj@DESKTOP-K3HJN7T:~$ bg %1
+[1]+ sleep 60 &
+viraj@DESKTOP-K3HJN7T:~$ ps
+    PID TTY          TIME CMD
+    273 pts/0    00:00:05 bash
+  10602 pts/0    00:00:00 sleep
+  10605 pts/0    00:00:00 ps
+viraj@DESKTOP-K3HJN7T:~$ fg %1
+sleep 60
+viraj@DESKTOP-K3HJN7T:~$ sleep 60
+^Z
+[1]+  Stopped                 sleep 60
+viraj@DESKTOP-K3HJN7T:~$ bg %1
+[1]+ sleep 60 &
+viraj@DESKTOP-K3HJN7T:~$ pidof sleep
+10622
+viraj@DESKTOP-K3HJN7T:~$ kill 10622
+viraj@DESKTOP-K3HJN7T:~$ pidof sleeptime ls
+[1]+  Terminated              sleep 60
+viraj@DESKTOP-K3HJN7T:~$ time ls
+ Demo_Project                                                    file.txt   log.txt
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   hello      myfile.txt
+'Screenshot 2026-03-12 154405.png'                               lnxCmd
+
+real    0m0.018s
+user    0m0.005s
+sys     0m0.001s
+viraj@DESKTOP-K3HJN7T:~$ watch date
+viraj@DESKTOP-K3HJN7T:~$ watch echo "hello"
+viraj@DESKTOP-K3HJN7T:~$ vmstat
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 0  0      0 5519296   2440 144084    0    0    57    41  102    0  0  0 100  0  0  0
+viraj@DESKTOP-K3HJN7T:~$ vmstat 1
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 2  0      0 5518784   2448 144108    0    0    57    41  102    0  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   43   51  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   28   41  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   56   61  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   63   60  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   30   44  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   27   40  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   28   32  0  0 100  0  0  0
+ 1  0      0 5518784   2448 144108    0    0     0     0   60   61  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0    28   29   44  0  0 100  0  0  0
+ 1  0      0 5518784   2448 144108    0    0     0     0   32   44  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   99   75  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   32   42  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   29   50  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   46   49  0  0 100  0  0  0
+ 0  0      0 5518784   2448 144108    0    0     0     0   30   43  0  0 100  0  0  0
+ 1  0      0 5518784   2448 144108    0    0     0     0   31   48  0  0 100  0  0  0
+ 0  0      0 5518784   2456 144108    0    0     0    20   37   58  0  0 100  0  0  0
+ 0  0      0 5518784   2456 144108    0    0     0     0   72   71  0  0 100  0  0  0
+ 0  0      0 5518924   2456 144108    0    0     0     0   48   54  0  0 100  0  0  0
+ 0  0      0 5518672   2456 144108    0    0     0     0   69   62  0  0 100  0  0  0
+ 1  0      0 5518672   2456 144108    0    0     0     0   28   46  0  0 100  0  0  0
+ 0  0      0 5518672   2456 144108    0    0     0    12   37   52  0  0 100  0  0  0
+ 1  0      0 5518672   2456 144108    0    0     0     0   53   50  0  0 100  0  0  0
+^C
+viraj@DESKTOP-K3HJN7T:~$ trace ls
+Command 'trace' not found, did you mean:
+  command 'btrace' from deb blktrace (1.2.0-5)
+  command 'itrace' from deb irpas (0.10-9)
+  command 'strace' from deb strace (6.6-0ubuntu1)
+  command 'tracd' from deb trac (1.6-2)
+  command 'mtrace' from deb libc-devtools (2.39-0ubuntu8.7)
+  command 'tracer' from deb pvm-dev (3.4.6-5)
+  command 'xtrace' from deb xtrace (1.4.0-1)
+  command 'grace' from deb grace (1:5.1.25-13)
+  command 'ltrace' from deb ltrace (0.7.3-6.1ubuntu6)
+  command 'dtrace' from deb systemtap-sdt-dev (4.8-2)
+Try: sudo apt install <deb name>
+viraj@DESKTOP-K3HJN7T:~$ strace ls
+execve("/usr/bin/ls", ["ls"], 0x7ffec81e5f40 /* 26 vars */) = 0
+brk(NULL)                               = 0x62b557362000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x722da3e0c000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=17639, ...}) = 0
+mmap(NULL, 17639, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3e07000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=174472, ...}) = 0
+mmap(NULL, 181960, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x722da3dda000
+mmap(0x722da3de0000, 118784, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x722da3de0000
+mmap(0x722da3dfd000, 24576, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x23000) = 0x722da3dfd000
+mmap(0x722da3e03000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x29000) = 0x722da3e03000
+mmap(0x722da3e05000, 5832, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x722da3e05000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2170256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x722da3a00000
+mmap(0x722da3a28000, 1605632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x722da3a28000
+mmap(0x722da3bb0000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0x722da3bb0000
+mmap(0x722da3bff000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1fe000) = 0x722da3bff000
+mmap(0x722da3c05000, 52624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x722da3c05000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=625344, ...}) = 0
+mmap(NULL, 627472, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x722da3d40000
+mmap(0x722da3d42000, 450560, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x722da3d42000
+mmap(0x722da3db0000, 163840, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x70000) = 0x722da3db0000
+mmap(0x722da3dd8000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x97000) = 0x722da3dd8000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x722da3d3d000
+arch_prctl(ARCH_SET_FS, 0x722da3d3d800) = 0
+set_tid_address(0x722da3d3dad0)         = 10734
+set_robust_list(0x722da3d3dae0, 24)     = 0
+rseq(0x722da3d3e120, 0x20, 0, 0x53053053) = 0
+mprotect(0x722da3bff000, 16384, PROT_READ) = 0
+mprotect(0x722da3dd8000, 4096, PROT_READ) = 0
+mprotect(0x722da3e03000, 4096, PROT_READ) = 0
+mprotect(0x62b53b5bd000, 8192, PROT_READ) = 0
+mprotect(0x722da3e44000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x722da3e07000, 17639)           = 0
+statfs("/sys/fs/selinux", {f_type=SYSFS_MAGIC, f_bsize=4096, f_blocks=0, f_bfree=0, f_bavail=0, f_files=0, f_ffree=0, f_fsid={val=[0x993fe328, 0xd55f27bd]}, f_namelen=255, f_frsize=4096, f_flags=ST_VALID|ST_NOSUID|ST_NODEV|ST_NOEXEC|ST_NOATIME}) = 0
+statfs("/selinux", 0x7ffeabe2b910)      = -1 ENOENT (No such file or directory)
+getrandom("\xf7\xa6\xc9\xf8\xe4\x4c\x31\x8e", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x62b557362000
+brk(0x62b557383000)                     = 0x62b557383000
+openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 442
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/mounts", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "none /usr/lib/modules/6.6.87.2-m"..., 1024) = 1024
+read(3, "\ndevpts /dev/pts devpts rw,nosui"..., 1024) = 1024
+read(3, "size=2M 0 0\nmqueue /dev/mqueue m"..., 1024) = 601
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+access("/etc/selinux/config", F_OK)     = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=2996, ...}) = 0
+read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=258, ...}) = 0
+mmap(NULL, 258, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3e0b000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=27028, ...}) = 0
+mmap(NULL, 27028, PROT_READ, MAP_SHARED, 3, 0) = 0x722da3d36000
+close(3)                                = 0
+futex(0x722da3c0472c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=23, ...}) = 0
+mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3e0a000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=47, ...}) = 0
+mmap(NULL, 47, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3e09000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=127, ...}) = 0
+mmap(NULL, 127, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3e08000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NAME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NAME", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=62, ...}) = 0
+mmap(NULL, 62, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3e07000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_PAPER", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_PAPER", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=34, ...}) = 0
+mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3d35000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=48, ...}) = 0
+mmap(NULL, 48, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3d34000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=270, ...}) = 0
+mmap(NULL, 270, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3d33000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=1406, ...}) = 0
+mmap(NULL, 1406, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3d32000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TIME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TIME", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=3360, ...}) = 0
+mmap(NULL, 3360, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3d31000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=50, ...}) = 0
+mmap(NULL, 50, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3d30000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=360460, ...}) = 0
+mmap(NULL, 360460, PROT_READ, MAP_PRIVATE, 3, 0) = 0x722da3cd7000
+close(3)                                = 0
+ioctl(1, TCGETS, {c_iflag=ICRNL|IXON, c_oflag=NL0|CR0|TAB0|BS0|VT0|FF0|OPOST|ONLCR, c_cflag=B38400|CS8|CREAD, c_lflag=ISIG|ICANON|ECHO|ECHOE|ECHOK|IEXTEN|ECHOCTL|ECHOKE, ...}) = 0
+ioctl(1, TIOCGWINSZ, {ws_row=55, ws_col=102, ws_xpixel=0, ws_ypixel=0}) = 0
+openat(AT_FDCWD, ".", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+fstat(3, {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+getdents64(3, 0x62b55736b8a0 /* 21 entries */, 32768) = 752
+getdents64(3, 0x62b55736b8a0 /* 0 entries */, 32768) = 0
+close(3)                                = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+write(1, " Demo_Project\t\t\t\t\t\t\t file.txt   "..., 40 Demo_Project                                file.txt   log.txt
+) = 40
+write(1, "'How to Choose A First Programmi"..., 85'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'       hello      myfile.txt
+) = 85
+write(1, "'Screenshot 2026-03-12 154405.pn"..., 46'Screenshot 2026-03-12 154405.png'                  lnxCmd
+) = 46
+close(1)                                = 0
+close(2)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
+viraj@DESKTOP-K3HJN7T:~$ strace -o output.txt ls
+ Demo_Project                                                    file.txt   log.txt
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   hello      myfile.txt
+'Screenshot 2026-03-12 154405.png'                               lnxCmd     output.txt
+viraj@DESKTOP-K3HJN7T:~$ cat output.txt
+execve("/usr/bin/ls", ["ls"], 0x7ffc753f9700 /* 26 vars */) = 0
+brk(NULL)                               = 0x5ce0c4581000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x71bf92e2f000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=17639, ...}) = 0
+mmap(NULL, 17639, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92e2a000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=174472, ...}) = 0
+mmap(NULL, 181960, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x71bf92dfd000
+mmap(0x71bf92e03000, 118784, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x71bf92e03000
+mmap(0x71bf92e20000, 24576, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x23000) = 0x71bf92e20000
+mmap(0x71bf92e26000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x29000) = 0x71bf92e26000
+mmap(0x71bf92e28000, 5832, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x71bf92e28000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2170256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x71bf92a00000
+mmap(0x71bf92a28000, 1605632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x71bf92a28000
+mmap(0x71bf92bb0000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0x71bf92bb0000
+mmap(0x71bf92bff000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1fe000) = 0x71bf92bff000
+mmap(0x71bf92c05000, 52624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x71bf92c05000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=625344, ...}) = 0
+mmap(NULL, 627472, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x71bf92d63000
+mmap(0x71bf92d65000, 450560, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x71bf92d65000
+mmap(0x71bf92dd3000, 163840, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x70000) = 0x71bf92dd3000
+mmap(0x71bf92dfb000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x97000) = 0x71bf92dfb000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x71bf92d60000
+arch_prctl(ARCH_SET_FS, 0x71bf92d60800) = 0
+set_tid_address(0x71bf92d60ad0)         = 10747
+set_robust_list(0x71bf92d60ae0, 24)     = 0
+rseq(0x71bf92d61120, 0x20, 0, 0x53053053) = 0
+mprotect(0x71bf92bff000, 16384, PROT_READ) = 0
+mprotect(0x71bf92dfb000, 4096, PROT_READ) = 0
+mprotect(0x71bf92e26000, 4096, PROT_READ) = 0
+mprotect(0x5ce0b9e3b000, 8192, PROT_READ) = 0
+mprotect(0x71bf92e67000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x71bf92e2a000, 17639)           = 0
+statfs("/sys/fs/selinux", {f_type=SYSFS_MAGIC, f_bsize=4096, f_blocks=0, f_bfree=0, f_bavail=0, f_files=0, f_ffree=0, f_fsid={val=[0x993fe328, 0xd55f27bd]}, f_namelen=255, f_frsize=4096, f_flags=ST_VALID|ST_NOSUID|ST_NODEV|ST_NOEXEC|ST_NOATIME}) = 0
+statfs("/selinux", 0x7ffcf704e960)      = -1 ENOENT (No such file or directory)
+getrandom("\x09\xaf\x07\x42\x25\x1b\xd3\x20", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x5ce0c4581000
+brk(0x5ce0c45a2000)                     = 0x5ce0c45a2000
+openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 442
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/mounts", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "none /usr/lib/modules/6.6.87.2-m"..., 1024) = 1024
+read(3, "\ndevpts /dev/pts devpts rw,nosui"..., 1024) = 1024
+read(3, "size=2M 0 0\nmqueue /dev/mqueue m"..., 1024) = 601
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+access("/etc/selinux/config", F_OK)     = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=2996, ...}) = 0
+read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=258, ...}) = 0
+mmap(NULL, 258, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92e2e000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=27028, ...}) = 0
+mmap(NULL, 27028, PROT_READ, MAP_SHARED, 3, 0) = 0x71bf92d59000
+close(3)                                = 0
+futex(0x71bf92c0472c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=23, ...}) = 0
+mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92e2d000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=47, ...}) = 0
+mmap(NULL, 47, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92e2c000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=127, ...}) = 0
+mmap(NULL, 127, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92e2b000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NAME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NAME", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=62, ...}) = 0
+mmap(NULL, 62, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92e2a000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_PAPER", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_PAPER", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=34, ...}) = 0
+mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92d58000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=48, ...}) = 0
+mmap(NULL, 48, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92d57000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=270, ...}) = 0
+mmap(NULL, 270, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92d56000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=1406, ...}) = 0
+mmap(NULL, 1406, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92d55000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TIME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TIME", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=3360, ...}) = 0
+mmap(NULL, 3360, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92d54000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=50, ...}) = 0
+mmap(NULL, 50, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92d53000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=360460, ...}) = 0
+mmap(NULL, 360460, PROT_READ, MAP_PRIVATE, 3, 0) = 0x71bf92cfa000
+close(3)                                = 0
+ioctl(1, TCGETS, {c_iflag=ICRNL|IXON, c_oflag=NL0|CR0|TAB0|BS0|VT0|FF0|OPOST|ONLCR, c_cflag=B38400|CS8|CREAD, c_lflag=ISIG|ICANON|ECHO|ECHOE|ECHOK|IEXTEN|ECHOCTL|ECHOKE, ...}) = 0
+ioctl(1, TIOCGWINSZ, {ws_row=55, ws_col=102, ws_xpixel=0, ws_ypixel=0}) = 0
+openat(AT_FDCWD, ".", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+fstat(3, {st_mode=S_IFDIR|0750, st_size=4096, ...}) = 0
+getdents64(3, 0x5ce0c458a8a0 /* 22 entries */, 32768) = 784
+getdents64(3, 0x5ce0c458a8a0 /* 0 entries */, 32768) = 0
+close(3)                                = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+write(1, " Demo_Project\t\t\t\t\t\t\t file.txt   "..., 40) = 40
+write(1, "'How to Choose A First Programmi"..., 85) = 85
+write(1, "'Screenshot 2026-03-12 154405.pn"..., 61) = 61
+close(1)                                = 0
+close(2)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
+viraj@DESKTOP-K3HJN7T:~$ pidof bash
+345 273
+viraj@DESKTOP-K3HJN7T:~$ chrt -p 345
+pid 345's current scheduling policy: SCHED_OTHER
+pid 345's current scheduling priority: 0
+viraj@DESKTOP-K3HJN7T:~$ sudo accton log.txt
+[sudo] password for viraj:
+Turning on process accounting, file set to 'log.txt'.
+viraj@DESKTOP-K3HJN7T:~$ touch example.txt
+viraj@DESKTOP-K3HJN7T:~$ sudo accton off
+Turning off process accounting.
+viraj@DESKTOP-K3HJN7T:~$ lastcomm
+accton                 root     pts/2      0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+touch                  viraj    pts/0      0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:42
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:42
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:42
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+ls                     viraj    pts/0      0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+sudo             S     viraj    pts/0      0.06 secs Thu Apr  2 12:42
+sudo              F    viraj    pts/2      0.00 secs Thu Apr  2 12:42
+accton           S     root     pts/2      0.00 secs Thu Apr  2 12:42
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+accton                 viraj    pts/0      0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+ls                     viraj    pts/0      0.00 secs Thu Apr  2 12:41
+rm                     viraj    pts/0      0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+rm                     viraj    pts/0      0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:40
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:40
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:40
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:40
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:40
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:40
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:40
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:40
+(udev-worker)    SF    root     __         0.00 secs Thu Apr  2 12:40
+sudo             S     viraj    pts/0      0.02 secs Thu Apr  2 12:40
+sudo              F    viraj    pts/2      0.00 secs Thu Apr  2 12:40
+apt              S     root     pts/2      1.96 secs Thu Apr  2 12:40
+sh                     root     pts/2      0.00 secs Thu Apr  2 12:40
+snap             S   X root     pts/2      0.05 secs Thu Apr  2 12:40
+apt               F    root     pts/2      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/2      0.00 secs Thu Apr  2 12:40
+echo                   root     pts/2      0.00 secs Thu Apr  2 12:40
+gmain                X root     pts/2      0.00 secs Thu Apr  2 12:40
+dpkg                   root     __         0.00 secs Thu Apr  2 12:40
+test                   root     pts/2      0.00 secs Thu Apr  2 12:40
+test                   root     pts/2      0.00 secs Thu Apr  2 12:40
+dpkg                   root     pts/2      0.00 secs Thu Apr  2 12:40
+dpkg                   root     pts/2      0.00 secs Thu Apr  2 12:40
+dpkg                   root     pts/2      0.00 secs Thu Apr  2 12:40
+dpkg                   root     pts/3      0.04 secs Thu Apr  2 12:40
+man-db.postinst        root     pts/3      0.00 secs Thu Apr  2 12:40
+mandb            S     man      pts/3      0.56 secs Thu Apr  2 12:40
+install-info.po        root     pts/3      0.00 secs Thu Apr  2 12:40
+update-info-dir        root     pts/3      0.00 secs Thu Apr  2 12:40
+update-info-dir   F    root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.01 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.01 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.01 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+install-info           root     pts/3      0.00 secs Thu Apr  2 12:40
+sh                     root     pts/3      0.00 secs Thu Apr  2 12:40
+gzip                   root     pts/3      0.00 secs Thu Apr  2 12:40
+find                   root     pts/3      0.00 secs Thu Apr  2 12:40
+rm                     root     pts/3      0.00 secs Thu Apr  2 12:40
+cp                     root     pts/3      0.00 secs Thu Apr  2 12:40
+rm                     root     pts/3      0.00 secs Thu Apr  2 12:40
+acct.postinst          root     pts/3      0.00 secs Thu Apr  2 12:40
+deb-systemd-inv        root     pts/3      0.03 secs Thu Apr  2 12:40
+systemctl        S     root     pts/3      0.00 secs Thu Apr  2 12:40
+systemd-tty-ask  S     root     pts/3      0.00 secs Thu Apr  2 12:40
+(sd-close)        F    root     __         0.00 secs Thu Apr  2 12:40
+accton           S     root     __         0.00 secs Thu Apr  2 12:40
+viraj@DESKTOP-K3HJN7T:~$ sa
+     139       3.05re       0.05cp         0avio      6370k
+      18       0.20re       0.04cp         0avio     30351k   ***other*
+       2       0.14re       0.00cp         0avio      3278k   sudo
+       5       0.04re       0.00cp         0avio      1713k   dpkg
+      16       0.00re       0.00cp         0avio       889k   gzip
+      16       0.00re       0.00cp         0avio       776k   install-info
+      40       2.54re       0.00cp         0avio      6316k   (udev-worker)*
+      18       0.00re       0.00cp         0avio       700k   sh
+      10       0.00re       0.00cp         0avio      1647k   bash*
+       4       0.00re       0.00cp         0avio       502k   accton
+       4       0.00re       0.00cp         0avio       734k   rm
+       2       0.13re       0.00cp         0avio      3538k   sudo*
+       2       0.00re       0.00cp         0avio      1008k   ls
+       2       0.00re       0.00cp         0avio       785k   test
+viraj@DESKTOP-K3HJN7T:~$ lastcomm viraj
+touch                  viraj    pts/0      0.00 secs Thu Apr  2 12:42
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:42
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:42
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:42
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:42
+ls                     viraj    pts/0      0.00 secs Thu Apr  2 12:42
+sudo             S     viraj    pts/0      0.06 secs Thu Apr  2 12:42
+sudo              F    viraj    pts/2      0.00 secs Thu Apr  2 12:42
+accton                 viraj    pts/0      0.00 secs Thu Apr  2 12:41
+ls                     viraj    pts/0      0.00 secs Thu Apr  2 12:41
+rm                     viraj    pts/0      0.00 secs Thu Apr  2 12:41
+rm                     viraj    pts/0      0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:41
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:40
+bash              F    viraj    pts/0      0.00 secs Thu Apr  2 12:40
+sudo             S     viraj    pts/0      0.02 secs Thu Apr  2 12:40
+sudo              F    viraj    pts/2      0.00 secs Thu Apr  2 12:40
+viraj@DESKTOP-K3HJN7T:~$

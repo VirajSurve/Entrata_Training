@@ -1,0 +1,431 @@
+viraj@DESKTOP-K3HJN7T:~$ ls
+file.txt
+viraj@DESKTOP-K3HJN7T:~$ ls -l
+total 4
+-rw-r--r-- 1 viraj viraj 24 Apr  2 07:09 file.txt
+viraj@DESKTOP-K3HJN7T:~$ ls -a
+.  ..  .bash_history  .bash_logout  .bashrc  .cache  .lesshst  .motd_shown  .profile  file.txt
+viraj@DESKTOP-K3HJN7T:~$ ls -la
+total 36
+drwxr-x--- 3 viraj viraj 4096 Apr  2 07:14 .
+drwxr-xr-x 3 root  root  4096 Apr  2 06:39 ..
+-rw------- 1 viraj viraj    7 Apr  2 06:40 .bash_history
+-rw-r--r-- 1 viraj viraj  220 Apr  2 06:39 .bash_logout
+-rw-r--r-- 1 viraj viraj 3771 Apr  2 06:39 .bashrc
+drwx------ 2 viraj viraj 4096 Apr  2 06:39 .cache
+-rw------- 1 viraj viraj   20 Apr  2 07:14 .lesshst
+-rw-rw-r-- 1 viraj viraj    0 Apr  2 06:39 .motd_shown
+-rw-r--r-- 1 viraj viraj  807 Apr  2 06:39 .profile
+-rw-r--r-- 1 viraj viraj   24 Apr  2 07:09 file.txt
+viraj@DESKTOP-K3HJN7T:~$ ls -lh
+total 4.0K
+-rw-r--r-- 1 viraj viraj 24 Apr  2 07:09 file.txt
+viraj@DESKTOP-K3HJN7T:~$ ls -lh
+total 3.4M
+-rw-r--r-- 1 viraj viraj 2.8M Mar 30 10:20 'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'
+-rw-r--r-- 1 viraj viraj 570K Mar 12 10:14 'Screenshot 2026-03-12 154405.png'
+-rw-r--r-- 1 viraj viraj   24 Apr  2 07:09  file.txt
+viraj@DESKTOP-K3HJN7T:~$ ls -lt
+total 3416
+-rw-r--r-- 1 viraj viraj      24 Apr  2 07:09  file.txt
+-rw-r--r-- 1 viraj viraj 2904257 Mar 30 10:20 'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'
+-rw-r--r-- 1 viraj viraj  583299 Mar 12 10:14 'Screenshot 2026-03-12 154405.png'
+viraj@DESKTOP-K3HJN7T:~$ ls -lr
+total 3416
+-rw-r--r-- 1 viraj viraj      24 Apr  2 07:09  file.txt
+-rw-r--r-- 1 viraj viraj  583299 Mar 12 10:14 'Screenshot 2026-03-12 154405.png'
+-rw-r--r-- 1 viraj viraj 2904257 Mar 30 10:20 'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'
+viraj@DESKTOP-K3HJN7T:~$ mkdir lnxCmd
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ~
+viraj@DESKTOP-K3HJN7T:~$ cd /
+viraj@DESKTOP-K3HJN7T:/$ ls
+bin                dev   init               lib64       mnt   root  sbin.usr-is-merged  sys  var
+bin.usr-is-merged  etc   lib                lost+found  opt   run   snap                tmp
+boot               home  lib.usr-is-merged  media       proc  sbin  srv                 usr
+viraj@DESKTOP-K3HJN7T:/$ cd home/viraj/
+viraj@DESKTOP-K3HJN7T:~$ dir
+How\ to\ Choose\ A\ First\ Programming\ Language\ [U2lQWR6uIuo].mp4  file.txt
+Screenshot\ 2026-03-12\ 154405.png                                   lnxCmd
+viraj@DESKTOP-K3HJN7T:~$ dir -l
+total 3420
+-rw-r--r-- 1 viraj viraj 2904257 Mar 30 10:20 How\ to\ Choose\ A\ First\ Programming\ Language\ [U2lQWR6uIuo].mp4
+-rw-r--r-- 1 viraj viraj  583299 Mar 12 10:14 Screenshot\ 2026-03-12\ 154405.png
+-rw-r--r-- 1 viraj viraj      24 Apr  2 07:09 file.txt
+drwxr-xr-x 2 viraj viraj    4096 Apr  2 07:50 lnxCmd
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ pwd
+/home/viraj/lnxCmd
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ pwd -L
+/home/viraj/lnxCmd
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ pwd -p
+-bash: pwd: -p: invalid option
+pwd: usage: pwd [-LP]
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ pwd -P
+/home/viraj/lnxCmd
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ dirname /home/viraj/file.txt
+/home/viraj
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ dirname /a/b/file.txt /x/y/z.txt
+/a/b
+/x/y
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ dirs
+~/lnxCmd
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ..
+viraj@DESKTOP-K3HJN7T:~$ dirs -p
+~
+viraj@DESKTOP-K3HJN7T:~$ dirs -v
+ 0  ~
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ dirs -p
+~/lnxCmd
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd lnxCmd/
+-bash: cd: lnxCmd/: No such file or directory
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ dirs -v
+ 0  ~/lnxCmd
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ..
+viraj@DESKTOP-K3HJN7T:~$ tree
+.
+├── Demo_Project
+│   ├── Core
+│   │   ├── App.php
+│   │   ├── Authenticator.php
+│   │   ├── Container.php
+│   │   ├── Database.php
+│   │   ├── Response.php
+│   │   ├── Router.php
+│   │   ├── Session.php
+│   │   ├── ValidationException.php
+│   │   ├── Validator.php
+│   │   ├── functions.php
+│   │   └── middleware
+│   │       ├── Auth.php
+│   │       ├── Guest.php
+│   │       └── Middleware.php
+│   ├── Http
+│   │   ├── controllers
+│   │   │   ├── 404.php
+│   │   │   ├── about.php
+│   │   │   ├── contact.php
+│   │   │   ├── index.php
+│   │   │   ├── notes
+│   │   │   │   ├── create.php
+│   │   │   │   ├── destroy.php
+│   │   │   │   ├── edit.php
+│   │   │   │   ├── index.php
+│   │   │   │   ├── show.php
+│   │   │   │   ├── store.php
+│   │   │   │   └── update.php
+│   │   │   ├── registration
+│   │   │   │   ├── create.php
+│   │   │   │   └── store.php
+│   │   │   └── session
+│   │   │       ├── create.php
+│   │   │       ├── destroy.php
+│   │   │       └── store.php
+│   │   └── forms
+│   │       └── LoginForm.php
+│   ├── Public
+│   │   ├── index.php
+│   │   └── playground.php
+│   ├── bootstrap.php
+│   ├── composer.json
+│   ├── composer.lock
+│   ├── composer.phar
+│   ├── config.php
+│   ├── phpunit.xml
+│   ├── routes.php
+│   └── views
+│       ├── 403.view.php
+│       ├── 404.view.php
+│       ├── about.view.php
+│       ├── contact.view.php
+│       ├── index.view.php
+│       ├── notes
+│       │   ├── create.view.php
+│       │   ├── edit.view.php
+│       │   ├── index.view.php
+│       │   └── show.view.php
+│       ├── partials
+│       │   ├── banner.php
+│       │   ├── foot.php
+│       │   ├── head.php
+│       │   └── nav.php
+│       ├── registration
+│       │   └── create.view.php
+│       └── session
+│           └── create.view.php
+├── How to Choose A First Programming Language [U2lQWR6uIuo].mp4
+├── Screenshot 2026-03-12 154405.png
+├── file.txt
+└── lnxCmd
+
+17 directories, 57 files
+viraj@DESKTOP-K3HJN7T:~$ tree -d
+.
+├── Demo_Project
+│   ├── Core
+│   │   └── middleware
+│   ├── Http
+│   │   ├── controllers
+│   │   │   ├── notes
+│   │   │   ├── registration
+│   │   │   └── session
+│   │   └── forms
+│   ├── Public
+│   └── views
+│       ├── notes
+│       ├── partials
+│       ├── registration
+│       └── session
+└── lnxCmd
+
+17 directories
+viraj@DESKTOP-K3HJN7T:~$ tree -L
+tree: Missing argument to -L option.
+viraj@DESKTOP-K3HJN7T:~$ tree -L 5
+.
+├── Demo_Project
+│   ├── Core
+│   │   ├── App.php
+│   │   ├── Authenticator.php
+│   │   ├── Container.php
+│   │   ├── Database.php
+│   │   ├── Response.php
+│   │   ├── Router.php
+│   │   ├── Session.php
+│   │   ├── ValidationException.php
+│   │   ├── Validator.php
+│   │   ├── functions.php
+│   │   └── middleware
+│   │       ├── Auth.php
+│   │       ├── Guest.php
+│   │       └── Middleware.php
+│   ├── Http
+│   │   ├── controllers
+│   │   │   ├── 404.php
+│   │   │   ├── about.php
+│   │   │   ├── contact.php
+│   │   │   ├── index.php
+│   │   │   ├── notes
+│   │   │   │   ├── create.php
+│   │   │   │   ├── destroy.php
+│   │   │   │   ├── edit.php
+│   │   │   │   ├── index.php
+│   │   │   │   ├── show.php
+│   │   │   │   ├── store.php
+│   │   │   │   └── update.php
+│   │   │   ├── registration
+│   │   │   │   ├── create.php
+│   │   │   │   └── store.php
+│   │   │   └── session
+│   │   │       ├── create.php
+│   │   │       ├── destroy.php
+│   │   │       └── store.php
+│   │   └── forms
+│   │       └── LoginForm.php
+│   ├── Public
+│   │   ├── index.php
+│   │   └── playground.php
+│   ├── bootstrap.php
+│   ├── composer.json
+│   ├── composer.lock
+│   ├── composer.phar
+│   ├── config.php
+│   ├── phpunit.xml
+│   ├── routes.php
+│   └── views
+│       ├── 403.view.php
+│       ├── 404.view.php
+│       ├── about.view.php
+│       ├── contact.view.php
+│       ├── index.view.php
+│       ├── notes
+│       │   ├── create.view.php
+│       │   ├── edit.view.php
+│       │   ├── index.view.php
+│       │   └── show.view.php
+│       ├── partials
+│       │   ├── banner.php
+│       │   ├── foot.php
+│       │   ├── head.php
+│       │   └── nav.php
+│       ├── registration
+│       │   └── create.view.php
+│       └── session
+│           └── create.view.php
+├── How to Choose A First Programming Language [U2lQWR6uIuo].mp4
+├── Screenshot 2026-03-12 154405.png
+├── file.txt
+└── lnxCmd
+
+17 directories, 57 files
+viraj@DESKTOP-K3HJN7T:~$ tree -L 2
+.
+├── Demo_Project
+│   ├── Core
+│   ├── Http
+│   ├── Public
+│   ├── bootstrap.php
+│   ├── composer.json
+│   ├── composer.lock
+│   ├── composer.phar
+│   ├── config.php
+│   ├── phpunit.xml
+│   ├── routes.php
+│   └── views
+├── How to Choose A First Programming Language [U2lQWR6uIuo].mp4
+├── Screenshot 2026-03-12 154405.png
+├── file.txt
+└── lnxCmd
+
+7 directories, 10 files
+viraj@DESKTOP-K3HJN7T:~$ find /Demo_Project -name 404.view.php
+find: ‘/Demo_Project’: No such file or directory
+viraj@DESKTOP-K3HJN7T:~$ find Demo_Project/ -name 404.view.php
+Demo_Project/views/404.view.php
+viraj@DESKTOP-K3HJN7T:~$ find . -name notes
+./Demo_Project/views/notes
+./Demo_Project/Http/controllers/notes
+viraj@DESKTOP-K3HJN7T:~$ find . -iname Notes
+./Demo_Project/views/notes
+./Demo_Project/Http/controllers/notes
+viraj@DESKTOP-K3HJN7T:~$ find . -type f
+./.bash_history
+./Screenshot 2026-03-12 154405.png
+./How to Choose A First Programming Language [U2lQWR6uIuo].mp4
+./.bashrc
+./.lesshst
+./.sudo_as_admin_successful
+./file.txt
+./Demo_Project/views/contact.view.php
+./Demo_Project/views/403.view.php
+./Demo_Project/views/404.view.php
+./Demo_Project/views/session/create.view.php
+./Demo_Project/views/registration/create.view.php
+./Demo_Project/views/partials/banner.php
+./Demo_Project/views/partials/foot.php
+./Demo_Project/views/partials/head.php
+./Demo_Project/views/partials/nav.php
+./Demo_Project/views/notes/show.view.php
+./Demo_Project/views/notes/index.view.php
+./Demo_Project/views/notes/create.view.php
+./Demo_Project/views/notes/edit.view.php
+./Demo_Project/views/index.view.php
+./Demo_Project/views/about.view.php
+./Demo_Project/routes.php
+./Demo_Project/Core/Response.php
+./Demo_Project/Core/Database.php
+./Demo_Project/Core/Container.php
+./Demo_Project/Core/Validator.php
+./Demo_Project/Core/Authenticator.php
+./Demo_Project/Core/ValidationException.php
+./Demo_Project/Core/middleware/Auth.php
+./Demo_Project/Core/middleware/Middleware.php
+./Demo_Project/Core/middleware/Guest.php
+./Demo_Project/Core/functions.php
+./Demo_Project/Core/Session.php
+./Demo_Project/Core/App.php
+./Demo_Project/Core/Router.php
+./Demo_Project/phpunit.xml
+./Demo_Project/bootstrap.php
+./Demo_Project/composer.json
+./Demo_Project/Http/controllers/index.php
+./Demo_Project/Http/controllers/404.php
+./Demo_Project/Http/controllers/session/store.php
+./Demo_Project/Http/controllers/session/destroy.php
+./Demo_Project/Http/controllers/session/create.php
+./Demo_Project/Http/controllers/registration/store.php
+./Demo_Project/Http/controllers/registration/create.php
+./Demo_Project/Http/controllers/notes/update.php
+./Demo_Project/Http/controllers/notes/index.php
+./Demo_Project/Http/controllers/notes/show.php
+./Demo_Project/Http/controllers/notes/edit.php
+./Demo_Project/Http/controllers/notes/store.php
+./Demo_Project/Http/controllers/notes/destroy.php
+./Demo_Project/Http/controllers/notes/create.php
+./Demo_Project/Http/controllers/about.php
+./Demo_Project/Http/controllers/contact.php
+./Demo_Project/Http/forms/LoginForm.php
+./Demo_Project/composer.phar
+./Demo_Project/config.php
+./Demo_Project/composer.lock
+./Demo_Project/Public/index.php
+./Demo_Project/Public/playground.php
+./.motd_shown
+./.bash_logout
+./.profile
+./.cache/motd.legal-displayed
+viraj@DESKTOP-K3HJN7T:~$ find . -type d
+.
+./lnxCmd
+./Demo_Project
+./Demo_Project/views
+./Demo_Project/views/session
+./Demo_Project/views/registration
+./Demo_Project/views/partials
+./Demo_Project/views/notes
+./Demo_Project/Core
+./Demo_Project/Core/middleware
+./Demo_Project/Http
+./Demo_Project/Http/controllers
+./Demo_Project/Http/controllers/session
+./Demo_Project/Http/controllers/registration
+./Demo_Project/Http/controllers/notes
+./Demo_Project/Http/forms
+./Demo_Project/Public
+./.cache
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ touch file1.txt
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ..
+viraj@DESKTOP-K3HJN7T:~$ find . -empty
+./lnxCmd/file1.txt
+./.sudo_as_admin_successful
+./.motd_shown
+./.cache/motd.legal-displayed
+viraj@DESKTOP-K3HJN7T:~$ du
+4       ./lnxCmd
+8       ./Demo_Project/views/session
+8       ./Demo_Project/views/registration
+28      ./Demo_Project/views/partials
+20      ./Demo_Project/views/notes
+88      ./Demo_Project/views
+16      ./Demo_Project/Core/middleware
+60      ./Demo_Project/Core
+16      ./Demo_Project/Http/controllers/session
+12      ./Demo_Project/Http/controllers/registration
+32      ./Demo_Project/Http/controllers/notes
+80      ./Demo_Project/Http/controllers
+8       ./Demo_Project/Http/forms
+92      ./Demo_Project/Http
+12      ./Demo_Project/Public
+3640    ./Demo_Project
+4       ./.cache
+7088    .
+viraj@DESKTOP-K3HJN7T:~$ du -h
+4.0K    ./lnxCmd
+8.0K    ./Demo_Project/views/session
+8.0K    ./Demo_Project/views/registration
+28K     ./Demo_Project/views/partials
+20K     ./Demo_Project/views/notes
+88K     ./Demo_Project/views
+16K     ./Demo_Project/Core/middleware
+60K     ./Demo_Project/Core
+16K     ./Demo_Project/Http/controllers/session
+12K     ./Demo_Project/Http/controllers/registration
+32K     ./Demo_Project/Http/controllers/notes
+80K     ./Demo_Project/Http/controllers
+8.0K    ./Demo_Project/Http/forms
+92K     ./Demo_Project/Http
+12K     ./Demo_Project/Public
+3.6M    ./Demo_Project
+4.0K    ./.cache
+7.0M    .
+viraj@DESKTOP-K3HJN7T:~$ lsblk
+NAME
+    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda   8:0    0 388.6M  1 disk
+sdb   8:16   0   186M  1 disk
+sdc   8:32   0     2G  0 disk [SWAP]
+sdd   8:48   0     1T  0 disk /mnt/wslg/distro

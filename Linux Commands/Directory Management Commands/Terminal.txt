@@ -1,0 +1,390 @@
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ~
+viraj@DESKTOP-K3HJN7T:~$ dir
+Demo_Project                                                         file.txt
+How\ to\ Choose\ A\ First\ Programming\ Language\ [U2lQWR6uIuo].mp4  lnxCmd
+Screenshot\ 2026-03-12\ 154405.png                                   myfile.txt
+viraj@DESKTOP-K3HJN7T:~$ dir -l
+total 3428
+drwxr-xr-x 6 viraj viraj    4096 Apr  2 08:03 Demo_Project
+-rw-r--r-- 1 viraj viraj 2904257 Mar 30 10:20 How\ to\ Choose\ A\ First\ Programming\ Language\ [U2lQWR6uIuo].mp4
+-rw-r--r-- 1 viraj viraj  583299 Mar 12 10:14 Screenshot\ 2026-03-12\ 154405.png
+-rw-r--r-- 1 viraj viraj      84 Apr  2 10:39 file.txt
+drwxr-xr-x 2 viraj viraj    4096 Apr  2 11:48 lnxCmd
+-rw-r--r-- 1 viraj viraj     103 Apr  2 11:39 myfile.txt
+viraj@DESKTOP-K3HJN7T:~$ dir -a
+.              .profile
+..             .sudo_as_admin_successful
+.bash_history  .viminfo
+.bash_logout   Demo_Project
+.bashrc        How\ to\ Choose\ A\ First\ Programming\ Language\ [U2lQWR6uIuo].mp4
+.cache         Screenshot\ 2026-03-12\ 154405.png
+.lesshst       file.txt
+.local         lnxCmd
+.motd_shown    myfile.txt
+viraj@DESKTOP-K3HJN7T:~$ dirname lnxCmd/myfile.txt
+lnxCmd
+viraj@DESKTOP-K3HJN7T:~$ dirs
+~
+viraj@DESKTOP-K3HJN7T:~$ cd lnxCmd/
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ dirs
+~/lnxCmd
+viraj@DESKTOP-K3HJN7T:~/lnxCmd$ cd ../Demo_Project/Core/
+viraj@DESKTOP-K3HJN7T:~/Demo_Project/Core$ dirs
+~/Demo_Project/Core
+viraj@DESKTOP-K3HJN7T:~/Demo_Project/Core$ dirs -v
+ 0  ~/Demo_Project/Core
+viraj@DESKTOP-K3HJN7T:~/Demo_Project/Core$ cd ../..
+viraj@DESKTOP-K3HJN7T:~$ du Demo_Project/
+8       Demo_Project/views/session
+8       Demo_Project/views/registration
+28      Demo_Project/views/partials
+20      Demo_Project/views/notes
+88      Demo_Project/views
+16      Demo_Project/Core/middleware
+60      Demo_Project/Core
+16      Demo_Project/Http/controllers/session
+12      Demo_Project/Http/controllers/registration
+32      Demo_Project/Http/controllers/notes
+80      Demo_Project/Http/controllers
+8       Demo_Project/Http/forms
+92      Demo_Project/Http
+12      Demo_Project/Public
+3640    Demo_Project/
+viraj@DESKTOP-K3HJN7T:~$ du -h Demo_Project/
+8.0K    Demo_Project/views/session
+8.0K    Demo_Project/views/registration
+28K     Demo_Project/views/partials
+20K     Demo_Project/views/notes
+88K     Demo_Project/views
+16K     Demo_Project/Core/middleware
+60K     Demo_Project/Core
+16K     Demo_Project/Http/controllers/session
+12K     Demo_Project/Http/controllers/registration
+32K     Demo_Project/Http/controllers/notes
+80K     Demo_Project/Http/controllers
+8.0K    Demo_Project/Http/forms
+92K     Demo_Project/Http
+12K     Demo_Project/Public
+3.6M    Demo_Project/
+viraj@DESKTOP-K3HJN7T:~$ du -sh Demo_Project/
+3.6M    Demo_Project/
+viraj@DESKTOP-K3HJN7T:~$ du -a Demo_Project/
+4       Demo_Project/views/contact.view.php
+4       Demo_Project/views/403.view.php
+4       Demo_Project/views/404.view.php
+4       Demo_Project/views/session/create.view.php
+8       Demo_Project/views/session
+4       Demo_Project/views/registration/create.view.php
+8       Demo_Project/views/registration
+4       Demo_Project/views/partials/banner.php
+4       Demo_Project/views/partials/foot.php
+4       Demo_Project/views/partials/head.php
+12      Demo_Project/views/partials/nav.php
+28      Demo_Project/views/partials
+4       Demo_Project/views/notes/show.view.php
+4       Demo_Project/views/notes/index.view.php
+4       Demo_Project/views/notes/create.view.php
+4       Demo_Project/views/notes/edit.view.php
+20      Demo_Project/views/notes
+4       Demo_Project/views/index.view.php
+4       Demo_Project/views/about.view.php
+88      Demo_Project/views
+4       Demo_Project/routes.php
+4       Demo_Project/Core/Response.php
+4       Demo_Project/Core/Database.php
+4       Demo_Project/Core/Container.php
+4       Demo_Project/Core/Validator.php
+4       Demo_Project/Core/Authenticator.php
+4       Demo_Project/Core/ValidationException.php
+4       Demo_Project/Core/middleware/Auth.php
+4       Demo_Project/Core/middleware/Middleware.php
+4       Demo_Project/Core/middleware/Guest.php
+16      Demo_Project/Core/middleware
+4       Demo_Project/Core/functions.php
+4       Demo_Project/Core/Session.php
+4       Demo_Project/Core/App.php
+4       Demo_Project/Core/Router.php
+60      Demo_Project/Core
+4       Demo_Project/phpunit.xml
+4       Demo_Project/bootstrap.php
+4       Demo_Project/composer.json
+4       Demo_Project/Http/controllers/index.php
+4       Demo_Project/Http/controllers/404.php
+4       Demo_Project/Http/controllers/session/store.php
+4       Demo_Project/Http/controllers/session/destroy.php
+4       Demo_Project/Http/controllers/session/create.php
+16      Demo_Project/Http/controllers/session
+4       Demo_Project/Http/controllers/registration/store.php
+4       Demo_Project/Http/controllers/registration/create.php
+12      Demo_Project/Http/controllers/registration
+4       Demo_Project/Http/controllers/notes/update.php
+4       Demo_Project/Http/controllers/notes/index.php
+4       Demo_Project/Http/controllers/notes/show.php
+4       Demo_Project/Http/controllers/notes/edit.php
+4       Demo_Project/Http/controllers/notes/store.php
+4       Demo_Project/Http/controllers/notes/destroy.php
+4       Demo_Project/Http/controllers/notes/create.php
+32      Demo_Project/Http/controllers/notes
+4       Demo_Project/Http/controllers/about.php
+4       Demo_Project/Http/controllers/contact.php
+80      Demo_Project/Http/controllers
+4       Demo_Project/Http/forms/LoginForm.php
+8       Demo_Project/Http/forms
+92      Demo_Project/Http
+3212    Demo_Project/composer.phar
+4       Demo_Project/config.php
+152     Demo_Project/composer.lock
+4       Demo_Project/Public/index.php
+4       Demo_Project/Public/playground.php
+12      Demo_Project/Public
+3640    Demo_Project/
+viraj@DESKTOP-K3HJN7T:~$ find Demo_Project/ -name 404.view.php
+Demo_Project/views/404.view.php
+viraj@DESKTOP-K3HJN7T:~$ find Demo_Project/ -iname 404.VIEW.php
+Demo_Project/views/404.view.php
+viraj@DESKTOP-K3HJN7T:~$ find Demo_Project/ -type d
+Demo_Project/
+Demo_Project/views
+Demo_Project/views/session
+Demo_Project/views/registration
+Demo_Project/views/partials
+Demo_Project/views/notes
+Demo_Project/Core
+Demo_Project/Core/middleware
+Demo_Project/Http
+Demo_Project/Http/controllers
+Demo_Project/Http/controllers/session
+Demo_Project/Http/controllers/registration
+Demo_Project/Http/controllers/notes
+Demo_Project/Http/forms
+Demo_Project/Public
+viraj@DESKTOP-K3HJN7T:~$ find Demo_Project/ -type f
+Demo_Project/views/contact.view.php
+Demo_Project/views/403.view.php
+Demo_Project/views/404.view.php
+Demo_Project/views/session/create.view.php
+Demo_Project/views/registration/create.view.php
+Demo_Project/views/partials/banner.php
+Demo_Project/views/partials/foot.php
+Demo_Project/views/partials/head.php
+Demo_Project/views/partials/nav.php
+Demo_Project/views/notes/show.view.php
+Demo_Project/views/notes/index.view.php
+Demo_Project/views/notes/create.view.php
+Demo_Project/views/notes/edit.view.php
+Demo_Project/views/index.view.php
+Demo_Project/views/about.view.php
+Demo_Project/routes.php
+Demo_Project/Core/Response.php
+Demo_Project/Core/Database.php
+Demo_Project/Core/Container.php
+Demo_Project/Core/Validator.php
+Demo_Project/Core/Authenticator.php
+Demo_Project/Core/ValidationException.php
+Demo_Project/Core/middleware/Auth.php
+Demo_Project/Core/middleware/Middleware.php
+Demo_Project/Core/middleware/Guest.php
+Demo_Project/Core/functions.php
+Demo_Project/Core/Session.php
+Demo_Project/Core/App.php
+Demo_Project/Core/Router.php
+Demo_Project/phpunit.xml
+Demo_Project/bootstrap.php
+Demo_Project/composer.json
+Demo_Project/Http/controllers/index.php
+Demo_Project/Http/controllers/404.php
+Demo_Project/Http/controllers/session/store.php
+Demo_Project/Http/controllers/session/destroy.php
+Demo_Project/Http/controllers/session/create.php
+Demo_Project/Http/controllers/registration/store.php
+Demo_Project/Http/controllers/registration/create.php
+Demo_Project/Http/controllers/notes/update.php
+Demo_Project/Http/controllers/notes/index.php
+Demo_Project/Http/controllers/notes/show.php
+Demo_Project/Http/controllers/notes/edit.php
+Demo_Project/Http/controllers/notes/store.php
+Demo_Project/Http/controllers/notes/destroy.php
+Demo_Project/Http/controllers/notes/create.php
+Demo_Project/Http/controllers/about.php
+Demo_Project/Http/controllers/contact.php
+Demo_Project/Http/forms/LoginForm.php
+Demo_Project/composer.phar
+Demo_Project/config.php
+Demo_Project/composer.lock
+Demo_Project/Public/index.php
+Demo_Project/Public/playground.php
+viraj@DESKTOP-K3HJN7T:~$ find Demo_Project/ -empty
+viraj@DESKTOP-K3HJN7T:~$ find . -empty
+./lnxCmd/file1.txt
+./.local/share/nano
+./.sudo_as_admin_successful
+./.motd_shown
+./.cache/motd.legal-displayed
+viraj@DESKTOP-K3HJN7T:~$ find . -size +1M
+./lnxCmd/composer.phar
+./How to Choose A First Programming Language [U2lQWR6uIuo].mp4
+./Demo_Project/composer.phar
+viraj@DESKTOP-K3HJN7T:~$ lsbk
+Command 'lsbk' not found, did you mean:
+  command 'lsblk' from deb util-linux (2.39.3-9ubuntu6.5)
+Try: sudo apt install <deb name>
+viraj@DESKTOP-K3HJN7T:~$ lsblk
+NAME
+    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda   8:0    0 388.6M  1 disk
+sdb   8:16   0   186M  1 disk
+sdc   8:32   0     2G  0 disk [SWAP]
+sdd   8:48   0     1T  0 disk /mnt/wslg/distro
+                              /
+viraj@DESKTOP-K3HJN7T:~$ lsblk -f
+NAME
+    FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+sda ext4   1.0
+sdb ext4   1.0
+sdc swap   1           900ac048-456b-4e61-9bfd-0a01b6c909c9                [SWAP]
+sdd ext4   1.0         67177515-00e1-4c9c-8630-c805f0c27eeb  954.1G     0% /mnt/wslg/distro
+                                                                           /
+viraj@DESKTOP-K3HJN7T:~$ lsblk -m
+NAME
+      SIZE OWNER GROUP MODE
+sda 388.6M root  disk  brw-rw----
+sdb   186M root  disk  brw-rw----
+sdc     2G root  disk  brw-rw----
+sdd     1T root  disk  brw-rw----
+viraj@DESKTOP-K3HJN7T:~$ mkdir -m 755 temp/demo
+mkdir: cannot create directory ‘temp/demo’: No such file or directory
+viraj@DESKTOP-K3HJN7T:~$ mkdir -m 755 temp
+viraj@DESKTOP-K3HJN7T:~$ ls -l
+total 3432
+drwxr-xr-x 6 viraj viraj    4096 Apr  2 08:03  Demo_Project
+-rw-r--r-- 1 viraj viraj 2904257 Mar 30 10:20 'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'
+-rw-r--r-- 1 viraj viraj  583299 Mar 12 10:14 'Screenshot 2026-03-12 154405.png'
+-rw-r--r-- 1 viraj viraj      84 Apr  2 10:39  file.txt
+drwxr-xr-x 2 viraj viraj    4096 Apr  2 11:48  lnxCmd
+-rw-r--r-- 1 viraj viraj     103 Apr  2 11:39  myfile.txt
+drwxr-xr-x 2 viraj viraj    4096 Apr  2 12:18  temp
+viraj@DESKTOP-K3HJN7T:~$ mount
+none on /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2 type overlay (rw,nosuid,nodev,noatime,lowerdir=/modules,upperdir=/lib/modules/6.6.87.2-microsoft-standard-WSL2/rw/upper,workdir=/lib/modules/6.6.87.2-microsoft-standard-WSL2/rw/work,uuid=on)
+none on /mnt/wsl type tmpfs (rw,relatime)
+drivers on /usr/lib/wsl/drivers type 9p (ro,nosuid,nodev,noatime,aname=drivers;fmask=222;dmask=222,cache=5,access=client,msize=65536,trans=fd,rfd=8,wfd=8)
+/dev/sdd on / type ext4 (rw,relatime,discard,errors=remount-ro,data=ordered)
+none on /mnt/wslg type tmpfs (rw,relatime)
+/dev/sdd on /mnt/wslg/distro type ext4 (ro,relatime,discard,errors=remount-ro,data=ordered)
+none on /usr/lib/wsl/lib type overlay (rw,nosuid,nodev,noatime,lowerdir=/gpu_lib_packaged:/gpu_lib_inbox,upperdir=/gpu_lib/rw/upper,workdir=/gpu_lib/rw/work,uuid=on)
+rootfs on /init type rootfs (ro,size=2979528k,nr_inodes=744882)
+none on /dev type devtmpfs (rw,nosuid,relatime,size=2979528k,nr_inodes=744882,mode=755)
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,noatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,noatime)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,noatime,gid=5,mode=620,ptmxmode=000)
+none on /run type tmpfs (rw,nosuid,nodev,mode=755)
+none on /run/lock type tmpfs (rw,nosuid,nodev,noexec,noatime)
+none on /run/shm type tmpfs (rw,nosuid,nodev,noatime)
+none on /dev/shm type tmpfs (rw,nosuid,nodev,noatime)
+none on /run/user type tmpfs (rw,nosuid,nodev,noexec,noatime,mode=755)
+binfmt_misc on /proc/sys/fs/binfmt_misc type binfmt_misc (rw,relatime)
+cgroup2 on /sys/fs/cgroup type cgroup2 (rw,nosuid,nodev,noexec,relatime,nsdelegate)
+none on /mnt/wslg/versions.txt type overlay (rw,relatime,lowerdir=/systemvhd,upperdir=/system/rw/upper,workdir=/system/rw/work,uuid=on)
+none on /mnt/wslg/doc type overlay (rw,relatime,lowerdir=/systemvhd,upperdir=/system/rw/upper,workdir=/system/rw/work,uuid=on)
+none on /tmp/.X11-unix type tmpfs (ro,relatime)
+C:\ on /mnt/c type 9p (rw,noatime,aname=drvfs;path=C:\;uid=1000;gid=1000;symlinkroot=/mnt/,cache=5,access=client,msize=65536,trans=fd,rfd=6,wfd=6)
+none on /run/user type tmpfs (rw,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,nosuid,nodev,relatime,pagesize=2M)
+mqueue on /dev/mqueue type mqueue (rw,nosuid,nodev,noexec,relatime)
+debugfs on /sys/kernel/debug type debugfs (rw,nosuid,nodev,noexec,relatime)
+tracefs on /sys/kernel/tracing type tracefs (rw,nosuid,nodev,noexec,relatime)
+fusectl on /sys/fs/fuse/connections type fusectl (rw,nosuid,nodev,noexec,relatime)
+configfs on /sys/kernel/config type configfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=596912k,nr_inodes=149228,mode=700,uid=1000,gid=1000)
+tmpfs on /mnt/wslg/run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=596912k,nr_inodes=149228,mode=700,uid=1000,gid=1000)
+viraj@DESKTOP-K3HJN7T:~$ mount /dev/sdb1 /mnt
+mount: /mnt: must be superuser to use mount.
+       dmesg(1) may have more information after failed mount system call.
+viraj@DESKTOP-K3HJN7T:~$ pwd
+/home/viraj
+viraj@DESKTOP-K3HJN7T:~$ rmdir temp/
+viraj@DESKTOP-K3HJN7T:~$ ls
+ Demo_Project                                                    file.txt
+'How to Choose A First Programming Language [U2lQWR6uIuo].mp4'   lnxCmd
+'Screenshot 2026-03-12 154405.png'                               myfile.txt
+viraj@DESKTOP-K3HJN7T:~$ tree
+.
+├── Demo_Project
+│   ├── Core
+│   │   ├── App.php
+│   │   ├── Authenticator.php
+│   │   ├── Container.php
+│   │   ├── Database.php
+│   │   ├── Response.php
+│   │   ├── Router.php
+│   │   ├── Session.php
+│   │   ├── ValidationException.php
+│   │   ├── Validator.php
+│   │   ├── functions.php
+│   │   └── middleware
+│   │       ├── Auth.php
+│   │       ├── Guest.php
+│   │       └── Middleware.php
+│   ├── Http
+│   │   ├── controllers
+│   │   │   ├── 404.php
+│   │   │   ├── about.php
+│   │   │   ├── contact.php
+│   │   │   ├── index.php
+│   │   │   ├── notes
+│   │   │   │   ├── create.php
+│   │   │   │   ├── destroy.php
+│   │   │   │   ├── edit.php
+│   │   │   │   ├── index.php
+│   │   │   │   ├── show.php
+│   │   │   │   ├── store.php
+│   │   │   │   └── update.php
+│   │   │   ├── registration
+│   │   │   │   ├── create.php
+│   │   │   │   └── store.php
+│   │   │   └── session
+│   │   │       ├── create.php
+│   │   │       ├── destroy.php
+│   │   │       └── store.php
+│   │   └── forms
+│   │       └── LoginForm.php
+│   ├── Public
+│   │   ├── index.php
+│   │   └── playground.php
+│   ├── bootstrap.php
+│   ├── composer.json
+│   ├── composer.lock
+│   ├── composer.phar
+│   ├── config.php
+│   ├── phpunit.xml
+│   ├── routes.php
+│   └── views
+│       ├── 403.view.php
+│       ├── 404.view.php
+│       ├── about.view.php
+│       ├── contact.view.php
+│       ├── index.view.php
+│       ├── notes
+│       │   ├── create.view.php
+│       │   ├── edit.view.php
+│       │   ├── index.view.php
+│       │   └── show.view.php
+│       ├── partials
+│       │   ├── banner.php
+│       │   ├── foot.php
+│       │   ├── head.php
+│       │   └── nav.php
+│       ├── registration
+│       │   └── create.view.php
+│       └── session
+│           └── create.view.php
+├── How to Choose A First Programming Language [U2lQWR6uIuo].mp4
+├── Screenshot 2026-03-12 154405.png
+├── file.txt
+├── lnxCmd
+│   ├── composer.phar
+│   ├── file1.txt
+│   └── myfile.txt
+└── myfile.txt
+
+17 directories, 61 files
