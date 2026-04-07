@@ -1,0 +1,138 @@
+viraj@DESKTOP-K3HJN7T MINGW64 ~
+$ psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# SELECT name,COALESCE(email,'No email found') FROM students;
+   name    |    coalesce
+-----------+-----------------
+ Amit      | amit@gmail.com
+ Sneha     | sneha@gmail.com
+ Viraj     | viraj@gmail.com
+ TestUser  | test@gmail.com
+ testUser2 | No email found
+ Sham      | sham@gmail.com
+(6 rows)
+
+
+university_db=# SELECT NULLIF(5,5);
+ nullif
+--------
+
+(1 row)
+
+
+university_db=# SELECT NULLIF(5,3);
+ nullif
+--------
+      5
+(1 row)
+
+
+university_db=# SELECT name,
+university_db-# 100 / NULLIF(age,0)
+university_db-# FROM students;
+   name    | ?column?
+-----------+----------
+ Amit      |        4
+ Sneha     |        5
+ Viraj     |        4
+ TestUser  |        5
+ testUser2 |        4
+ Sham      |        4
+(6 rows)
+
+
+university_db=# SELECT name,(
+university_db(# CASE
+university_db(# WHEN age<20 THEN 'Teen'
+university_db(# WHEN age BETWEEN 20 AND 23 THEN 'Young Adult'
+university_db(# ELSE 'Adult'
+university_db(# END)
+university_db-# FROM students;
+   name    |    case
+-----------+-------------
+ Amit      | Young Adult
+ Sneha     | Young Adult
+ Viraj     | Young Adult
+ TestUser  | Teen
+ testUser2 | Young Adult
+ Sham      | Adult
+(6 rows)
+
+
+university_db=# SELECT name,
+university_db-# CASE
+university_db-# WHEN email IS NULL THEN 'Missing Email'
+university_db-# ELSE 'Available'
+university_db-# END AS email_status
+university_db-# FROM students;
+   name    | email_status
+-----------+---------------
+ Amit      | Available
+ Sneha     | Available
+ Viraj     | Available
+ TestUser  | Available
+ testUser2 | Missing Email
+ Sham      | Available
+(6 rows)
+
+
+university_db=# SELECT name,
+university_db-# CASE
+university_db-# WHEN student_id IN (
+university_db(# SELECT student_id FROM enrollments
+university_db(# )
+university_db-# THEN 'Enrolled'
+university_db-# ELSE 'Not Enrolled'
+university_db-# END AS enrollment_status
+university_db-# FROM students;
+   name    | enrollment_status
+-----------+-------------------
+ Amit      | Enrolled
+ Sneha     | Enrolled
+ Viraj     | Enrolled
+ TestUser  | Enrolled
+ testUser2 | Not Enrolled
+ Sham      | Not Enrolled
+(6 rows)
+
+
+university_db=# SELECT
+university_db-# CASE
+university_db-# WHEN age < 20 THEN 'Below 20'
+university_db-# WHEN age BETWEEN 20 AND 23 THEN '20-23'
+university_db-# ELSE 'Above 23'
+university_db-# END AS age_category,
+university_db-# COUNT(*)
+university_db-# FROM students
+university_db-# GROUP BY age_category;
+ age_category | count
+--------------+-------
+ Below 20     |     1
+ Above 23     |     1
+ 20-23        |     4
+(3 rows)
+
+
+university_db=# SELECT students.name,
+university_db-# COALESCE(departments.dept_name, 'No Department Assigned')
+university_db-# FROM students
+university_db-# LEFT JOIN departments
+university_db-# ON students.dept_id = departments.dept_id;
+   name    |        coalesce
+-----------+------------------------
+ TestUser  | Computer Science
+ Viraj     | Computer Science
+ Sneha     | Computer Science
+ Amit      | Information Technology
+ testUser2 | ENTC
+ Sham      | No Department Assigned
+(6 rows)

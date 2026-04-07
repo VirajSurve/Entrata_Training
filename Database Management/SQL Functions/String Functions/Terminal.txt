@@ -1,0 +1,249 @@
+viraj@DESKTOP-K3HJN7T MINGW64 ~
+$ psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# SELECT UPPER(name)
+postgres-# FROM students;
+ERROR:  relation "students" does not exist
+LINE 2: FROM students;
+             ^
+postgres=#
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# SELECT UPPER(name) FROM students;
+   upper
+-----------
+ AMIT
+ SNEHA
+ VIRAJ
+ TESTUSER
+ TESTUSER2
+ SHAM
+(6 rows)
+
+
+university_db=# SELECT LOWER(name) FROM students;
+   lower
+-----------
+ amit
+ sneha
+ viraj
+ testuser
+ testuser2
+ sham
+(6 rows)
+
+
+university_db=# SELECT *
+university_db-# FROM students
+university_db-# WHERE LOWER(name) = 'viraj';
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(1 row)
+
+
+university_db=# SELECT name, LENGTH(name)
+university_db-# FROM students;
+   name    | length
+-----------+--------
+ Amit      |      4
+ Sneha     |      5
+ Viraj     |      5
+ TestUser  |      8
+ testUser2 |      9
+ Sham      |      4
+(6 rows)
+
+
+university_db=# SELECT CONCAT(name,'-',email) FROM students;
+         concat
+-------------------------
+ Amit-amit@gmail.com
+ Sneha-sneha@gmail.com
+ Viraj-viraj@gmail.com
+ TestUser-test@gmail.com
+ testUser2-
+ Sham-sham@gmail.com
+(6 rows)
+
+
+university_db=# SELECT SUBSTRING(name FROM 1 FOR 3) FROM students;
+ substring
+-----------
+ Ami
+ Sne
+ Vir
+ Tes
+ tes
+ Sha
+(6 rows)
+
+
+university_db=# SELECT TRIM('   Viraj   ');
+      btrim
+------------------
+         Viraj
+(1 row)
+
+
+university_db=# SELECT TRIM(' Viraj ');
+university_db=# SELECT TRIM(' Viraj ');
+ btrim
+-------
+ Viraj
+(1 row)
+
+
+university_db=# SELECT LTRIM('     Viraj');
+ ltrim
+-------
+ Viraj
+(1 row)
+
+
+university_db=# SELECT RTRIM('Viraj     ');
+ rtrim
+-------
+ Viraj
+(1 row)
+
+
+university_db=# SELECT REPLACE(name, 'test', 'demo')
+university_db-# ;
+ERROR:  column "name" does not exist
+LINE 1: SELECT REPLACE(name, 'test', 'demo')
+                       ^
+university_db=# SELECT REPLACE(name, 'test', 'demo') FROM students;
+  replace
+-----------
+ Amit
+ Sneha
+ Viraj
+ TestUser
+ demoUser2
+ Sham
+(6 rows)
+
+
+university_db=# SELECT POSITION('a' IN name) FROM students;
+ position
+----------
+        0
+        5
+        4
+        0
+        0
+        3
+(6 rows)
+
+
+university_db=# SELECT * FROM students;
+ student_id |   name    |      email      | age | dept_id
+------------+-----------+-----------------+-----+---------
+          2 | Amit      | amit@gmail.com  |  22 |       2
+          3 | Sneha     | sneha@gmail.com |  20 |       1
+          1 | Viraj     | viraj@gmail.com |  22 |       1
+          5 | TestUser  | test@gmail.com  |  18 |       1
+          6 | testUser2 |                 |  23 |       3
+          7 | Sham      | sham@gmail.com  |  24 |
+(6 rows)
+
+
+university_db=# SELECT LEFT(name,2) FROM students;
+ left
+------
+ Am
+ Sn
+ Vi
+ Te
+ te
+ Sh
+(6 rows)
+
+
+university_db=# SELECT RIGHT(name,2) FROM students;
+ right
+-------
+ it
+ ha
+ aj
+ er
+ r2
+ am
+(6 rows)
+
+
+university_db=# SELECT * FROM departments;
+ dept_id |       dept_name
+---------+------------------------
+       1 | Computer Science
+       2 | Information Technology
+       3 | ENTC
+       4 | Mechanical
+       5 | Electrical
+(5 rows)
+
+
+university_db=# SELECT INITCAP(dept_name) FROM departments;
+        initcap
+------------------------
+ Computer Science
+ Information Technology
+ Entc
+ Mechanical
+ Electrical
+(5 rows)
+
+
+university_db=# SELECT CONCAT(students.name, ' - ', departments.dept_name)
+university_db-# FROM students
+university_db-# LEFT JOIN departments
+university_db-# ON students.dept_id = departments.dept_id;
+            concat
+-------------------------------
+ TestUser - Computer Science
+ Viraj - Computer Science
+ Sneha - Computer Science
+ Amit - Information Technology
+ testUser2 - ENTC
+ Sham -
+(6 rows)
+
+
+university_db=# SELECT name,COALESCE(email,'No email provided');
+ERROR:  column "name" does not exist
+LINE 1: SELECT name,COALESCE(email,'No email provided');
+               ^
+university_db=# SELECT name,COALESCE(email,'No email provided') FROM students;
+   name    |     coalesce
+-----------+-------------------
+ Amit      | amit@gmail.com
+ Sneha     | sneha@gmail.com
+ Viraj     | viraj@gmail.com
+ TestUser  | test@gmail.com
+ testUser2 | No email provided
+ Sham      | sham@gmail.com
+(6 rows)
+
+
+university_db=# SELECT students.name,
+university_db-# STRING_AGG(courses.course_name, ', ')
+university_db-# FROM students
+university_db-# JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# JOIN courses
+university_db-# ON enrollments.course_id = courses.course_id
+university_db-# GROUP BY students.name;
+ name  |             string_agg
+-------+-------------------------------------
+ Sneha | Database Systems
+ Amit  | Computer Networks
+ Viraj | Database Systems, Operating Systems
+(3 rows)

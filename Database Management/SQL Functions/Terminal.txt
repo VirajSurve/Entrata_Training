@@ -1,0 +1,471 @@
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~
+$ psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# SELECT name,COALESCE(email,'No email found') FROM students;
+   name    |    coalesce
+-----------+-----------------
+ Amit      | amit@gmail.com
+ Sneha     | sneha@gmail.com
+ Viraj     | viraj@gmail.com
+ TestUser  | test@gmail.com
+ testUser2 | No email found
+ Sham      | sham@gmail.com
+(6 rows)
+
+
+university_db=# SELECT NULLIF(5,5);
+ nullif
+--------
+
+(1 row)
+
+
+university_db=# SELECT NULLIF(5,3);
+ nullif
+--------
+      5
+(1 row)
+
+
+university_db=# SELECT name,
+university_db-# 100 / NULLIF(age,0)
+university_db-# FROM students;
+   name    | ?column?
+-----------+----------
+ Amit      |        4
+ Sneha     |        5
+ Viraj     |        4
+ TestUser  |        5
+ testUser2 |        4
+ Sham      |        4
+(6 rows)
+
+
+university_db=# SELECT name,(
+university_db(# CASE
+university_db(# WHEN age<20 THEN 'Teen'
+university_db(# WHEN age BETWEEN 20 AND 23 THEN 'Young Adult'
+university_db(# ELSE 'Adult'
+university_db(# END)
+university_db-# FROM students;
+   name    |    case
+-----------+-------------
+ Amit      | Young Adult
+ Sneha     | Young Adult
+ Viraj     | Young Adult
+ TestUser  | Teen
+ testUser2 | Young Adult
+ Sham      | Adult
+(6 rows)
+
+
+university_db=# SELECT name,
+university_db-# CASE
+university_db-# WHEN email IS NULL THEN 'Missing Email'
+university_db-# ELSE 'Available'
+university_db-# END AS email_status
+university_db-# FROM students;
+   name    | email_status
+-----------+---------------
+ Amit      | Available
+ Sneha     | Available
+ Viraj     | Available
+ TestUser  | Available
+ testUser2 | Missing Email
+ Sham      | Available
+(6 rows)
+
+
+university_db=# SELECT name,
+university_db-# CASE
+university_db-# WHEN student_id IN (
+university_db(# SELECT student_id FROM enrollments
+university_db(# )
+university_db-# THEN 'Enrolled'
+university_db-# ELSE 'Not Enrolled'
+university_db-# END AS enrollment_status
+university_db-# FROM students;
+   name    | enrollment_status
+-----------+-------------------
+ Amit      | Enrolled
+ Sneha     | Enrolled
+ Viraj     | Enrolled
+ TestUser  | Enrolled
+ testUser2 | Not Enrolled
+ Sham      | Not Enrolled
+(6 rows)
+
+
+university_db=# SELECT
+university_db-# CASE
+university_db-# WHEN age < 20 THEN 'Below 20'
+university_db-# WHEN age BETWEEN 20 AND 23 THEN '20-23'
+university_db-# ELSE 'Above 23'
+university_db-# END AS age_category,
+university_db-# COUNT(*)
+university_db-# FROM students
+university_db-# GROUP BY age_category;
+ age_category | count
+--------------+-------
+ Below 20     |     1
+ Above 23     |     1
+ 20-23        |     4
+(3 rows)
+
+
+university_db=# SELECT students.name,
+university_db-# COALESCE(departments.dept_name, 'No Department Assigned')
+university_db-# FROM students
+university_db-# LEFT JOIN departments
+university_db-# ON students.dept_id = departments.dept_id;
+   name    |        coalesce
+-----------+------------------------
+ TestUser  | Computer Science
+ Viraj     | Computer Science
+ Sneha     | Computer Science
+ Amit      | Information Technology
+ testUser2 | ENTC
+ Sham      | No Department Assigned
+(6 rows)
+
+
+university_db=# CREATE FUNCTION greet_student()
+university_db-# RETURNS TEXT
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         RETURN 'Welcome Student!';
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT greet_student();
+  greet_student
+------------------
+ Welcome Student!
+(1 row)
+
+
+university_db=# CREATE FUNCTION total_students()
+university_db-# RETURNS INTEGER
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         RETURN (SELECT COUNT(*) FROM students);
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT total_students();
+ total_students
+----------------
+              6
+(1 row)
+
+
+university_db=# CREATE FUNCTION get_student_name(sid INT)
+university_db-# RETURNS TEXT
+university_db-# LANGUAGE plpgsql
+university_db-# AS &&
+university_db-# BEGIN
+university_db-#         RETURN (
+university_db(#                 SELECT name
+university_db(#                 FROM students
+university_db(#                 WHERE student_id=sid
+university_db(#                 );
+university_db-# END;
+ERROR:  syntax error at or near "&&"
+LINE 4: AS &&
+           ^
+university_db=# CREATE FUNCTION get_student_name(sid INT)
+university_db-# RETURNS TEXT
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         RETURN (
+university_db$#                 SELECT name
+university_db$#                 FROM students
+university_db$#                 WHERE student_id=sid
+university_db$#                 );
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT get_student_name(1);
+ get_student_name
+------------------
+ Viraj
+(1 row)
+
+
+university_db=# SELECT get_student_name(3);
+ get_student_name
+------------------
+ Sneha
+(1 row)
+
+
+university_db=# CREATE FUNCTION students_by_department(dept INT)
+university_db-# RETURNS TABLE(name TEXT,age INT)
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         RETURN QUERY
+university_db$#         SELECT students.name,students.age
+university_db$#         FROM students
+university_db$#         WHERE dept_id=dept;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT * FROM students_by_department(1);
+ERROR:  structure of query does not match function result type
+DETAIL:  Returned type character varying(100) does not match expected type text in column "name" (position 1).
+CONTEXT:  SQL statement "SELECT students.name,students.age
+        FROM students
+        WHERE dept_id=dept"
+PL/pgSQL function students_by_department(integer) line 3 at RETURN QUERY
+university_db=# DROP FUNCTION students_by_department(dept INT);
+DROP FUNCTION
+university_db=# CREATE FUNCTION students_by_department(dept INT)
+university_db-# RETURNS TABLE(name VARCHAR, age INT)
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#     RETURN QUERY
+university_db$#     SELECT students.name, students.age
+university_db$#     FROM students
+university_db$#     WHERE dept_id = dept;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT * FROM students_by_department(1);
+   name   | age
+----------+-----
+ Sneha    |  20
+ Viraj    |  22
+ TestUser |  18
+(3 rows)
+
+
+university_db=# CREATE FUNCTION age_category(sid INT)
+university_db-# RETURNS TEXT
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# DECLARE student_age AS INT;
+university_db$# BEGIN
+university_db$#         SELECT age INTO student_age
+university_db$#         FROM students
+university_db$#         WHERE student_id=sid;
+university_db$#
+university_db$#         RETURN CASE
+university_db$#                 WHEN student_age<20 THEN 'Teen'
+university_db$#                 WHEN student_age BETWEEN 20 AND 23 THEN 'Young Adult'
+university_db$#                 ELSE 'Adult'
+university_db$#         END;
+university_db$# END;
+university_db$# $$;
+ERROR:  syntax error at or near "AS"
+LINE 5: DECLARE student_age AS INT;
+                            ^
+CONTEXT:  invalid type name "AS INT"
+university_db=# CREATE FUNCTION age_category(sid INT)
+university_db-# RETURNS TEXT
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# DECLARE
+university_db$#     student_age INT;
+university_db$# BEGIN
+university_db$#     SELECT age INTO student_age
+university_db$#     FROM students
+university_db$#     WHERE student_id = sid;
+university_db$#
+university_db$#     RETURN CASE
+university_db$#         WHEN student_age < 20 THEN 'Teen'
+university_db$#         WHEN student_age BETWEEN 20 AND 23 THEN 'Young Adult'
+university_db$#         ELSE 'Adult'
+university_db$#     END;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# CREATE FUNCTION student_exist(sid INT)
+university_db-# RETURNS TEXT
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         IF EXISTS (
+university_db$#                 SELECT 1 FROM students WHERE student_id=sid
+university_db$#         ) THEN
+university_db$#                 RETURN 'Student Exists';
+university_db$#         ELSE
+university_db$#                 RETURN 'Student Not Found';
+university_db$#         END IF;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT student_exists(3);
+ERROR:  function student_exists(integer) does not exist
+LINE 1: SELECT student_exists(3);
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+university_db=# SELECT student_exist(3);
+ student_exist
+----------------
+ Student Exists
+(1 row)
+
+
+university_db=# SELECT age_category(1);
+ age_category
+--------------
+ Young Adult
+(1 row)
+
+
+university_db=# CREATE FUNCTION student_department(sid INT)
+university_db-# RETURNS TEXT
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# DECLARE
+university_db$# result TEXT;
+university_db$# BEGIN
+university_db$#     SELECT students.name || ' - ' || departments.dept_name
+university_db$#     INTO result
+university_db$#     FROM students
+university_db$#     LEFT JOIN departments
+university_db$#     ON students.dept_id = departments.dept_id
+university_db$#     WHERE students.student_id = sid;
+university_db$#
+university_db$#     RETURN result;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT student_department(1);
+    student_department
+--------------------------
+ Viraj - Computer Science
+(1 row)
+
+
+university_db=# CREATE FUNCTION course_count(sid INT)
+university_db-# RETURNS INT
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#     RETURN (
+university_db$#         SELECT COUNT(*)
+university_db$#         FROM enrollments
+university_db$#         WHERE student_id = sid
+university_db$#     );
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT course_count(1);
+ course_count
+--------------
+            2
+(1 row)
+
+
+university_db=# CREATE FUNCTION students_in_dept(dept INT DEFAULT 1)
+university_db-# RETURNS INT
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#     RETURN (
+university_db$#         SELECT COUNT(*)
+university_db$#         FROM students
+university_db$#         WHERE dept_id = dept
+university_db$#     );
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT students_in_dept();
+ students_in_dept
+------------------
+                3
+(1 row)
+
+
+university_db=# CREATE FUNCTION student_details(sid INT)
+university_db-# RETURNS TABLE(
+university_db(# student_name TEXT,
+university_db(# student_email TEXT,
+university_db(# student_age INT
+university_db(# )
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#     RETURN QUERY
+university_db$#     SELECT name, email, age
+university_db$#     FROM students
+university_db$#     WHERE student_id = sid;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT * FROM student_details(1);
+ERROR:  structure of query does not match function result type
+DETAIL:  Returned type character varying(100) does not match expected type text in column "student_name" (position 1).
+CONTEXT:  SQL statement "SELECT name, email, age
+    FROM students
+    WHERE student_id = sid"
+PL/pgSQL function student_details(integer) line 3 at RETURN QUERY
+university_db=# DROP FUNCTION student_details(sid INT);
+DROP FUNCTION
+university_db=# CREATE FUNCTION student_details(sid INT)
+university_db-# RETURNS TABLE(
+university_db(#   student_name VARCHAR,
+university_db(#   student_email VARCHAR,
+university_db(#   student_age INT
+university_db(# )
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#     RETURN QUERY
+university_db$#     SELECT name, email, age
+university_db$#     FROM students
+university_db$#     WHERE student_id = sid;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# SELECT * FROM student_details(1);
+ student_name |  student_email  | student_age
+--------------+-----------------+-------------
+ Viraj        | viraj@gmail.com |          22
+(1 row)
+
+
+university_db=# \df
+                                                                       List of functions
+ Schema |          Name          |                                      Result data type                                       |  Argument data types   | Type
+
+--------+------------------------+---------------------------------------------------------------------------------------------+------------------------+-----
+-
+ public | age_category           | text                                                                                        | sid integer            | func
+ public | course_count           | integer                                                                                     | sid integer            | func
+ public | get_student_name       | text                                                                                        | sid integer            | func
+ public | greet_student          | text                                                                                        |                        | func
+ public | student_department     | text                                                                                        | sid integer            | func
+ public | student_details        | TABLE(student_name character varying, student_email character varying, student_age integer) | sid integer            | func
+ public | student_exist          | text                                                                                        | sid integer            | func
+ public | students_by_department | TABLE(name character varying, age integer)                                                  | dept integer           | func
+ public | students_in_dept       | integer                                                                                     | dept integer DEFAULT 1 | func
+ public | total_students         | integer                                                                                     |                        | func
+(10 rows)
+
+
+university_db=# \df student_details
+university_db=# ;
+university_db=# \df student_details
+                                                                  List of functions
+ Schema |      Name       |                                      Result data type                                       | Argument data types | Type
+--------+-----------------+---------------------------------------------------------------------------------------------+---------------------+------
+ public | student_details | TABLE(student_name character varying, student_email character varying, student_age integer) | sid integer         | func
+(1 row)
+

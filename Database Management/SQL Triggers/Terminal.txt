@@ -1,0 +1,183 @@
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~
+$ psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# -- Log Student Enrollments Automatically
+university_db=# CREATE TABLE enrollment_log(
+university_db(# log_id SERIAL PRIMARY KEY,
+university_db(# student_id INT,
+university_db(# course_id INT,
+university_db(# action_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+university_db(# );
+CREATE TABLE
+university_db=# CREATE FUNCTION log_enrollment()
+university_db-# RETURNS TRIGGER
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         INSERT INTO enrollment_log(student_id,course_id)
+university_db$#         VALUES (NEW.student_id,NEW.course_id);
+university_db$#
+university_db$#         RETURN NEW;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# CREATE TRIGGER enrollment_trigger
+university_db-# AFTER INSERT ON enrollments
+university_db-# FOR EACH ROW
+university_db-# EXECUTE FUNCTION log_enrollments();
+ERROR:  function log_enrollments() does not exist
+university_db=# CREATE TRIGGER enrollment_trigger
+university_db-# AFTER INSERT ON enrollments
+university_db-# FOR EACH ROW
+university_db-# EXECUTE FUNCTION log_enrollment();
+CREATE TRIGGER
+university_db=# INSERT INTO enrollments(student_id,course_id)
+university_db-# VALUES (2,1);
+INSERT 0 1
+university_db=# SELECT * FROM enrollment_log;
+ log_id | student_id | course_id |        action_time
+--------+------------+-----------+----------------------------
+      1 |          2 |         1 | 2026-04-06 11:44:38.151082
+(1 row)
+
+
+university_db=# -- Prevent Duplicate Enrollments
+university_db=# CREATE FUNCTION prevent_duplicate_enrollment()
+university_db-# RETURNS TRIGGER
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         IF EXISTS (
+university_db$#                 SELECT 1
+university_db$#                 FROM enrollments
+university_db$#                 WHERE student_id=NEW.student_id
+university_db$#                 AND course_id=NEW.student_id
+university_db$#         ) THEN
+university_db$#                 RAISE EXCEPTION 'Student already enrolled in this course';
+university_db$#         END IF;
+university_db$#
+university_db$#         RETURN NEW;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# CREATE TRIGGER prevent_duplicate_trigger
+university_db-# BEFORE INSERT ON enrollments
+university_db-# FOR EACH ROW
+university_db-# EXECUTE FUNCTION prevent_duplicate_enrollment();
+CREATE TRIGGER
+university_db=# INSERT INTO enrollments(student_is,course_id)
+university_db-# VALUES(1,1);
+ERROR:  column "student_is" of relation "enrollments" does not exist
+LINE 1: INSERT INTO enrollments(student_is,course_id)
+                                ^
+university_db=# INSERT INTO enrollments(student_id,course_id) VALUES
+university_db-# (1,1);
+ERROR:  Student already enrolled in this course
+CONTEXT:  PL/pgSQL function prevent_duplicate_enrollment() line 9 at RAISE
+university_db=# -- Auto-Assign Default Department
+university_db=# CREATE FUNCTION set_default_department()
+university_db-# RETURNS TRIGGER
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         IF NEW.dept_id IS NULL THEN
+university_db$#                 NEW.dept_id :=1;
+university_db$#         END IF;
+university_db$#
+university_db$#         RETURN NEW;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# CREATE TRIGGER default_department_trigger
+university_db-# BEFORE INSERT
+university_db-# ON students
+university_db-# FOR EACH ROW
+university_db-# EXECUTE FUNCTION set_default_department();
+CREATE TRIGGER
+university_db=# INSERT INTO students(name,email,age)
+university_db-# VALUES('Rahul','rahul@gmail.com',21);
+INSERT 0 1
+university_db=# SELECT * FROM students;
+ student_id |   name    |      email      | age | dept_id
+------------+-----------+-----------------+-----+---------
+          2 | Amit      | amit@gmail.com  |  22 |       2
+          3 | Sneha     | sneha@gmail.com |  20 |       1
+          1 | Viraj     | viraj@gmail.com |  22 |       1
+          5 | TestUser  | test@gmail.com  |  18 |       1
+          6 | testUser2 |                 |  23 |       3
+          7 | Sham      | sham@gmail.com  |  24 |
+          8 | Rahul     | rahul@gmail.com |  21 |       1
+(7 rows)
+
+
+university_db=# -- Audit Deleted Students
+university_db=# CREATE TABLE deleted_students_log(
+university_db(# student_id INT,
+university_db(# name TEXT,
+university_db(# deleted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+university_db(# );
+CREATE TABLE
+university_db=# CREATE FUNCTION log_deleted_student()
+university_db-# RETURNS TRIGGER
+university_db-# LANGUAGE plpgsql
+university_db-# AS $$
+university_db$# BEGIN
+university_db$#         INSERT INTO deleted_students_log(student_id, name) VALUES
+university_db$#         (OLD.student_id, OLD.name);
+university_db$#
+university_db$#         RETURN OLD;
+university_db$# END;
+university_db$# $$;
+CREATE FUNCTION
+university_db=# CREATE TRIGGER delete_student_trigger
+university_db-# AFTER DELETE ON students
+university_db-# FOR EACH ROW
+university_db-# EXECUTE FUNCTION log_deleted_student();
+CREATE TRIGGER
+university_db=# DELETE FROM students
+university_db-# WHERE student_id = 7;
+DELETE 1
+university_db=# SELECT * FROM deleted_students_log;
+ student_id | name |        deleted_at
+------------+------+---------------------------
+          7 | Sham | 2026-04-06 12:13:38.81695
+(1 row)
+
+
+university_db=# \d students
+                                          Table "public.students"
+   Column   |          Type          | Collation | Nullable |                   Default
+------------+------------------------+-----------+----------+----------------------------------------------
+ student_id | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name       | character varying(100) |           | not null |
+ email      | character varying(100) |           |          |
+ age        | integer                |           |          |
+ dept_id    | integer                |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+Triggers:
+    default_department_trigger BEFORE INSERT ON students FOR EACH ROW EXECUTE FUNCTION set_default_department()
+    delete_student_trigger AFTER DELETE ON students FOR EACH ROW EXECUTE FUNCTION log_deleted_student()
+
+
+university_db=# DROP TRIGGER enrollment_trigger ON enrollments;
+DROP TRIGGER
+university_db=# DROP FUNCTION log_enrollment();
+DROP FUNCTION

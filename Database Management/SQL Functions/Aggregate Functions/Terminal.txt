@@ -1,0 +1,148 @@
+viraj@DESKTOP-K3HJN7T MINGW64 ~
+$ psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# -- Aggregate functions
+university_db=# SELECT COUNT(*) FROM students;
+ count
+-------
+     6
+(1 row)
+
+
+university_db=# SELECT COUNT(email) FROM students;
+ count
+-------
+     5
+(1 row)
+
+
+university_db=# SELECT dept_id,COUNT(*) AS total_students
+university_db-# FROM students
+university_db-# GROUP BY dept_id;
+ dept_id | total_students
+---------+----------------
+         |              1
+       1 |              3
+       3 |              1
+       2 |              1
+(4 rows)
+
+
+university_db=# SELECT SUM(age) FROM students;
+university_db=# SELECT SUM(age) FROM students;
+ sum
+-----
+ 129
+(1 row)
+
+
+university_db=# SELECT dept_id, SUM(age)
+university_db-# FROM students
+university_db-# GROUP BY dept_id;
+ dept_id | sum
+---------+-----
+         |  24
+       1 |  60
+       3 |  23
+       2 |  22
+(4 rows)
+
+
+university_db=# SELECT AVG(age) FROM students;
+         avg
+---------------------
+ 21.5000000000000000
+(1 row)
+
+
+university_db=# SELECT dept_id, AVG(age)
+university_db-# FROM students
+university_db-# GROUP BY dept_id;
+ dept_id |         avg
+---------+---------------------
+         | 24.0000000000000000
+       1 | 20.0000000000000000
+       3 | 23.0000000000000000
+       2 | 22.0000000000000000
+(4 rows)
+
+
+university_db=# SELECT MIN(age) FROM students;
+ min
+-----
+  18
+(1 row)
+
+
+university_db=# SELECT MAX(age) FROM students;
+ max
+-----
+  24
+(1 row)
+
+
+university_db=# SELECT departments.dept_name, COUNT(students.student_id)
+university_db-# FROM departments
+university_db-# LEFT JOIN students
+university_db-# ON students.dept_id = departments.dept_id
+university_db-# GROUP BY departments.dept_name;
+       dept_name        | count
+------------------------+-------
+ Mechanical             |     0
+ Electrical             |     0
+ Computer Science       |     3
+ Information Technology |     1
+ ENTC                   |     1
+(5 rows)
+
+
+university_db=# SELECT students.name, COUNT(enrollments.course_id)
+university_db-# FROM students
+university_db-# LEFT JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# GROUP BY students.name;
+   name    | count
+-----------+-------
+ Amit      |     1
+ TestUser  |     0
+ Sneha     |     1
+ Sham      |     0
+ Viraj     |     2
+ testUser2 |     0
+(6 rows)
+
+
+university_db=# SELECT students.name, COUNT(enrollments.course_id)
+university_db-# FROM students
+university_db-# JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# GROUP BY students.name
+university_db-# HAVING COUNT(enrollments.course_id) > 1;
+ name  | count
+-------+-------
+ Viraj |     2
+(1 row)
+
+
+university_db=# SELECT
+university_db-# COUNT(*) AS total_students,
+university_db-# AVG(age) AS average_age,
+university_db-# MIN(age) AS youngest,
+university_db-# MAX(age) AS oldest
+university_db-# FROM students;
+ total_students |     average_age     | youngest | oldest
+----------------+---------------------+----------+--------
+              6 | 21.5000000000000000 |       18 |     24
+(1 row)
+
+
+university_db=#

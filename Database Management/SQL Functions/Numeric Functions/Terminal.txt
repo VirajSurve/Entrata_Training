@@ -1,0 +1,134 @@
+
+viraj@DESKTOP-K3HJN7T MINGW64 ~
+$ psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# SELECT ABS(-25);
+ abs
+-----
+  25
+(1 row)
+
+
+university_db=# SELECT name, ABS(age - 25)
+university_db-# FROM students;
+   name    | abs
+-----------+-----
+ Amit      |   3
+ Sneha     |   5
+ Viraj     |   3
+ TestUser  |   7
+ testUser2 |   2
+ Sham      |   1
+(6 rows)
+
+
+university_db=# SELECT CEIL(21.2);
+ ceil
+------
+   22
+(1 row)
+
+
+university_db=# SELECT FLOOR(21.9);
+ floor
+-------
+    21
+(1 row)
+
+
+university_db=# SELECT ROUND(21.6);
+ round
+-------
+    22
+(1 row)
+
+
+university_db=# SELECT ROUND(21.678, 2);
+ round
+-------
+ 21.68
+(1 row)
+
+
+university_db=# SELECT ROUND(AVG(age), 2)
+university_db-# FROM students;
+ round
+-------
+ 21.50
+(1 row)
+
+
+university_db=# SELECT POWER(2,3);
+ power
+-------
+     8
+(1 row)
+
+
+university_db=# SELECT name, POWER(age,2)
+university_db-# FROM students;
+   name    | power
+-----------+-------
+ Amit      |   484
+ Sneha     |   400
+ Viraj     |   484
+ TestUser  |   324
+ testUser2 |   529
+ Sham      |   576
+(6 rows)
+
+
+university_db=# SELECT SQRT(64);
+ sqrt
+------
+    8
+(1 row)
+
+
+university_db=# SELECT MOD(10,3);
+ mod
+-----
+   1
+(1 row)
+
+
+university_db=# SELECT RANDOM();
+       random
+--------------------
+ 0.6101711590300076
+(1 row)
+
+
+university_db=# SELECT RANDOM();
+       random
+--------------------
+ 0.8078825876038729
+(1 row)
+
+
+university_db=# SELECT TRUNC(21.987);
+ trunc
+-------
+    21
+(1 row)
+
+
+university_db=# SELECT
+university_db-# MIN(age),
+university_db-# MAX(age),
+university_db-# ROUND(AVG(age),2),
+university_db-# SUM(age)
+university_db-# FROM students;
+ min | max | round | sum
+-----+-----+-------+-----
+  18 |  24 | 21.50 | 129
+(1 row)

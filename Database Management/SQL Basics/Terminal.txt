@@ -1,0 +1,1150 @@
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\viraj>psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \l
+                                                            List of databases
+   Name    |  Owner   | Encoding | Locale Provider |      Collate       |       Ctype        | Locale | ICU Rules |   Access privileges
+-----------+----------+----------+-----------------+--------------------+--------------------+--------+-----------+-----------------------
+ postgres  | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           |
+ template0 | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+           |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+           |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+(3 rows)
+
+
+postgres=# \list
+                                                            List of databases
+   Name    |  Owner   | Encoding | Locale Provider |      Collate       |       Ctype        | Locale | ICU Rules |   Access privileges
+-----------+----------+----------+-----------------+--------------------+--------------------+--------+-----------+-----------------------
+ postgres  | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           |
+ template0 | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+           |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+           |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+(3 rows)
+
+
+postgres=# CREATE DATABASE university_db;
+CREATE DATABASE
+postgres=# \list
+                                                              List of databases
+     Name      |  Owner   | Encoding | Locale Provider |      Collate       |       Ctype        | Locale | ICU Rules |   Access privileges
+---------------+----------+----------+-----------------+--------------------+--------------------+--------+-----------+-----------------------
+ postgres      | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           |
+ template0     | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+               |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+ template1     | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+               |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+ university_db | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           |
+(4 rows)
+
+
+postgres=# \c university_db;
+You are now connected to database "university_db" as user "postgres".
+university_db=# \dt
+Did not find any tables.
+university_db=# \dn
+      List of schemas
+  Name  |       Owner
+--------+-------------------
+ public | pg_database_owner
+(1 row)
+
+
+university_db=# CREATE TABLE students(
+university_db(# ;
+university_db(# \q
+
+C:\Users\viraj>psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \l
+                                                              List of databases
+     Name      |  Owner   | Encoding | Locale Provider |      Collate       |       Ctype        | Locale | ICU Rules |   Access privileges
+---------------+----------+----------+-----------------+--------------------+--------------------+--------+-----------+-----------------------
+ postgres      | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           |
+ template0     | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+               |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+ template1     | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+               |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+ university_db | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           |
+(4 rows)
+
+
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# \dt
+Did not find any tables.
+university_db=# CREATE TABLE departments(
+university_db(# dept_id SERIAL PRIMARY KEY,
+university_db(# dept_name VARCHAR(50) UNIQUE NOT NULL
+university_db(# );
+CREATE TABLE
+university_db=# \dt
+             List of tables
+ Schema |    Name     | Type  |  Owner
+--------+-------------+-------+----------
+ public | departments | table | postgres
+(1 row)
+
+
+university_db=# CREATE TABLE students(
+university_db(# student_id SERIAL PRIMARY KEY,
+university_db(# name VARCHAR(100) NOT NULL,
+university_db(# email VARCHAR(100) UNIQUE,
+university_db(# age INT CHECK(age >= 17),
+university_db(# dept_id INT,
+university_db(# FOREIGN KEY (dept_id)
+university_db(# REFERENCES departments(dept_id)
+university_db(# ON DELETE SET NULL
+university_db(# ON UPDATE CASCADE
+university_db(# );
+CREATE TABLE
+university_db=# \dt
+             List of tables
+ Schema |    Name     | Type  |  Owner
+--------+-------------+-------+----------
+ public | departments | table | postgres
+ public | students    | table | postgres
+(2 rows)
+
+
+university_db=# INSERT INTO departments(dept_name) VALUES
+university_db-# ('Computer Science'),
+university_db-# ('Information Technology'),
+university_db-# ('ENTC');
+INSERT 0 3
+university_db=# SELECT * FROM departments;
+ dept_id |       dept_name
+---------+------------------------
+       1 | Computer Science
+       2 | Information Technology
+       3 | ENTC
+(3 rows)
+
+
+university_db=# INSERT INTO students(name,email,age,dept_id) VALUES
+university_db-# ('Viraj','viraj@gmail.com',21,1),
+university_db-# ('Amit','amit@gmail.com',22,2),
+university_db-# ('Sneha','sneha@gmail.com',20,1),
+university_db-# ('Riya','riya@gmail.com',23,3);
+INSERT 0 4
+university_db=# SELECT * from students;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          1 | Viraj | viraj@gmail.com |  21 |       1
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          3 | Sneha | sneha@gmail.com |  20 |       1
+          4 | Riya  | riya@gmail.com  |  23 |       3
+(4 rows)
+
+
+university_db=# \d departments;
+                                       Table "public.departments"
+  Column   |         Type          | Collation | Nullable |                   Default
+-----------+-----------------------+-----------+----------+----------------------------------------------
+ dept_id   | integer               |           | not null | nextval('departments_dept_id_seq'::regclass)
+ dept_name | character varying(50) |           | not null |
+Indexes:
+    "departments_pkey" PRIMARY KEY, btree (dept_id)
+    "departments_dept_name_key" UNIQUE CONSTRAINT, btree (dept_name)
+Referenced by:
+    TABLE "students" CONSTRAINT "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+
+
+university_db=# \d students;
+                                          Table "public.students"
+   Column   |          Type          | Collation | Nullable |                   Default
+------------+------------------------+-----------+----------+----------------------------------------------
+ student_id | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name       | character varying(100) |           | not null |
+ email      | character varying(100) |           |          |
+ age        | integer                |           |          |
+ dept_id    | integer                |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+
+
+university_db=# -- this is a comment
+university_db=# -- Filtering Data (WHERE)
+university_db=# SELECT * FROM students WHERE age>21;
+ student_id | name |     email      | age | dept_id
+------------+------+----------------+-----+---------
+          2 | Amit | amit@gmail.com |  22 |       2
+          4 | Riya | riya@gmail.com |  23 |       3
+(2 rows)
+
+
+university_db=# SELECT * FROM students WHERE dept_id=1;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          1 | Viraj | viraj@gmail.com |  21 |       1
+          3 | Sneha | sneha@gmail.com |  20 |       1
+(2 rows)
+
+
+university_db=# SELECT * FROM students where name='Viraj';
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          1 | Viraj | viraj@gmail.com |  21 |       1
+(1 row)
+
+
+university_db=# -- Sorting Data (ORDER BY)
+university_db=# SELECT * FROM students ORDER BY age ASC;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          3 | Sneha | sneha@gmail.com |  20 |       1
+          1 | Viraj | viraj@gmail.com |  21 |       1
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          4 | Riya  | riya@gmail.com  |  23 |       3
+(4 rows)
+
+
+university_db=# SELECT * FROM students ORDER BY age DESC;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          4 | Riya  | riya@gmail.com  |  23 |       3
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          1 | Viraj | viraj@gmail.com |  21 |       1
+          3 | Sneha | sneha@gmail.com |  20 |       1
+(4 rows)
+
+
+university_db=# -- Update Data (UPDATE)
+university_db=# UPDATE TABLE students SET age=22 WHERE name='Viraj';
+ERROR:  syntax error at or near "TABLE"
+LINE 1: UPDATE TABLE students SET age=22 WHERE name='Viraj';
+               ^
+university_db=# UPDATE students SET age=22 WHERE name='Viraj';
+UPDATE 1
+university_db=# SELECT * FROM students;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          3 | Sneha | sneha@gmail.com |  20 |       1
+          4 | Riya  | riya@gmail.com  |  23 |       3
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(4 rows)
+
+
+university_db=# -- Delete Data (DELETE)
+university_db=# DELETE FROM students WHERE name='Riya';
+DELETE 1
+university_db=# SELECT * FROM students;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          3 | Sneha | sneha@gmail.com |  20 |       1
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(3 rows)
+
+
+university_db=# SELECT * FROM students LIMIT 2;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          3 | Sneha | sneha@gmail.com |  20 |       1
+(2 rows)
+
+
+university_db=# -- DISTINCT
+university_db=# SELECT DISTINCT dept_id FROM students;
+ dept_id
+---------
+       2
+       1
+(2 rows)
+
+
+university_db=# CREATE TABLE courses(
+university_db(# course_id SERIAL PRIMARY KEY,
+university_db(# course_name VARCHAR(100) NOT NULL,
+university_db(# credits INT DEFAULT 4
+university_db(# );
+CREATE TABLE
+university_db=# \dt;
+             List of tables
+ Schema |    Name     | Type  |  Owner
+--------+-------------+-------+----------
+ public | courses     | table | postgres
+ public | departments | table | postgres
+ public | students    | table | postgres
+(3 rows)
+
+
+university_db=# INSERT INTO courses(course_name) VALUES
+university_db-# ('Database Systems');
+INSERT 0 1
+university_db=# SELECT * FROM courses;
+ course_id |   course_name    | credits
+-----------+------------------+---------
+         1 | Database Systems |       4
+(1 row)
+
+
+university_db=# CREATE TABLE enrollments(
+university_db(# enrollment_id SERIAL PRIMARY KEY,
+university_db(# student_id INT,
+university_db(# course_id INT,
+university_db(# enrollment_date DATE DEFAULT CURRENT_DATE,
+university_db(#
+university_db(# FOREIGN KEY (student_id)
+university_db(# REFERENCES students(student_id)
+university_db(# ON DELETE CASCADE,
+university_db(#
+university_db(# FOREIGN KEY (course_id)
+university_db(# REFERENCES courses(course_id)
+university_db(# ON DELETE CASCADE
+university_db(# );
+CREATE TABLE
+university_db=# \d entrollments;
+Did not find any relation named "entrollments".
+university_db=# \d enrollments;
+                                      Table "public.enrollments"
+     Column      |  Type   | Collation | Nullable |                      Default
+-----------------+---------+-----------+----------+----------------------------------------------------
+ enrollment_id   | integer |           | not null | nextval('enrollments_enrollment_id_seq'::regclass)
+ student_id      | integer |           |          |
+ course_id       | integer |           |          |
+ enrollment_date | date    |           |          | CURRENT_DATE
+Indexes:
+    "enrollments_pkey" PRIMARY KEY, btree (enrollment_id)
+Foreign-key constraints:
+    "enrollments_course_id_fkey" FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE
+    "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# INSERT INTO courses(course_name, credits) VALUES
+university_db-# ('Operating Systems',3),
+university_db-# ('Computer Networks',4),
+university_db-# ('Mathematics',5);
+INSERT 0 3
+university_db=# INSERT INTO enrollments(student_id, course_id)
+university_db-# VALUES
+university_db-# (1,1),
+university_db-# (1,2),
+university_db-# (2,3),
+university_db-# (3,1);
+INSERT 0 4
+university_db=# SELECT * FROM courses;
+ course_id |    course_name    | credits
+-----------+-------------------+---------
+         1 | Database Systems  |       4
+         2 | Operating Systems |       3
+         3 | Computer Networks |       4
+         4 | Mathematics       |       5
+(4 rows)
+
+
+university_db=# SELECT * FROM enrolments;
+ERROR:  relation "enrolments" does not exist
+LINE 1: SELECT * FROM enrolments;
+                      ^
+university_db=# SELECT * FROM enrollments;
+ enrollment_id | student_id | course_id | enrollment_date
+---------------+------------+-----------+-----------------
+             1 |          1 |         1 | 2026-04-04
+             2 |          1 |         2 | 2026-04-04
+             3 |          2 |         3 | 2026-04-04
+             4 |          3 |         1 | 2026-04-04
+(4 rows)
+
+
+university_db=# -- ALTER TABLE
+university_db=# ALTER TABLE students ADD phone VARCHAR(10) NOT NULL UNIQUE;
+ERROR:  column "phone" of relation "students" contains null values
+university_db=# ALTER TABLE students ADD phone VARCHAR(10) UNIQUE;
+ALTER TABLE
+university_db=# SELECT * FROM STUDENTS;
+ student_id | name  |      email      | age | dept_id | phone
+------------+-------+-----------------+-----+---------+-------
+          2 | Amit  | amit@gmail.com  |  22 |       2 |
+          3 | Sneha | sneha@gmail.com |  20 |       1 |
+          1 | Viraj | viraj@gmail.com |  22 |       1 |
+(3 rows)
+
+
+university_db=# ALTER TABLE students ADD address TEXT, ADD admission_date DATE;
+ALTER TABLE
+university_db=# SELECT * FROM STUDENTS;
+ student_id | name  |      email      | age | dept_id | phone | address | admission_date
+------------+-------+-----------------+-----+---------+-------+---------+----------------
+          2 | Amit  | amit@gmail.com  |  22 |       2 |       |         |
+          3 | Sneha | sneha@gmail.com |  20 |       1 |       |         |
+          1 | Viraj | viraj@gmail.com |  22 |       1 |       |         |
+(3 rows)
+
+
+university_db=# ALTER TABLE students
+university_db-# DROP COLUMN IF EXISTS phone;
+ALTER TABLE
+university_db=# SELECT * FROM STUDENTS;
+ student_id | name  |      email      | age | dept_id | address | admission_date
+------------+-------+-----------------+-----+---------+---------+----------------
+          2 | Amit  | amit@gmail.com  |  22 |       2 |         |
+          3 | Sneha | sneha@gmail.com |  20 |       1 |         |
+          1 | Viraj | viraj@gmail.com |  22 |       1 |         |
+(3 rows)
+
+
+university_db=# ALTER TABLE students
+university_db-# ADD temp_column VARCHAR(20);
+ALTER TABLE
+university_db=# SELECT * FROM STUDENTS;
+ student_id | name  |      email      | age | dept_id | address | admission_date | temp_column
+------------+-------+-----------------+-----+---------+---------+----------------+-------------
+          2 | Amit  | amit@gmail.com  |  22 |       2 |         |                |
+          3 | Sneha | sneha@gmail.com |  20 |       1 |         |                |
+          1 | Viraj | viraj@gmail.com |  22 |       1 |         |                |
+(3 rows)
+
+
+university_db=# ALTER TABLE students
+university_db-# RENAME COLUMN temp_column TO temp_mobile;
+ALTER TABLE
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           |          |
+ age            | integer                |           |          |
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | character varying(20)  |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# ALTER TABLE students
+university_db-# MODIFY temp_mobile TEXT;
+ERROR:  syntax error at or near "MODIFY"
+LINE 2: MODIFY temp_mobile TEXT;
+        ^
+university_db=# ALTER TABLE students
+university_db-# ALTER COLUMN temp_mobile TYPE TEXT;
+ALTER TABLE
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           |          |
+ age            | integer                |           |          |
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | text                   |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# ALTER TABLE students
+university_db-# ALTER COLUMN age SET DEFAULT=18;
+ERROR:  syntax error at or near "="
+LINE 2: ALTER COLUMN age SET DEFAULT=18;
+                                    ^
+university_db=# ALTER TABLE students
+university_db-# ALTER COLUMN age SET DEFAULT 18;
+ALTER TABLE
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           |          |
+ age            | integer                |           |          | 18
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | text                   |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# SELECT * FROM students;
+ student_id | name  |      email      | age | dept_id | address | admission_date | temp_mobile
+------------+-------+-----------------+-----+---------+---------+----------------+-------------
+          2 | Amit  | amit@gmail.com  |  22 |       2 |         |                |
+          3 | Sneha | sneha@gmail.com |  20 |       1 |         |                |
+          1 | Viraj | viraj@gmail.com |  22 |       1 |         |                |
+(3 rows)
+
+
+university_db=# INSERT INTO students(name,email,dept_id) VALUES
+university_db-# ('TestUser','test@gmail.com',1);
+INSERT 0 1
+university_db=# SELECT * FROM students;
+ student_id |   name   |      email      | age | dept_id | address | admission_date | temp_mobile
+------------+----------+-----------------+-----+---------+---------+----------------+-------------
+          2 | Amit     | amit@gmail.com  |  22 |       2 |         |                |
+          3 | Sneha    | sneha@gmail.com |  20 |       1 |         |                |
+          1 | Viraj    | viraj@gmail.com |  22 |       1 |         |                |
+          5 | TestUser | test@gmail.com  |  18 |       1 |         |                |
+(4 rows)
+
+
+university_db=# ALTER TABLE students
+university_db-# ALTER TABLE age DROP DEFAULT;
+ERROR:  syntax error at or near "TABLE"
+LINE 2: ALTER TABLE age DROP DEFAULT;
+              ^
+university_db=# ALTER TABLE students
+university_db-# ALTER COLUMN age DROP DEFAULT;
+ALTER TABLE
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           |          |
+ age            | integer                |           |          |
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | text                   |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# ALTER TABLE students
+university_db-# ALTER COLUMN email SET NOT NULL;
+ALTER TABLE
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           | not null |
+ age            | integer                |           |          |
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | text                   |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# ALTER TABLE students
+university_db-# ALTER COLUMN email DROP NOT NULL;
+ALTER TABLE
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           |          |
+ age            | integer                |           |          |
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | text                   |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# ALTER TABLE students
+university_db-# ADD CONTRAINT unique_email UNIQUE(email);
+ERROR:  syntax error at or near "("
+LINE 2: ADD CONTRAINT unique_email UNIQUE(email);
+                                         ^
+university_db=# ALTER TABLE students
+university_db-# ADD CONSTRAINT unique_email UNIQUE(email);
+ALTER TABLE
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           |          |
+ age            | integer                |           |          |
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | text                   |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+    "unique_email" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# ALTER TABLE students
+university_db-# DROP CONSTRAINT unique_email;
+ALTER TABLE
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           |          |
+ age            | integer                |           |          |
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | text                   |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# CREATE INDEX idx_student_name
+university_db-# ON students(name);
+CREATE INDEX
+university_db=# \d students;
+                                            Table "public.students"
+     Column     |          Type          | Collation | Nullable |                   Default
+----------------+------------------------+-----------+----------+----------------------------------------------
+ student_id     | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name           | character varying(100) |           | not null |
+ email          | character varying(100) |           |          |
+ age            | integer                |           |          |
+ dept_id        | integer                |           |          |
+ address        | text                   |           |          |
+ admission_date | date                   |           |          |
+ temp_mobile    | text                   |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "idx_student_name" btree (name)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# \di
+                           List of indexes
+ Schema |           Name            | Type  |  Owner   |    Table
+--------+---------------------------+-------+----------+-------------
+ public | courses_pkey              | index | postgres | courses
+ public | departments_dept_name_key | index | postgres | departments
+ public | departments_pkey          | index | postgres | departments
+ public | enrollments_pkey          | index | postgres | enrollments
+ public | idx_student_name          | index | postgres | students
+ public | students_email_key        | index | postgres | students
+ public | students_pkey             | index | postgres | students
+(7 rows)
+
+
+university_db=# EXPLAIN SELECT * FROM students WHERE name="Viraj";
+ERROR:  column "Viraj" does not exist
+LINE 1: EXPLAIN SELECT * FROM students WHERE name="Viraj";
+                                                  ^
+university_db=# SELECT * FROM students;
+ student_id |   name   |      email      | age | dept_id | address | admission_date | temp_mobile
+------------+----------+-----------------+-----+---------+---------+----------------+-------------
+          2 | Amit     | amit@gmail.com  |  22 |       2 |         |                |
+          3 | Sneha    | sneha@gmail.com |  20 |       1 |         |                |
+          1 | Viraj    | viraj@gmail.com |  22 |       1 |         |                |
+          5 | TestUser | test@gmail.com  |  18 |       1 |         |                |
+(4 rows)
+
+
+university_db=# EXPLAIN SELECT * FROM students WHERE name='Viraj';
+                        QUERY PLAN
+----------------------------------------------------------
+ Seq Scan on students  (cost=0.00..1.05 rows=1 width=516)
+   Filter: ((name)::text = 'Viraj'::text)
+(2 rows)
+
+
+university_db=# DROP INDEX idx_student_name;
+DROP INDEX
+university_db=# \di
+                           List of indexes
+ Schema |           Name            | Type  |  Owner   |    Table
+--------+---------------------------+-------+----------+-------------
+ public | courses_pkey              | index | postgres | courses
+ public | departments_dept_name_key | index | postgres | departments
+ public | departments_pkey          | index | postgres | departments
+ public | enrollments_pkey          | index | postgres | enrollments
+ public | students_email_key        | index | postgres | students
+ public | students_pkey             | index | postgres | students
+(6 rows)
+
+
+university_db=# ALTER TABLE students
+university_db-# DROP COLUMN temp_mobile,
+university_db-# DROP COLUMN address,
+university_db-# DROP COLUMN admission_date;
+ALTER TABLE
+university_db=# SELECT * FROM students;
+ student_id |   name   |      email      | age | dept_id
+------------+----------+-----------------+-----+---------
+          2 | Amit     | amit@gmail.com  |  22 |       2
+          3 | Sneha    | sneha@gmail.com |  20 |       1
+          1 | Viraj    | viraj@gmail.com |  22 |       1
+          5 | TestUser | test@gmail.com  |  18 |       1
+(4 rows)
+
+
+university_db=# CREATE TABLE temp_demo(
+university_db(# id SERIAL PRIMARY KEY,
+university_db(# name TEXT
+university_db(# );
+CREATE TABLE
+university_db=# INSERT INTO temp_demo(name)
+university_db-# VALUES
+university_db-# ('Viraj'),
+university_db-# ('Amit'),
+university_db-# ('Sneha');
+INSERT 0 3
+university_db=# SELECT * FROM students;
+ student_id |   name   |      email      | age | dept_id
+------------+----------+-----------------+-----+---------
+          2 | Amit     | amit@gmail.com  |  22 |       2
+          3 | Sneha    | sneha@gmail.com |  20 |       1
+          1 | Viraj    | viraj@gmail.com |  22 |       1
+          5 | TestUser | test@gmail.com  |  18 |       1
+(4 rows)
+
+
+university_db=# SELECT * FROM temp_demo;
+ id | name
+----+-------
+  1 | Viraj
+  2 | Amit
+  3 | Sneha
+(3 rows)
+
+
+university_db=# DELETE FROM temp_demo
+university_db-# WHERE name='Amit';
+DELETE 1
+university_db=# SELECT * FROM temp_demo;
+ id | name
+----+-------
+  1 | Viraj
+  3 | Sneha
+(2 rows)
+
+
+university_db=# TRUNCATE TABLE temp_demo;
+TRUNCATE TABLE
+university_db=# SELECT * FROM temp_demo;
+ id | name
+----+------
+(0 rows)
+
+
+university_db=# DROP TABLE temp_demo;
+DROP TABLE
+university_db=# SELECT * FROM temp_demo;
+ERROR:  relation "temp_demo" does not exist
+LINE 1: SELECT * FROM temp_demo;
+                      ^
+university_db=# -- Filtering and Aggregation clauses
+university_db=# SELECT * FROM students
+university_db-# WHERE age > 21;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(2 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE age > 20 AND dept_id = 1;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(1 row)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE dept_id = 1 OR dept_id = 2;
+ student_id |   name   |      email      | age | dept_id
+------------+----------+-----------------+-----+---------
+          2 | Amit     | amit@gmail.com  |  22 |       2
+          3 | Sneha    | sneha@gmail.com |  20 |       1
+          1 | Viraj    | viraj@gmail.com |  22 |       1
+          5 | TestUser | test@gmail.com  |  18 |       1
+(4 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE NOT dept_id = 1;
+ student_id | name |     email      | age | dept_id
+------------+------+----------------+-----+---------
+          2 | Amit | amit@gmail.com |  22 |       2
+(1 row)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE name LIKE 'V%';
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(1 row)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE name LIKE '%a';
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          3 | Sneha | sneha@gmail.com |  20 |       1
+(1 row)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE name LIKE '%ne%';
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          3 | Sneha | sneha@gmail.com |  20 |       1
+(1 row)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE name ILIKE 'v%';
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(1 row)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE dept_id IN (1,2);
+ student_id |   name   |      email      | age | dept_id
+------------+----------+-----------------+-----+---------
+          2 | Amit     | amit@gmail.com  |  22 |       2
+          3 | Sneha    | sneha@gmail.com |  20 |       1
+          1 | Viraj    | viraj@gmail.com |  22 |       1
+          5 | TestUser | test@gmail.com  |  18 |       1
+(4 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE age BETWEEEN 20 AND 22;
+ERROR:  syntax error at or near "BETWEEEN"
+LINE 2: WHERE age BETWEEEN 20 AND 22;
+                  ^
+university_db=# SELECT * FROM students
+university_db-# WHERE age BETWEEN 20 AND 22;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          3 | Sneha | sneha@gmail.com |  20 |       1
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(3 rows)
+
+
+university_db=# /d students
+university_db-# ;
+ERROR:  syntax error at or near "/"
+LINE 1: /d students
+        ^
+university_db=# \d students;
+                                          Table "public.students"
+   Column   |          Type          | Collation | Nullable |                   Default
+------------+------------------------+-----------+----------+----------------------------------------------
+ student_id | integer                |           | not null | nextval('students_student_id_seq'::regclass)
+ name       | character varying(100) |           | not null |
+ email      | character varying(100) |           |          |
+ age        | integer                |           |          |
+ dept_id    | integer                |           |          |
+Indexes:
+    "students_pkey" PRIMARY KEY, btree (student_id)
+    "students_email_key" UNIQUE CONSTRAINT, btree (email)
+Check constraints:
+    "students_age_check" CHECK (age >= 17)
+Foreign-key constraints:
+    "students_dept_id_fkey" FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON UPDATE CASCADE ON DELETE SET NULL
+Referenced by:
+    TABLE "enrollments" CONSTRAINT "enrollments_student_id_fkey" FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+
+
+university_db=# INSERT INTO students VALUES
+university_db-# (testUser2,,23,3);
+ERROR:  syntax error at or near ","
+LINE 2: (testUser2,,23,3);
+                   ^
+university_db=# (testUser2,NULL,23,3);
+ERROR:  syntax error at or near "testUser2"
+LINE 1: (testUser2,NULL,23,3);
+         ^
+university_db=# INSERT INTO students (name, email, age, dept_id)
+university_db-# VALUES ('testUser2', NULL, 23, 3);
+INSERT 0 1
+university_db=# SELECT * FROM students
+university_db-# ;
+ student_id |   name    |      email      | age | dept_id
+------------+-----------+-----------------+-----+---------
+          2 | Amit      | amit@gmail.com  |  22 |       2
+          3 | Sneha     | sneha@gmail.com |  20 |       1
+          1 | Viraj     | viraj@gmail.com |  22 |       1
+          5 | TestUser  | test@gmail.com  |  18 |       1
+          6 | testUser2 |                 |  23 |       3
+(5 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE email IS NULL;
+ student_id |   name    | email | age | dept_id
+------------+-----------+-------+-----+---------
+          6 | testUser2 |       |  23 |       3
+(1 row)
+
+
+university_db=# SELECT * FROM students
+university_db-# WHERE email IS NOT NULL;
+ student_id |   name   |      email      | age | dept_id
+------------+----------+-----------------+-----+---------
+          2 | Amit     | amit@gmail.com  |  22 |       2
+          3 | Sneha    | sneha@gmail.com |  20 |       1
+          1 | Viraj    | viraj@gmail.com |  22 |       1
+          5 | TestUser | test@gmail.com  |  18 |       1
+(4 rows)
+
+
+university_db=# SELECT DISTINCT dept_id FROM students;
+ dept_id
+---------
+       1
+       2
+       3
+(3 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# ORDER BY age ASC;
+ student_id |   name    |      email      | age | dept_id
+------------+-----------+-----------------+-----+---------
+          5 | TestUser  | test@gmail.com  |  18 |       1
+          3 | Sneha     | sneha@gmail.com |  20 |       1
+          2 | Amit      | amit@gmail.com  |  22 |       2
+          1 | Viraj     | viraj@gmail.com |  22 |       1
+          6 | testUser2 |                 |  23 |       3
+(5 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# ORDER BY age DESC;
+ student_id |   name    |      email      | age | dept_id
+------------+-----------+-----------------+-----+---------
+          6 | testUser2 |                 |  23 |       3
+          2 | Amit      | amit@gmail.com  |  22 |       2
+          1 | Viraj     | viraj@gmail.com |  22 |       1
+          3 | Sneha     | sneha@gmail.com |  20 |       1
+          5 | TestUser  | test@gmail.com  |  18 |       1
+(5 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# ORDER BY dept_id, age DESC;
+ student_id |   name    |      email      | age | dept_id
+------------+-----------+-----------------+-----+---------
+          1 | Viraj     | viraj@gmail.com |  22 |       1
+          3 | Sneha     | sneha@gmail.com |  20 |       1
+          5 | TestUser  | test@gmail.com  |  18 |       1
+          2 | Amit      | amit@gmail.com  |  22 |       2
+          6 | testUser2 |                 |  23 |       3
+(5 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# LIMIT 2;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          2 | Amit  | amit@gmail.com  |  22 |       2
+          3 | Sneha | sneha@gmail.com |  20 |       1
+(2 rows)
+
+
+university_db=# SELECT * FROM students
+university_db-# LIMIT 2 OFFSET 1;
+ student_id | name  |      email      | age | dept_id
+------------+-------+-----------------+-----+---------
+          3 | Sneha | sneha@gmail.com |  20 |       1
+          1 | Viraj | viraj@gmail.com |  22 |       1
+(2 rows)
+
+
+university_db=# -- Aggregate Functions
+university_db=# SELECT COUNT(*) FROM students;
+ count
+-------
+     5
+(1 row)
+
+
+university_db=# SELECT AVG(age) FROM students;
+         avg
+---------------------
+ 21.0000000000000000
+(1 row)
+
+
+university_db=# SELECT SUM(age) FROM students;
+ sum
+-----
+ 105
+(1 row)
+
+
+university_db=# SELECT MIN(age) FROM students;
+ min
+-----
+  18
+(1 row)
+
+
+university_db=# SELECT MAX(age) FROM students;
+ max
+-----
+  23
+(1 row)
+
+
+university_db=# SELECT dept_id, COUNT(*)
+university_db-# FROM students
+university_db-# GROUP BY dept_id;
+ dept_id | count
+---------+-------
+       1 |     3
+       2 |     1
+       3 |     1
+(3 rows)
+
+
+university_db=# SELECT dept_id, AVG(age)
+university_db-# FROM students
+university_db-# GROUP BY dept_id;
+ dept_id |         avg
+---------+---------------------
+       1 | 20.0000000000000000
+       2 | 22.0000000000000000
+       3 | 23.0000000000000000
+(3 rows)
+
+
+university_db=# SELECT dept_id, COUNT(*)
+university_db-# FROM students
+university_db-# GROUP BY dept_id
+university_db-# HAVING COUNT(*) > 1;
+ dept_id | count
+---------+-------
+       1 |     3
+(1 row)
+
+
+university_db=# SELECT dept_id, AVG(age)
+university_db-# FROM students
+university_db-# WHERE dept_id = 1
+university_db-# GROUP BY dept_id;
+ dept_id |         avg
+---------+---------------------
+       1 | 20.0000000000000000
+(1 row)
+
+
+university_db=# SELECT name AS student_name
+university_db-# FROM students;
+ student_name
+--------------
+ Amit
+ Sneha
+ Viraj
+ TestUser
+ testUser2
+(5 rows)
+
+
+university_db=# SELECT dept_id, COUNT(*) AS total_students
+university_db-# FROM students
+university_db-# GROUP BY dept_id;
+ dept_id | total_students
+---------+----------------
+       1 |              3
+       2 |              1
+       3 |              1
+(3 rows)
+
+
+university_db=#

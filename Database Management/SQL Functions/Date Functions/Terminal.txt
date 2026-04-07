@@ -1,0 +1,248 @@
+viraj@DESKTOP-K3HJN7T MINGW64 ~
+$ psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# SELECT CURRENT_DATE;
+ current_date
+--------------
+ 2026-04-05
+(1 row)
+
+
+university_db=# SELECT * FROM enrolments;
+ERROR:  relation "enrolments" does not exist
+LINE 1: SELECT * FROM enrolments;
+                      ^
+university_db=# SELECT * FROM enrollments;
+ enrollment_id | student_id | course_id | enrollment_date
+---------------+------------+-----------+-----------------
+             1 |          1 |         1 | 2026-04-04
+             2 |          1 |         2 | 2026-04-04
+             3 |          2 |         3 | 2026-04-04
+             4 |          3 |         1 | 2026-04-04
+(4 rows)
+
+
+university_db=# SELECT CURRENT_TIME;
+     current_time
+-----------------------
+ 18:26:28.940237+05:30
+(1 row)
+
+
+university_db=# SELECT CURRENT_TIMESTAMP;
+        current_timestamp
+---------------------------------
+ 2026-04-05 18:26:49.07202+05:30
+(1 row)
+
+
+university_db=# SELECT NOW();
+               now
+----------------------------------
+ 2026-04-05 18:27:01.822839+05:30
+(1 row)
+
+
+university_db=# SELECT AGE(CURRENT_DATE,enrollment_date) FROM entrollments;
+ERROR:  relation "entrollments" does not exist
+LINE 1: SELECT AGE(CURRENT_DATE,enrollment_date) FROM entrollments;
+                                                      ^
+university_db=# SELECT AGE(CURRENT_DATE,enrollment_date) FROM enrollments;
+  age
+-------
+ 1 day
+ 1 day
+ 1 day
+ 1 day
+(4 rows)
+
+
+university_db=# SELECT AGE(NOW(),enrollment_date) FROM enrollments;
+          age
+-----------------------
+ 1 day 18:29:20.418717
+ 1 day 18:29:20.418717
+ 1 day 18:29:20.418717
+ 1 day 18:29:20.418717
+(4 rows)
+
+
+university_db=# SELECT EXTRACT(YEAR FROM CURRENT_DATE);
+ extract
+---------
+    2026
+(1 row)
+
+
+university_db=# SELECT EXTRACT(MOTH FROM CURRENT_DATE);
+ERROR:  unit "moth" not recognized for type date
+university_db=# SELECT EXTRACT(MO,TH FROM CURRENT_DATE);
+ERROR:  syntax error at or near ","
+LINE 1: SELECT EXTRACT(MO,TH FROM CURRENT_DATE);
+                         ^
+university_db=# SELECT EXTRACT(MONTH FROM CURRENT_DATE);
+ extract
+---------
+       4
+(1 row)
+
+
+university_db=# SELECT EXTRACT(DAY FROM CURRENT_DATE);
+ extract
+---------
+       5
+(1 row)
+
+
+university_db=# SELECT DATE_PART('year',CURRENT_DATE);
+ date_part
+-----------
+      2026
+(1 row)
+
+
+university_db=# SELECT DATE_PART('month',CURRENT_DATE);
+ date_part
+-----------
+         4
+(1 row)
+
+
+university_db=# SELECT DATE_PART('day',CURRENT_DATE);
+ date_part
+-----------
+         5
+(1 row)
+
+
+university_db=# SELECT TO_CHAR(CURRENT_DATE,'DD-MM-YYYY');
+  to_char
+------------
+ 05-04-2026
+(1 row)
+
+
+university_db=# SELECT TO_CHAR(CURRENT_DATE,'year');
+ to_char
+---------
+ 6ear
+(1 row)
+
+
+university_db=# SELECT TO_CHAR(CURRENT_DATE,'month');
+  to_char
+-----------
+ april
+(1 row)
+
+
+university_db=# SELECT TO_CHAR(CURRENT_DATE,'day');
+  to_char
+-----------
+ sunday
+(1 row)
+
+
+university_db=# SELECT CURRENT_DATE+INTERVAL '7 days';
+      ?column?
+---------------------
+ 2026-04-12 00:00:00
+(1 row)
+
+
+university_db=# SELECT CURRENT_DATE - INTERVAL '1 month';
+      ?column?
+---------------------
+ 2026-03-05 00:00:00
+(1 row)
+
+
+university_db=# SELECT AGE(CURRENT_DATE, enrollment_date)
+university_db-#
+university_db-# ;
+ERROR:  column "enrollment_date" does not exist
+LINE 1: SELECT AGE(CURRENT_DATE, enrollment_date)
+                                 ^
+university_db=# SELECT DATE_TRUNC('month',CURRENT_TIMESTAMP);
+        date_trunc
+---------------------------
+ 2026-04-01 00:00:00+05:30
+(1 row)
+
+
+university_db=# SELECT DATE_TRUNC('year',CURRENT_TIMESTAMP);
+        date_trunc
+---------------------------
+ 2026-01-01 00:00:00+05:30
+(1 row)
+
+
+university_db=# SELECT DATE_TRUNC('day',CURRENT_TIMESTAMP);
+        date_trunc
+---------------------------
+ 2026-04-05 00:00:00+05:30
+(1 row)
+
+
+university_db=# SELECT *
+university_db-# FROM enrollments
+university_db-# WHERE enrollment_date >= CURRENT_DATE - INTERVAL '7 days';
+ enrollment_id | student_id | course_id | enrollment_date
+---------------+------------+-----------+-----------------
+             1 |          1 |         1 | 2026-04-04
+             2 |          1 |         2 | 2026-04-04
+             3 |          2 |         3 | 2026-04-04
+             4 |          3 |         1 | 2026-04-04
+(4 rows)
+
+
+university_db=# SELECT * FROM students;
+ student_id |   name    |      email      | age | dept_id
+------------+-----------+-----------------+-----+---------
+          2 | Amit      | amit@gmail.com  |  22 |       2
+          3 | Sneha     | sneha@gmail.com |  20 |       1
+          1 | Viraj     | viraj@gmail.com |  22 |       1
+          5 | TestUser  | test@gmail.com  |  18 |       1
+          6 | testUser2 |                 |  23 |       3
+          7 | Sham      | sham@gmail.com  |  24 |
+(6 rows)
+
+
+university_db=# SELECT * FROM enrollments;
+ enrollment_id | student_id | course_id | enrollment_date
+---------------+------------+-----------+-----------------
+             1 |          1 |         1 | 2026-04-04
+             2 |          1 |         2 | 2026-04-04
+             3 |          2 |         3 | 2026-04-04
+             4 |          3 |         1 | 2026-04-04
+(4 rows)
+
+
+university_db=# INSERT INTO enrollments (student_id, course_id, enrollment_date) VALUES
+university_db-# (3, 3, '2026-03-28'),
+university_db-# (4, 2, '2026-04-01');
+ERROR:  insert or update on table "enrollments" violates foreign key constraint "enrollments_student_id_fkey"
+DETAIL:  Key (student_id)=(4) is not present in table "students".
+university_db=# INSERT INTO enrollments (student_id, course_id, enrollment_date) VALUES
+university_db-# (3, 3, '2026-03-28'),
+university_db-# (5, 2, '2026-04-01');
+INSERT 0 2
+university_db=# SELECT
+university_db-# TO_CHAR(enrollment_date, 'Month') AS month,
+university_db-# COUNT(*)
+university_db-# FROM enrollments
+university_db-# GROUP BY month;
+   month   | count
+-----------+-------
+ March     |     1
+ April     |     5
+(2 rows)

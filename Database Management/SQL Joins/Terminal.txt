@@ -1,0 +1,357 @@
+viraj@DESKTOP-K3HJN7T MINGW64 ~
+$ psql -U postgres
+Password for user postgres:
+
+psql (18.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \l
+                                                              List of databases
+     Name      |  Owner   | Encoding | Locale Provider |      Collate       |       Ctype        | Locale | ICU Rules |   Access privileges
+---------------+----------+----------+-----------------+--------------------+--------------------+--------+-----------+-----------------------
+ postgres      | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           |
+ template0     | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+               |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+ template1     | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           | =c/postgres          +
+               |          |          |                 |                    |                    |        |           | postgres=CTc/postgres
+ university_db | postgres | UTF8     | libc            | English_India.1252 | English_India.1252 |        |           |
+(4 rows)
+
+
+postgres=# \c university_db
+You are now connected to database "university_db" as user "postgres".
+university_db=# \dt
+             List of tables
+ Schema |    Name     | Type  |  Owner
+--------+-------------+-------+----------
+ public | courses     | table | postgres
+ public | departments | table | postgres
+ public | enrollments | table | postgres
+ public | students    | table | postgres
+(4 rows)
+
+
+university_db=# -- Inner join
+university_db=# SELECT students.name, departments.dept_name
+university_db-# FROM students
+university_db-# INNER JOIN departments
+university_db-# ON students.dept_id=departments.dept_id;
+   name    |       dept_name
+-----------+------------------------
+ TestUser  | Computer Science
+ Viraj     | Computer Science
+ Sneha     | Computer Science
+ Amit      | Information Technology
+ testUser2 | ENTC
+(5 rows)
+
+
+university_db=# -- Left join
+university_db=# SELECT students.name, departments.dept_name
+university_db-# FROM students
+university_db-# LEFT JOIN departments
+university_db-# ON students.dept_id=departments.dept_id;
+   name    |       dept_name
+-----------+------------------------
+ TestUser  | Computer Science
+ Viraj     | Computer Science
+ Sneha     | Computer Science
+ Amit      | Information Technology
+ testUser2 | ENTC
+(5 rows)
+
+
+university_db=# -- Right join
+university_db=# SELECT students.name, departments.dept_name
+university_db-# FROM students
+university_db-# RIGHT JOIN departments
+university_db-# ON students.dept_id=departments.dept_id;
+   name    |       dept_name
+-----------+------------------------
+ TestUser  | Computer Science
+ Viraj     | Computer Science
+ Sneha     | Computer Science
+ Amit      | Information Technology
+ testUser2 | ENTC
+(5 rows)
+
+
+university_db=# INSERT INTO students VALUES
+university_db-# ('Sham','sham@gmail.com',24,NULL);
+ERROR:  invalid input syntax for type integer: "Sham"
+LINE 2: ('Sham','sham@gmail.com',24,NULL);
+         ^
+university_db=# INSERT INTO students (name, email, age, dept_id) VALUES
+university_db-# ('Sham','sham@gmail.com',24,NULL);
+INSERT 0 1
+university_db=# INSERT INTO departments (dept_name) VALUES
+university_db-# ('Mechanical'),
+university_db-# ('Electrical');
+INSERT 0 2
+university_db=# SELECT * FROM students;
+ student_id |   name    |      email      | age | dept_id
+------------+-----------+-----------------+-----+---------
+          2 | Amit      | amit@gmail.com  |  22 |       2
+          3 | Sneha     | sneha@gmail.com |  20 |       1
+          1 | Viraj     | viraj@gmail.com |  22 |       1
+          5 | TestUser  | test@gmail.com  |  18 |       1
+          6 | testUser2 |                 |  23 |       3
+          7 | Sham      | sham@gmail.com  |  24 |
+(6 rows)
+
+
+university_db=# SELECT * FROM departments;
+ dept_id |       dept_name
+---------+------------------------
+       1 | Computer Science
+       2 | Information Technology
+       3 | ENTC
+       4 | Mechanical
+       5 | Electrical
+(5 rows)
+
+
+university_db=# -- Left join
+university_db=# SELECT students.name, departments.dept_name
+university_db-# FROM students
+university_db-# LEFT JOIN departments
+university_db-# ON students.dept_id=departments.dept_id;
+   name    |       dept_name
+-----------+------------------------
+ TestUser  | Computer Science
+ Viraj     | Computer Science
+ Sneha     | Computer Science
+ Amit      | Information Technology
+ testUser2 | ENTC
+ Sham      |
+(6 rows)
+
+
+university_db=# -- Right join
+university_db=# SELECT students.name, departments.dept_name
+university_db-# FROM students
+university_db-# RIGHT JOIN departments
+university_db-# ON students.dept_id=departments.dept_id;
+   name    |       dept_name
+-----------+------------------------
+ TestUser  | Computer Science
+ Viraj     | Computer Science
+ Sneha     | Computer Science
+ Amit      | Information Technology
+ testUser2 | ENTC
+           | Mechanical
+           | Electrical
+(7 rows)
+
+
+university_db=# --Full Join
+university_db=# SELECT students.name, departments.dept_name
+university_db-# FROM students
+university_db-# FULL JOIN departments
+university_db-# ON students.dept_id=departments.dept_id;
+   name    |       dept_name
+-----------+------------------------
+ TestUser  | Computer Science
+ Viraj     | Computer Science
+ Sneha     | Computer Science
+ Amit      | Information Technology
+ testUser2 | ENTC
+           | Mechanical
+           | Electrical
+ Sham      |
+(8 rows)
+
+
+university_db=# -- CROSS JOIN
+university_db=# SELECT * FROM courses;
+ course_id |    course_name    | credits
+-----------+-------------------+---------
+         1 | Database Systems  |       4
+         2 | Operating Systems |       3
+         3 | Computer Networks |       4
+         4 | Mathematics       |       5
+(4 rows)
+
+
+university_db=# SELECT students.name, courses.course_name
+university_db-# FROM students
+university_db-# CROSS JOIN courses;
+   name    |    course_name
+-----------+-------------------
+ Amit      | Database Systems
+ Sneha     | Database Systems
+ Viraj     | Database Systems
+ TestUser  | Database Systems
+ testUser2 | Database Systems
+ Sham      | Database Systems
+ Amit      | Operating Systems
+ Sneha     | Operating Systems
+ Viraj     | Operating Systems
+ TestUser  | Operating Systems
+ testUser2 | Operating Systems
+ Sham      | Operating Systems
+ Amit      | Computer Networks
+ Sneha     | Computer Networks
+ Viraj     | Computer Networks
+ TestUser  | Computer Networks
+ testUser2 | Computer Networks
+ Sham      | Computer Networks
+ Amit      | Mathematics
+ Sneha     | Mathematics
+ Viraj     | Mathematics
+ TestUser  | Mathematics
+ testUser2 | Mathematics
+ Sham      | Mathematics
+(24 rows)
+
+
+university_db=# SELECT s1.name AS student1, s2.name AS student2, s1.dept_id
+university_db-# FROM students AS s1
+university_db-# JOIN students AS s2
+university_db-# ON s1.dept_id=s2.dept_id AND s1.student_id!=s2.student_id;
+ student1 | student2 | dept_id
+----------+----------+---------
+ Sneha    | TestUser |       1
+ Sneha    | Viraj    |       1
+ Viraj    | TestUser |       1
+ Viraj    | Sneha    |       1
+ TestUser | Viraj    |       1
+ TestUser | Sneha    |       1
+(6 rows)
+
+
+university_db=# SELECT students.name, courses.course_name
+university_db-# FROM students
+university_db-# JOIN enrollments
+university_db-# ON students.student_id=enrollments.student_id
+university_db-# JOIN courses
+university_db-# ON courses.course_id=entrollments.course_id;
+ERROR:  missing FROM-clause entry for table "entrollments"
+LINE 6: ON courses.course_id=entrollments.course_id;
+                             ^
+university_db=# SELECT students.name, courses.course_name
+university_db-# FROM students
+university_db-# JOIN enrollments
+university_db-# ON students.student_id=enrollments.student_id
+university_db-# JOIN courses
+university_db-# ON courses.course_id=enrollments.course_id;
+ name  |    course_name
+-------+-------------------
+ Viraj | Database Systems
+ Viraj | Operating Systems
+ Amit  | Computer Networks
+ Sneha | Database Systems
+(4 rows)
+
+
+university_db=# SELECT students.name,
+university_db-# departments.dept_name,
+university_db-# courses.course_name
+university_db-# FROM students
+university_db-# JOIN departments
+university_db-# ON students.dept_id = departments.dept_id
+university_db-# JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# JOIN courses
+university_db-# ON enrollments.course_id = courses.course_id;
+ name  |       dept_name        |    course_name
+-------+------------------------+-------------------
+ Viraj | Computer Science       | Database Systems
+ Viraj | Computer Science       | Operating Systems
+ Amit  | Information Technology | Computer Networks
+ Sneha | Computer Science       | Database Systems
+(4 rows)
+
+
+university_db=# -- Show all students including those not enrolled yet
+university_db=# SELECT students.name, courses.course_name
+university_db-# FROM students
+university_db-# LEFT JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# LEFT JOIN courses
+university_db-# ON enrollments.course_id = courses.course_id;
+   name    |    course_name
+-----------+-------------------
+ Viraj     | Database Systems
+ Viraj     | Operating Systems
+ Amit      | Computer Networks
+ Sneha     | Database Systems
+ TestUser  |
+ testUser2 |
+ Sham      |
+(7 rows)
+
+
+university_db=# SELECT students.name, COUNT(enrollments.course_id) AS total_courses
+university_db-# FROM students
+university_db-# LEFT JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# GROUP BY students.student_id;
+   name    | total_courses
+-----------+---------------
+ Amit      |             1
+ Sham      |             0
+ testUser2 |             0
+ Viraj     |             2
+ Sneha     |             1
+ TestUser  |             0
+(6 rows)
+
+
+university_db=# SELECT students.name, COUNT(enrollments.course_id) AS total_courses
+university_db-# FROM students
+university_db-# LEFT JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# GROUP BY students.student_id
+university_db-# HAVING total_courses > 1;
+ERROR:  column "total_courses" does not exist
+LINE 6: HAVING total_courses > 1;
+               ^
+university_db=# SELECT students.name, COUNT(enrollments.course_id) AS total_courses
+university_db-# FROM students
+university_db-# LEFT JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# GROUP BY students.student_id
+university_db-# HAVING  COUNT(enrollments.course_id) > 1;
+university_db=# SELECT students.name, COUNT(enrollments.course_id) AS total_courses
+university_db-# FROM students
+university_db-# LEFT JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# GROUP BY students.student_id
+university_db-# HAVING  COUNT(enrollments.course_id) > 0;
+ name  | total_courses
+-------+---------------
+ Amit  |             1
+ Viraj |             2
+ Sneha |             1
+(3 rows)
+
+
+university_db=# SELECT students.name, COUNT(enrollments.course_id) AS total_courses
+university_db-# FROM students
+university_db-# LEFT JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# GROUP BY students.student_id
+university_db-# HAVING  COUNT(*) > 1;
+ name  | total_courses
+-------+---------------
+ Viraj |             2
+(1 row)
+
+
+university_db=# SELECT students.name, courses.course_name
+university_db-# FROM students
+university_db-# JOIN enrollments
+university_db-# ON students.student_id = enrollments.student_id
+university_db-# JOIN courses
+university_db-# ON enrollments.course_id = courses.course_id
+university_db-# WHERE students.dept_id = 1;
+ name  |    course_name
+-------+-------------------
+ Viraj | Database Systems
+ Viraj | Operating Systems
+ Sneha | Database Systems
+(3 rows)
