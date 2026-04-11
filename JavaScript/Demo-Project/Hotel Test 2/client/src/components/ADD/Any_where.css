@@ -1,0 +1,27 @@
+.searchkar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.any_image {
+    width: 30px;
+    height: 30px;
+    margin-left:1px; /* Adjust margin as needed */
+
+}
+.any_input {
+    padding: 10x; /* Adjust padding as needed */
+    border-radius:15px;
+    outline: none;
+    /* border:3px solid rgba(255, 166, 0, 0.67); */
+    /* border: 4px solid #A855F7; */
+    /* box-shadow: 1.2px 1.2px 1.2px 1.2px lightgrey; */
+    box-shadow: 
+    0 -1.2px 1.2px -1.2px lightgrey,   /* Top shadow */
+    0 4px 6px -1px lightgrey,    /* Bottom shadow */
+    -1.2px 0 2px -1px lightgrey,   /* Left shadow */
+    1.2px 0 2px -1px lightgrey;    /* Right shadow */
+
+        background-color:white;
+}

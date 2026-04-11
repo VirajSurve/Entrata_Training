@@ -1,0 +1,136 @@
+/* Reviews.css */
+.last {
+  margin-top: 2rem;
+  position: relative;
+  bottom: 1rem;
+  width: 100%;
+  background-color: white;
+}
+
+.first-line {
+  font-size: x-large;
+  font-weight: 500;
+  /* margin: 35px 0 35px 190px; */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-right: 10rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7rem;
+  justify-content: center;
+}
+
+.review-item {
+  display: flex;
+  align-items: center;
+}
+
+.vline {
+  width: 1px;
+  height: 100px;
+  background-color: gainsboro;
+  margin-left: 65px;
+}
+
+.pl1 {
+  gap: 20px;
+  display: grid;
+  font-weight: 600;
+  text-align: center;
+}
+
+.icon {
+    width: 2rem;
+    height: auto;
+    justify-self: center;
+}
+
+/* @media (min-width:769px){
+  .last {
+    margin-top: 120px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+  }
+  
+  .first-line {
+    font-size: 27px;
+    font-weight: 500;
+    margin: 35px 0px 35px 190px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 65px;
+    justify-content: center;
+  }
+  
+  .vline {
+    width: 0.1px;
+    height: 100px;
+    background-color: gainsboro;
+    margin-left: 65px;
+  }
+  
+  .row4,
+  .row5,
+  .row6,
+  .row7,
+  .row8,
+  .row9 {
+    display: flex;
+    margin-bottom: 30px;
+  }
+  
+  #pl1 {
+    gap: 20px;
+    display: grid;
+    font-weight: 600;
+  }
+} */
+
+@media (max-width: 768px) {
+  .last {
+    margin-top: 0;
+    position: relative;
+    background-color: white;
+    padding-bottom: 1rem;
+  }
+
+  .first-line {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+  .row {
+    gap: 10px;
+  }
+
+  .review-item {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .vline {
+    display: none;
+  }
+
+  .pl1 {
+    font-size: small;
+    padding: 0.5rem;
+  }
+
+  .icon {
+    width: 2rem;
+    height: auto;
+    justify-self: center;
+  }
+}

@@ -1,0 +1,21 @@
+/* Add these styles to your existing CSS file */
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Optional: Add some styles for the carousel controls */
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .chevron {
+    color: #000;
+  }
+  

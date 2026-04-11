@@ -1,0 +1,165 @@
+/* Base Styles */
+.header {
+  display: flex;
+  justify-content:space-evenly;
+  padding: 0px;
+  margin-left: 70px;
+  margin-right: 70px;
+  gap:0px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 4px;
+  padding-right: 20px;
+}
+
+.icon {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  gap: 8px;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  
+}
+
+.separator {
+  border-left: 1px solid #ccc;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.search-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.profile1 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.profile1:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.circle-icon {
+  background-color: #007BFF;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first-letter {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .header {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .logo {
+    font-size: 14px;
+    margin-left: 0px;
+    padding: 0px;
+  }
+
+  .logo-container {
+    padding-left: 0px;
+  }
+
+  .search-container{
+    
+    width: 150px;
+    height:40px;
+    position: relative;
+    padding: 2px;
+    
+  }
+
+  .cursor-pointer{
+    
+    display: none;
+    font-size: small;
+  }
+
+  .separator{
+    display: none;
+  }
+
+  .search-button{
+    position:absolute;
+    margin-left: 75%;
+    height: 30px;
+    width: 30px;
+    padding: 4px;
+    top: 4px;
+  }
+
+  .profile1{
+    position: relative;
+    height: 40px;
+    width: 60px;
+    gap:1px;
+    padding: 3px;
+  }
+  .search-icon{
+    
+  }
+  .menu-icon{
+    max-height: 20px;
+  }
+  .circle-icon{
+    max-height: 28px;
+    max-width: 28px;
+
+  }
+}

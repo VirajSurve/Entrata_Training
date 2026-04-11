@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown Timer - Exp5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Countdown Timer</h1>
+        <div class="timer-controls">
+            <label for="datetimeInput">Enter date and time:</label>
+            <input type="datetime-local" id="datetimeInput">
+            <button onclick="submitDateTime()" class="btn">Submit</button>
+            <button onclick="startTimer()" class="btn">Start</button>
+            <button onclick="resetTimer()" class="btn">Reset</button>
+        </div>
+        <div id="timerDisplay" class="timer-display">00:00:00</div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

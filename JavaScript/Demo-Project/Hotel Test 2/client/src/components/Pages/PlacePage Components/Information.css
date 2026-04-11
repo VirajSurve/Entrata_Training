@@ -1,0 +1,65 @@
+.type {
+  font-size: x-large;
+  margin-left: 32px;
+  margin-top: 20px;
+}
+
+.space {
+  margin-left: 33px;
+  font-size: 17px;
+}
+
+.chart {
+  position: sticky;
+  height: 515px;
+  width: 382px;
+  padding: 1rem;
+  margin: 1rem 0px 0px 0px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid gainsboro;
+  background-color: white;
+  /* top: 50px; 
+  left: 20px;  */
+  right: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.information {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+#price {
+  font-size: larger;
+}
+
+.bookbutton {
+  display: block;
+  border-radius: 10px;
+  background-color: #A855F7;
+  width: 325px;
+  height: 50px;
+  font-size: 15px;
+  margin: 20px auto 0 auto; /* Centering the button */
+}
+
+@media (max-width:768px){
+  .address{
+    font-size: large;
+    font-weight: 500;
+  }
+}
+

@@ -1,0 +1,108 @@
+.payment-div {
+  height: 850px;
+  width: 600px;
+  margin: 40px;
+  margin-top: 50px;
+  border: 1px solid gainsboro;
+  border-radius: 12px;
+}
+
+.upper-box {
+  height: 60px;
+  width: 550px;
+  border-radius: 12px;
+  border: 1px solid rgb(182, 174, 174);
+  margin-top: 20px;
+}
+
+.upper-box2 {
+  height: 60px;
+  width: 550px;
+  border-radius: 12px;
+  border: 1px solid rgb(182, 174, 174);
+}
+
+.middle-box {
+  height: 120px;
+  width: 550px;
+  border-radius: 12px;
+  border: 1px solid rgb(182, 174, 174);
+  margin-top: 20px;
+}
+
+.horizontal-line1 {
+  width: 550px;
+  height: 1px;
+  background-color: gainsboro;
+}
+
+.horizontal-line2 {
+  width: 550px;
+  height: 1px;
+  background-color: rgb(182, 174, 174);
+}
+
+.ic1 {
+  width: 30px;
+  height: 30px;
+}
+
+.ic2 {
+  width: 50px;
+  height: 30px;
+}
+
+.pay-button {
+  height: 50px;
+  width: 200px;
+  background-image: linear-gradient(to right, rgb(96, 2, 96), rgb(64, 14, 99));
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.custom-content {
+  display: flex;
+  justify-content: center;
+  min-height: 70px;
+  gap: 30px;
+}
+
+.custom-content .inputbox1 {
+  position: relative;
+  width: 200px;
+}
+.custom-content .inputbox1 input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(182, 174, 174);
+  border-radius: 12px;
+  outline: none;
+  font-size: 1em;
+  background-color: #ffffff;
+}
+
+.custom-content1 {
+  display: flex;
+  justify-content: center;
+  min-height: 70px;
+  gap: 30px;
+}
+
+.custom-content1 .inputbox1 {
+  position: relative;
+  width: 565px;
+}
+
+.r {
+  color: rgb(182, 174, 174);
+}
+.custom-content1 .inputbox1 input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid rgb(182, 174, 174);
+  border-radius: 12px;
+  outline: none;
+  font-size: 1em;
+  background-color: #ffffff;
+}

@@ -1,0 +1,107 @@
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-text {
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.recom {
+  font-weight: 400;
+}
+
+.guest {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.move {
+  margin-left: 1.2rem;
+  position: relative;
+  top: 1rem;
+}
+
+.rating-star{
+  position: relative;
+  bottom: 1rem;
+}
+
+.stars {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%; /* Full width */
+  max-width: 650px; /* Set a maximum width if needed */
+  height: auto; /* Adjust height as needed */
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  /* transition: background-color 0.3s; */
+}
+
+.vertical-line {
+  width: 0.1px; /* Adjust thickness */
+  height: 45px; /* Adjust height */
+  background-color: gainsboro; /* Adjust color */
+  margin: 10px; /* Optional, for spacing */
+}
+
+.stars:hover {
+  background-color: ghostwhite; /* Background color on hover */
+}
+
+.owner-profile {
+  margin: 30px 0px 20px 0; /* Top, right, bottom, left */
+  display: flex;
+  gap: 25px;
+}
+
+#exp {
+  font-weight: 400;
+  font-size: 15px;
+  color: grey;
+}
+
+#name {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .review-container {
+    /* Additional styles if needed */
+  }
+  .guest{
+    visibility: hidden;
+    display: none;
+  }
+  .recom{
+    visibility: hidden;
+    display: none;
+  }
+  .rate{
+    position: relative;
+  }
+  .move{
+    margin-left: 1rem;
+    position: relative;
+    top: 1rem;
+  }
+  .stars{
+    width: 90%;
+    margin-left: 1rem;
+  }
+  .owner-profile{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .rating-star{
+    position: relative;
+    bottom: 1rem;
+  }
+}

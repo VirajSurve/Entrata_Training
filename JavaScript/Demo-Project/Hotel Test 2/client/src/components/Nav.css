@@ -1,0 +1,83 @@
+.wrapper {
+  display: flex;
+  max-height: 100%;
+  overflow-x: auto;
+  position: fixed; /* Position relative to the nearest positioned ancestor */
+  top: 160px; /* Set this value to match the height of the .head */
+  z-index: 4;
+  background-color: white;
+  width: 100%; /* Ensure it spans the full width */
+  padding: 0 20px; /* Optional padding for spacing */
+  border-top: 1px solid rgb(216, 216, 227);
+  margin-top: 8px;
+}
+.wrapper::-webkit-scrollbar {
+  width: 0;
+}
+
+.p-2 {
+  min-width: 110px;
+  line-height: 5px;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.para {
+  align-items: center;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #808080;
+  transition: color 0.3s ease; /* Change to 'color' for smoother transition */
+}
+
+.icon-button:hover .para {
+  color: #303030;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative; /* Required for the underline positioning */
+  padding: 8px;
+}
+
+.icon-button svg {
+  transition: fill 0.3s ease;
+}
+
+.icon-button:hover svg {
+  fill: #303030;
+}
+
+.icon-button .underline {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background-color: #303030;
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateX(-50%); /* Center the underline */
+}
+
+.icon-button:hover .underline {
+  width: 100%;
+  left: 50%; /* Keep left at 50% for centering */
+  background-color: #d3d3d3;
+}
+
+.icon-button .underline1 {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  height: 2px;
+  width: 100%;
+  background-color: #303030;
+  transform: translateX(-50%); /* Center the underline */
+}

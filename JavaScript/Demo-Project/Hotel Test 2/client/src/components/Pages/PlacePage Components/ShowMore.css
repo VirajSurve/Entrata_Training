@@ -1,0 +1,47 @@
+.S {
+  text-decoration: underline;
+}
+
+.model-wrapper1 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 50; /* Ensure this is high enough */
+  background: white; /* Semi-transparent background */
+}
+
+.show-more-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 51; /* Ensure this is higher than model-wrapper1 */
+}
+
+.more {
+  position: relative;
+  z-index: 52;
+  /* Adjust as needed to avoid overlapping with the fixed header */
+}
+
+.cir {
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: initial;
+}
+
+.cir:hover {
+  background-color: gainsboro;
+}
+
+.cir i {
+  font-size: 1.25rem; /* text-lg equivalent */
+}

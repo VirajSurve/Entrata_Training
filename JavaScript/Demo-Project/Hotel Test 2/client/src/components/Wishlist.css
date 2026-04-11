@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.box-img2 {
+  height: 290px;
+  width: 100%;
+  max-width: 310px;
+  border-radius: 10%;
+  cursor: pointer;
+  padding: 5px;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.centerit {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  height: 750px;
+}
+
+.res {
+  font-size: 16px;
+}
+
+@media (max-width: 1500px) {
+  .container2 {
+    height: 750px;
+  }
+
+  .box-img2 {
+    height: 300px;
+    width: 100%;
+  }
+  .res {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .container2 {
+    height: 700px;
+  }
+  .box-img2 {
+    height: 280px;
+    width: 290px;
+  }
+  .res {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .container2 {
+    height: 650px;
+  }
+  .box-img2 {
+    height: 255px;
+    width: 265px;
+  }
+  .res {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container2 {
+    height: 600px;
+  }
+  .box-img2 {
+    height: 240px;
+    width: 250px;
+    margin-bottom: 10px;
+  }
+  .res {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .container2 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .box-img2 {
+    height: 295px;
+    width: 310px;
+    margin-bottom: 10px; /* Adjusted bottom gap */
+  }
+
+  .res {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container2 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .box-img2 {
+    height: 275px;
+    width: 282px;
+    margin-bottom: 10px; /* Adjusted bottom gap */
+  }
+
+  .res {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container2 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .box-img2 {
+    height: 255px;
+    width: 262px;
+    margin-bottom: 10px; /* Adjusted bottom gap */
+  }
+
+  .res {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 850px) {
+  .container2 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .box-img2 {
+    height: 245px;
+    width: 253px;
+    margin-bottom: 10px; /* Adjusted bottom gap */
+  }
+
+  .res {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 800px) {
+  .container2 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .box-img2 {
+    height: 230px;
+    width: 235px;
+    margin-bottom: 10px; /* Adjusted bottom gap */
+  }
+
+  .res {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 750px) {
+  .container2 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .box-img2 {
+    height: 220px;
+    width: 225px;
+    margin-bottom: 10px; /* Adjusted bottom gap */
+  }
+
+  .res {
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .box-img2 {
+    height: 300px;
+    width: 100%;
+  }
+  .res {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 650px) {
+  .container2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .box-img2 {
+    height: 270px;
+    width: 280px;
+  }
+  .res {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .box-img2 {
+    height: 250px;
+    width: 260px;
+  }
+  .res {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 550px) {
+  .container2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .box-img2 {
+    height: 230px;
+    width: 245px;
+  }
+  .res {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container2 {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+
+  .box-img2 {
+    height: 310px;
+    width: 310px;
+  }
+  .res {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 470px) {
+  .container2 {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+
+  .box-img2 {
+    height: 290px;
+    width: 295px;
+  }
+  .res {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 440px) {
+  .container2 {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+
+  .box-img2 {
+    height: 270px;
+    width: 285px;
+  }
+  .res {
+    font-size: 13px;
+  }
+}

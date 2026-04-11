@@ -1,0 +1,8 @@
+.bookbutton1 {
+    display: block;
+    border-radius: 10px;
+    background-color: rgb(228, 66, 99);
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+  }

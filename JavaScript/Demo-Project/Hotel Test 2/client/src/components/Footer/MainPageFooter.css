@@ -1,0 +1,30 @@
+.i {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 60px;
+  margin-right: 60px;
+  color: rgb(38, 37, 37);
+  font-size: 2vh;
+  margin-bottom: 5px;
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 1000;
+  background-color: white;
+}
+
+.i1 {
+  display: flex;
+  gap: 8px;
+}
+
+.i2 {
+  display: flex;
+  gap: 20px;
+  font-weight: 600;
+}

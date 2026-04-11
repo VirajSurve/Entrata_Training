@@ -1,0 +1,17 @@
+.icon1,
+.icon2,
+.icon3,
+.icon4,
+.icon5,
+.icon6,
+.icon7,
+.icon8 {
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+}
+
+.c1 {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,20 @@
+.book-page1 {
+  height: 550px;
+  width: 460px;
+  margin: 10px;
+  border-radius: 12px;
+  border: 1px solid gainsboro;
+  top: 50px;
+  left: 220px;
+  position: sticky; /* Make the element sticky */
+  top: 20px; /* The element will stick to the top when scrolled to 20px from the top */
+}
+
+.done {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* 3 columns, each taking up equal space */
+  gap: 1rem; /* Adjust the gap between columns as needed */
+}

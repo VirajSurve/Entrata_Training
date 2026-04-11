@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Successful</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html" class="btn btn-logout">Logout</a>
+
+    <div class="container">
+        <div class="success-message">
+            <h1>Congratulations, <span id="studentName"></span>!</h1>
+            <p>Your form has been submitted successfully.</p>
+        </div>
+    </div>
+
+    <script>
+        // *** UPDATED SCRIPT HERE ***
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Read the name from localStorage
+            const name = localStorage.getItem('studentName');
+            
+            if (name) {
+                document.getElementById('studentName').textContent = name;
+            } else {
+                document.getElementById('studentName').textContent = 'Student';
+            }
+        });
+    </script>
+</body>
+</html>

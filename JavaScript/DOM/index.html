@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complete DOM Demo</title>
+    <style>
+        body{
+            font-family: Verdana, sans-serif;
+            padding: 16px;
+        }
+        .highlight{
+            background-color: #ffef9f;
+            border: 2px solid #f2b705;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        #output,#methodOutput{
+            margin-top: 8px;
+            padding: 10px;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            background-color: #fafafa;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="title">DOM Demo</h2>
+
+    <button onclick="changeText()">Change Heading</button>
+    <button onclick="changeColor()">Change Background</button>
+    <button onclick="highlightHeading()">Highlight Heading</button>
+
+    <br><br>
+
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="showName()">Show Name</button>
+
+    <p><b>Result Area:</b></p>
+    <p id="output"></p>
+    <p><b>Method Used:</b></p>
+    <p id="methodOutput"></p>
+
+    <br>
+
+    <button onclick="addItem()">Add List Item</button>
+    <button onclick="removeItem()">Remove List Item</button>
+
+    <ul id="list">
+        <li>Existing Item</li>
+    </ul>
+
+    <br>
+
+    <button onclick="changeAttribute()">Change Image</button>
+    <br><br>
+
+    <img id="myImage"
+    src="https://picsum.photos/seed/picsum/200/200"
+    width="100">
+
+    <br><br>
+
+    <button onclick="addClass()">Add CSS Class</button>
+    <button onclick="removeClass()">Remove CSS Class</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Complete Demo</title>
+</head>
+<body>
+
+<h2>AJAX Complete Demo</h2>
+
+<h3>GET Methods</h3>
+
+<button onclick="loadUsersXHR()">Load Users (XMLHttpRequest)</button>
+
+<br><br>
+
+<button onclick="loadUsersFetch()">Load Users (Fetch)</button>
+
+<br><br>
+
+<button onclick="loadUsersAsync()">Load Users (Async/Await)</button>
+
+<h3>POST Methods</h3>
+
+<button onclick="createPostXHR()">Create Post (XMLHttpRequest)</button>
+
+<br><br>
+
+<button onclick="createPostFetch()">Create Post (Fetch)</button>
+
+<br><br>
+
+<button onclick="createPostAsync()">Create Post (Async/Await)</button>
+
+<p id="status"></p>
+
+<ul id="userList"></ul>
+
+<script src="script.js"></script>
+
+</body>
+</html>

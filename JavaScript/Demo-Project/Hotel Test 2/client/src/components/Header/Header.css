@@ -1,0 +1,294 @@
+/* Base styles (for larger screens) */
+.custom-popup {
+  position: absolute !important;
+  top: -975px !important;
+  left: 410.594px !important;
+  z-index: 999 !important;
+  background-color: black;
+}
+
+.parent-container1 {
+  display: flex;
+  justify-content: center;
+}
+
+.circle-icon {
+  width: 33px;
+  height: 33px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first-latter {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.wow {
+  display: flex;
+  width: 800px;
+  height: 60px;
+  justify-content: space-between;
+}
+
+.now {
+  width: 800px;
+  height: 65px;
+  display: flex;
+  gap: 2px;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  justify-content: space-between;
+}
+
+.header {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.timepass {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+  font-weight: 500;
+  position: absolute;
+  left: 43%;
+}
+
+.head {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+  height: 160px;
+}
+
+.header-container {
+  transform-origin: top;
+}
+
+.header {
+  transition: transform 0.3s ease;
+}
+
+/* Responsive styles for large screens (1090px and below) */
+@media (max-width: 1090px) {
+  .wow, .now {
+    width: calc(100% - 20px);
+    padding: 0 10px;
+  }
+
+  .timepass {
+    gap: 20px;
+    font-size: 14px;
+    left: 5%;
+  }
+
+  .custom-popup {
+    width: 200px !important;
+    height: 90px !important;
+    top: 100px !important;
+    left: 10px !important;
+  }
+}
+
+/* Responsive styles for medium screens (768px and below) */
+@media (max-width: 768px) {
+  .wow, .now {
+    width: calc(100% - 20px);
+    height: auto;
+  }
+
+  .header {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .circle-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .first-latter {
+    font-size: 11px;
+  }
+
+  .timepass {
+    gap: 15px;
+    font-size: 12px;
+    left: 2%;
+  }
+
+  .custom-popup {
+    width: 180px !important;
+    height: 80px !important;
+    top: 80px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for small tablets and large mobile screens (600px and below) */
+@media (max-width: 600px) {
+  .header {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .circle-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .first-latter {
+    font-size: 9px;
+  }
+
+  .timepass {
+    gap: 10px;
+    font-size: 10px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 150px !important;
+    height: 60px !important;
+    top: 60px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for mobile screens (480px and below) */
+@media (max-width: 480px) {
+  .header {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .circle-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .first-latter {
+    font-size: 8px;
+  }
+
+  .timepass {
+    gap: 8px;
+    font-size: 9px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 130px !important;
+    height: 50px !important;
+    top: 50px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for very small screens (360px and below) */
+@media (max-width: 360px) {
+  .header {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  .circle-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .first-latter {
+    font-size: 7px;
+  }
+
+  .timepass {
+    gap: 6px;
+    font-size: 7px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 100px !important;
+    height: 30px !important;
+    top: 40px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for ultra-small screens (320px and below) */
+@media (max-width: 320px) {
+  .header {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .circle-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .first-latter {
+    font-size: 6px;
+  }
+
+  .timepass {
+    gap: 4px;
+    font-size: 5px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 90px !important;
+    height: 20px !important;
+    top: 30px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for extremely small screens (200px and below) */
+@media (max-width: 200px) {
+  .header {
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+
+  .circle-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .first-latter {
+    font-size: 5px;
+  }
+
+  .timepass {
+    gap: 2px;
+    font-size: 4px;
+    left: 0;
+  }
+
+  .custom-popup {
+    width: 80px !important;
+    height: 15px !important;
+    top: 20px !important;
+    left: 0 !important;
+  }
+}
+
+/* Responsive styles for extremely tiny screens (100px and below) */
+@media (max-width: 100px) {
+  .header,
+  .circle-icon,
+  .first-latter,
+  .timepass,
+  .custom-popup {
+    display: none; /* Hide all elements if screen is too small */
+  }
+}

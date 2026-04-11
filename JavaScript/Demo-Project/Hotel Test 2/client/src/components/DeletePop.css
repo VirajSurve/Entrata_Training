@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.model-btn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 270px;
+  padding: 2rem, 3rem;
+  border-radius: 0.9rem;
+  background-color: white;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.model-btn p {
+  margin: 5px 0;
+}
+
+.yes-btn {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 110px;
+  height: 50px;
+  color: white;
+  background-color: #333333;
+  border-radius: 10px;
+}
+
+.yes-btn button {
+  width: 100%; /* Full width of the parent */
+  height: 100%; /* Full height of the parent */
+  color: white;
+  background-color: inherit; /* Use parent's background */
+  border: none; /* Remove default border */
+  border-radius: 10px; /* Match parent's border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.yes-btn button:hover {
+  background-color: black; /* Darker shade on hover */
+}
+
+.no-btn {
+  width: 90px;
+  height: 40px; /* Full height of the parent */
+  color: black;
+  background-color: white; /* Button background */
+  border: none; /* Remove default border */
+  border-radius: 10px; /* Match parent's border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.no-btn:hover {
+  background-color: #f7f3f3; /* Change background on hover */
+}
+
+@media (max-width: 1200px) {
+  .model-btn {
+    width: 280px;
+    height: 220px;
+  }
+
+  .flex-box {
+    margin-top: 20px;
+  }
+  .no-btn {
+    width: 70px;
+    height: 45px;
+  }
+  .yes-btn {
+    width: 80px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 900px) {
+  .model-btn {
+    width: 260px;
+    height: 230px;
+    padding: 1.5rem 2rem;
+  }
+
+  .flex-box {
+    margin-top: 5px;
+  }
+  .no-btn {
+    width: 70px;
+    height: 45px;
+  }
+  .yes-btn {
+    width: 80px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .model-btn {
+    width: 230px;
+    height: 210px;
+    padding: 1.1rem 1.5rem;
+  }
+  .flex-box {
+    margin-top: 2px;
+  }
+  .no-btn {
+    width: 60px;
+    height: 40px;
+  }
+  .yes-btn {
+    width: 80px;
+    height: 35px;
+  }
+}

@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+    .show-more-content {
+        justify-content: flex-end;
+        margin-right: 0px;
+    }
+}

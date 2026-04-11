@@ -1,0 +1,74 @@
+/* body {
+  font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
+  color: #fff;
+  margin: 0;
+  background-color: #374954;
+  text-align: center;
+} */
+
+.heading23{
+  font-size:20px;
+  color:grey;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.heading23a{
+  font-size: 15px;
+}
+
+.cover23 {
+  /* border: 5px solid grey; */
+  /* padding: 20px; */
+  text-align: center;
+  background-color:white;
+  /* border-radius: 6px; */
+}
+
+.cont23 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 52px; /* Ensure full viewport height */
+   width: 157px;
+}
+
+.button23 {
+  display: inline-block;
+  background-color:grey;
+  border-radius: 10px;
+  border: none;
+  width: 60px;
+  margin: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* .button23:hover {
+  background-color: #fd577e;
+} */
+
+/* Responsive styling */
+/* @media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  .heading23{
+    font-size: 30px;
+  }
+  .heading23a
+  {
+    font-size:20px;
+  }
+
+  .button23{
+    width: 50px;
+    font-size: 25px;
+  }
+
+  .cover23 {
+    padding: 10px;
+  }
+} */

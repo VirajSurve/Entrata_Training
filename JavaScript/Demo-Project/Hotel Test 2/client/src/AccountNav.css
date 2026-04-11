@@ -1,0 +1,32 @@
+/* Tailwind CSS is used in the example, but here are the equivalent custom CSS styles */
+
+.nav-links {
+    display: flex;
+    flex-direction: column; /* Default for mobile */
+    gap: 1rem;
+    padding-left: 1rem;  /* Add padding to the left */
+    padding-right: 1rem; /* Add padding to the right */
+  }
+  
+  @media (min-width: 768px) {
+    .nav-links {
+      flex-direction: row; /* For tablets and larger screens */
+      justify-content: center;
+      padding-left: 2rem;  /* Add padding to the left */
+      padding-right: 2rem; /* Add padding to the right */
+    }
+  }
+  
+  .link-item {
+    display: inline-flex;
+    gap: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    background-color: var(--gray-200);
+  }
+  
+  .link-item-active {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+  

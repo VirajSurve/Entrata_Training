@@ -1,0 +1,29 @@
+.book-img {
+  width: 170px;
+  height: 100px;
+  border-radius: 15px;
+}
+
+.top-box,
+.Middle-box,
+.last-box {
+  margin: 25px;
+}
+
+.horizontal-line {
+  width: 400px;
+  height: 1px;
+  background-color: gainsboro;
+}
+
+.book-page {
+  height: 460px;
+  width: 460px;
+  margin: 50px;
+  border-radius: 12px;
+  border: 1px solid gainsboro;
+  top: 50px;
+  left: 220px;
+  position: sticky; /* Make the element sticky */
+  top: 20px; /* The element will stick to the top when scrolled to 20px from the top */
+}

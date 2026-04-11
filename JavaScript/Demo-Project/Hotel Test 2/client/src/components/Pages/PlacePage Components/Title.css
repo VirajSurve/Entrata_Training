@@ -1,0 +1,56 @@
+.icon {
+  margin-left: 0px;
+  margin-bottom: 0px;
+}
+
+.title {
+  font-size:xx-large;
+}
+
+.right-side {
+  display: flex;
+  gap: 20px;
+}
+
+.front {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+.house{
+  background-color: aquamarine;
+  height: fit-content;
+  width: fit-content;
+}
+
+@media (max-width: 768px) {
+  .title-panel{
+    /* visibility: hidden; */
+  }
+  .title{
+    justify-content: center;
+    font-size: large;
+    font-weight: 400;
+  }
+  .bi-house{
+    height: 32px;
+    width: 32px;
+    padding-top: 1px;
+  }
+  .bi-heart{
+    height: 32px;
+    width: 32px;
+    padding-top: 1px;
+  }
+  .front{
+    display: flex;
+    gap:20px;
+    /* justify-content: space-evenly; */
+    top:0px;
+    justify-content: center;
+    padding-top: 30px;
+  }
+}
