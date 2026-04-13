@@ -25,3 +25,4 @@ composer.phar
 # Keep dependency manifests tracked
 !composer.json
 !composer.lock
+ 

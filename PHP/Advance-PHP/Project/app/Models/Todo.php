@@ -59,7 +59,9 @@ class Todo
 
             $param = ':' . $key;
             $set[] = "{$key} = {$param}";
-            $params[$param] = $key === 'is_completed' ? (bool) $value : $value;
+            $params[$param] = $key === 'is_completed'
+                ? ((bool) $value ? 'true' : 'false')
+                : $value;
         }
 
         if (empty($set)) {

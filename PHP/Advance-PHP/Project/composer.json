@@ -1,6 +1,6 @@
 {
   "name": "entrata/todo-app",
-  "description": "Advanced PHP Todo API demonstrating GET, POST, PATCH, DELETE",
+  "description": "Advanced PHP Todo App",
   "type": "project",
   "require": {
     "php": ">=8.0"

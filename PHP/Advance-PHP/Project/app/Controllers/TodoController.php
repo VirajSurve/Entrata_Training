@@ -27,6 +27,37 @@ class TodoController
         return json_decode($raw, true) ?? [];
     }
 
+    private function normalizeBoolean(mixed $value): ?bool
+    {
+        if (is_bool($value)) {
+            return $value;
+        }
+
+        if (is_int($value)) {
+            if ($value === 1) {
+                return true;
+            }
+
+            if ($value === 0) {
+                return false;
+            }
+        }
+
+        if (is_string($value)) {
+            $normalized = strtolower(trim($value));
+
+            if (in_array($normalized, ['1', 'true', 'yes', 'on'], true)) {
+                return true;
+            }
+
+            if (in_array($normalized, ['0', 'false', 'no', 'off'], true)) {
+                return false;
+            }
+        }
+
+        return null;
+    }
+
     public function index(): void
     {
         $todos = $this->model->all();
@@ -83,7 +114,13 @@ class TodoController
         }
 
         if (array_key_exists('is_completed', $body)) {
-            $fields['is_completed'] = (bool) $body['is_completed'];
+            $isCompleted = $this->normalizeBoolean($body['is_completed']);
+
+            if ($isCompleted === null) {
+                $this->json(['status' => 'error', 'message' => 'is_completed must be a boolean'], 422);
+            }
+
+            $fields['is_completed'] = $isCompleted;
         }
 
         $todo = $this->model->updatePartial($id, $fields);
