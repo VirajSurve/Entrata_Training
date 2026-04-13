@@ -3,13 +3,20 @@ services:
     image: 741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app:1.0
     ports:
       - 3000:3000
+    environment:
+      - MONGO_DB_USERNAME=${MONGO_DB_USERNAME}
+      - MONGO_DB_PWD=${MONGO_DB_PWD}
+      - MONGO_DB_HOST=mongodb
+      - MONGO_DB_PORT=27017
+    depends_on:
+      - mongodb
   mongodb:
     image: mongo
     ports:
       - 27017:27017
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_DB_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_DB_PWD}
     volumes:
       - mongo-data:/data/db
   mongo-express:
@@ -20,7 +27,7 @@ services:
     ports:
       - 8080:8081
     environment:
-      - ME_CONFIG_MONGODB_URL=mongodb://admin:password@mongodb:27017/?authSource=admin
+      - ME_CONFIG_MONGODB_URL=mongodb://${MONGO_DB_USERNAME}:${MONGO_DB_PWD}@mongodb:27017/?authSource=admin
 volumes:
   mongo-data:
     driver: local

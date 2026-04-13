@@ -49,3 +49,5 @@ Patch (PATCH):
   "is_completed": true
 }
 ```
+
+(Note: I have used AI agents to help me build this project.)

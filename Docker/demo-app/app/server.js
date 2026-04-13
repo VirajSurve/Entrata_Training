@@ -21,9 +21,17 @@ app.get('/profile-picture', function (req, res) {
   res.end(img, 'binary');
 });
 
-let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
+let mongoUsername = process.env.MONGO_DB_USERNAME;
+let mongoPassword = process.env.MONGO_DB_PWD;
+let mongoHost = process.env.MONGO_DB_HOST || "mongodb";
+let mongoPort = process.env.MONGO_DB_PORT || "27017";
+let mongoAuth = mongoUsername && mongoPassword
+  ? `${encodeURIComponent(mongoUsername)}:${encodeURIComponent(mongoPassword)}@`
+  : "";
 
-let mongoUrlDocker = "mongodb://admin:password@mongodb";
+let mongoUrlLocal = `mongodb://${mongoAuth}localhost:${mongoPort}`;
+
+let mongoUrlDocker = `mongodb://${mongoAuth}${mongoHost}:${mongoPort}`;
 
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
