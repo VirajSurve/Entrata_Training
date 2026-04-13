@@ -1,0 +1,3 @@
+Hello Viraj
+Welcome to PHP File Handling
+This line is appended later

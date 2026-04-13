@@ -1,0 +1,1101 @@
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker pull redis
+Using default tag: latest
+latest: Pulling from library/redis
+e22d95bb4ed9: Pull complete
+dbf833dfdfed: Pull complete
+0d8ecf679ede: Pull complete
+edc4b8e535e8: Pull complete
+5435b2dcdf5c: Pull complete
+387e0421c8da: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:1f073813b641755b70b0200da64131bbeeb4ec5b633ca67772229b49820caafa
+Status: Downloaded newer image for redis:latest
+docker.io/library/redis:latest
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED      SIZE
+redis        latest    1f073813b641   5 days ago   202MB
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run redis
+Starting Redis Server
+1:C 12 Apr 2026 06:01:12.173 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 12 Apr 2026 06:01:12.173 * Redis version=8.6.2, bits=64, commit=00000000, modified=1, pid=1, just started
+1:C 12 Apr 2026 06:01:12.173 * Configuration loaded
+1:M 12 Apr 2026 06:01:12.174 * monotonic clock: POSIX clock_gettime
+1:M 12 Apr 2026 06:01:12.178 * Running mode=standalone, port=6379.
+1:M 12 Apr 2026 06:01:12.179 * <bf> RedisBloom version 8.6.0 (Git=unknown)
+1:M 12 Apr 2026 06:01:12.179 * <bf> Registering configuration options: [
+1:M 12 Apr 2026 06:01:12.179 * <bf>     { bf-error-rate       :      0.01 }
+1:M 12 Apr 2026 06:01:12.180 * <bf>     { bf-initial-size     :       100 }
+1:M 12 Apr 2026 06:01:12.180 * <bf>     { bf-expansion-factor :         2 }
+1:M 12 Apr 2026 06:01:12.180 * <bf>     { cf-bucket-size      :         2 }
+1:M 12 Apr 2026 06:01:12.180 * <bf>     { cf-initial-size     :      1024 }
+1:M 12 Apr 2026 06:01:12.180 * <bf>     { cf-max-iterations   :        20 }
+1:M 12 Apr 2026 06:01:12.180 * <bf>     { cf-expansion-factor :         1 }
+1:M 12 Apr 2026 06:01:12.180 * <bf>     { cf-max-expansions   :        32 }
+1:M 12 Apr 2026 06:01:12.180 * <bf> ]
+1:M 12 Apr 2026 06:01:12.180 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+1:M 12 Apr 2026 06:01:12.187 * <search> Redis version found by RedisSearch : 8.6.2 - oss
+1:M 12 Apr 2026 06:01:12.187 * <search> RediSearch version 8.6.0 (Git=7782b97)
+1:M 12 Apr 2026 06:01:12.188 * <search> Low level api version 1 initialized successfully
+1:M 12 Apr 2026 06:01:12.188 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeoute: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD,
+1:M 12 Apr 2026 06:01:12.188 * <search> Initialized thread pools!
+1:M 12 Apr 2026 06:01:12.188 * <search> Disabled workers threadpool of size 0
+1:M 12 Apr 2026 06:01:12.188 * <search> Subscribe to config changes
+1:M 12 Apr 2026 06:01:12.188 * <search> Subscribe to cluster slot migration events
+1:M 12 Apr 2026 06:01:12.188 * <search> Enabled role change notification
+1:M 12 Apr 2026 06:01:12.189 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+1:M 12 Apr 2026 06:01:12.190 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so
+1:M 12 Apr 2026 06:01:12.191 * <timeseries> RedisTimeSeries version 80600, git_sha=05fd355db748676861dc4c17d19c8c1ca74c0154
+1:M 12 Apr 2026 06:01:12.191 * <timeseries> Redis version found by RedisTimeSeries : 8.6.2 - oss
+1:M 12 Apr 2026 06:01:12.191 * <timeseries> Registering configuration options: [
+1:M 12 Apr 2026 06:01:12.191 * <timeseries>     { ts-compaction-policy   :              }
+1:M 12 Apr 2026 06:01:12.191 * <timeseries>     { ts-num-threads         :            3 }
+1:M 12 Apr 2026 06:01:12.191 * <timeseries>     { ts-retention-policy    :            0 }
+1:M 12 Apr 2026 06:01:12.191 * <timeseries>     { ts-duplicate-policy    :        block }
+1:M 12 Apr 2026 06:01:12.191 * <timeseries>     { ts-chunk-size-bytes    :         4096 }
+1:M 12 Apr 2026 06:01:12.191 * <timeseries>     { ts-encoding            :   compressed }
+1:M 12 Apr 2026 06:01:12.191 * <timeseries>     { ts-ignore-max-time-diff:            0 }
+1:M 12 Apr 2026 06:01:12.191 * <timeseries>     { ts-ignore-max-val-diff :     0.000000 }
+1:M 12 Apr 2026 06:01:12.191 * <timeseries> ]
+1:M 12 Apr 2026 06:01:12.191 * <timeseries> Detected redis oss
+1:M 12 Apr 2026 06:01:12.192 * <timeseries> Subscribe to ASM events
+1:M 12 Apr 2026 06:01:12.192 * <timeseries> Enabled diskless replication
+1:M 12 Apr 2026 06:01:12.192 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+1:M 12 Apr 2026 06:01:12.193 * <ReJSON> Created new data type 'ReJSON-RL'
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> version: 80600 git sha: unknown branch: unknown
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> Exported RedisJSON_V1 API
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> Exported RedisJSON_V2 API
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> Exported RedisJSON_V3 API
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> Exported RedisJSON_V4 API
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> Exported RedisJSON_V5 API
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> Exported RedisJSON_V6 API
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> Enabled diskless replication
+1:M 12 Apr 2026 06:01:12.194 * <ReJSON> Initialized shared string cache, thread safe: true.
+1:M 12 Apr 2026 06:01:12.194 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+1:M 12 Apr 2026 06:01:12.194 * <search> Acquired RedisJSON_V6 API
+1:M 12 Apr 2026 06:01:12.196 * Server initialized
+1:M 12 Apr 2026 06:01:12.196 * Ready to accept connections tcp
+1:M 12 Apr 2026 06:01:12.196 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from
+1:signal-handler (1775973715) Received SIGINT scheduling shutdown...
+1:M 12 Apr 2026 06:01:55.418 * User requested shutdown...
+1:M 12 Apr 2026 06:01:55.418 * Saving the final RDB snapshot before exiting.
+1:M 12 Apr 2026 06:01:55.420 * BGSAVE done, 0 keys saved, 0 keys skipped, 88 bytes written.
+1:M 12 Apr 2026 06:01:55.429 * DB saved on disk
+1:M 12 Apr 2026 06:01:55.429 # Redis is now ready to exit, bye bye...
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -d redis
+2d258d34fa5b64d4988722893a9900711f224a49ef58f84d0b740bd9618c7820
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS      NAMES
+2d258d34fa5b   redis     "docker-entrypoint.s…"   25 seconds ago   Up 22 seconds   6379/tcp   unruffled_haslett
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                          PORTS      NAMES
+2d258d34fa5b   redis     "docker-entrypoint.s…"   33 seconds ago   Up 30 seconds                   6379/tcp   unruffled_haslett
+eac50b64315c   redis     "docker-entrypoint.s…"   2 minutes ago    Exited (0) About a minute ago              keen_shirley
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ ^C
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker stop 2d258d34fa5b
+2d258d34fa5b
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+2d258d34fa5b   redis     "docker-entrypoint.s…"   2 minutes ago   Exited (0) 7 seconds ago             unruffled_haslett
+eac50b64315c   redis     "docker-entrypoint.s…"   4 minutes ago   Exited (0) 3 minutes ago             keen_shirley
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker start 2d258d34fa5b
+2d258d34fa5b
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS      NAMES
+2d258d34fa5b   redis     "docker-entrypoint.s…"   2 minutes ago   Up 1 second                6379/tcp   unruffled_haslett
+eac50b64315c   redis     "docker-entrypoint.s…"   4 minutes ago   Exited (0) 3 minutes ago              keen_shirley
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run redis:4.0
+Unable to find image 'redis:4.0' locally
+4.0: Pulling from library/redis
+40e134f79af1: Pull complete
+04ab1bfc453f: Pull complete
+54fec2fa59d0: Pull complete
+8ce1bab2086c: Pull complete
+7988789e1fb7: Pull complete
+9c94e11103d9: Pull complete
+Digest: sha256:2e03fdd159f4a08d2165ca1c92adde438ae4e3e6b0f74322ce013a78ee81c88d
+Status: Downloaded newer image for redis:4.0
+1:C 12 Apr 06:08:09.119 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 12 Apr 06:08:09.119 # Redis version=4.0.14, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 12 Apr 06:08:09.119 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+1:M 12 Apr 06:08:09.123 * Running mode=standalone, port=6379.
+1:M 12 Apr 06:08:09.123 # Server initialized
+1:M 12 Apr 06:08:09.123 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with  > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restart
+1:M 12 Apr 06:08:09.123 * Ready to accept connections
+1:signal-handler (1775974141) Received SIGINT scheduling shutdown...
+1:M 12 Apr 06:09:01.189 # User requested shutdown...
+1:M 12 Apr 06:09:01.189 * Saving the final RDB snapshot before exiting.
+1:M 12 Apr 06:09:01.194 * DB saved on disk
+1:M 12 Apr 06:09:01.194 # Redis is now ready to exit, bye bye...
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps -a
+CONTAINER ID   IMAGE       COMMAND                  CREATED              STATUS                      PORTS      NAMES
+8736f64b912b   redis:4.0   "docker-entrypoint.s…"   About a minute ago   Exited (0) 29 seconds ago              distracted_euclid
+2d258d34fa5b   redis       "docker-entrypoint.s…"   6 minutes ago        Up 3 minutes                6379/tcp   unruffled_haslett
+eac50b64315c   redis       "docker-entrypoint.s…"   8 minutes ago        Exited (0) 7 minutes ago               keen_shirley
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker start 8736f64b912b
+8736f64b912b
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS      NAMES
+8736f64b912b   redis:4.0   "docker-entrypoint.s…"   2 minutes ago   Up 6 seconds   6379/tcp   distracted_euclid
+2d258d34fa5b   redis       "docker-entrypoint.s…"   7 minutes ago   Up 4 minutes   6379/tcp   unruffled_haslett
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker stop 8736f64b912b
+8736f64b912b
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker stop 2d258d34fa5b
+2d258d34fa5b
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -d -p6000:6379 redis
+d889a2c2690cccd683c4cc5a6675732bdb8e3ba67e70bf46393bc1d6a6d92416
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+d889a2c2690c   redis     "docker-entrypoint.s…"   23 seconds ago   Up 19 seconds   0.0.0.0:6000->6379/tcp, [::]:6000->6379/tcp   tender_knuth
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -d -p6000:6379 redis:4.0
+c921e281f98691d0746c7b0ecc19e3b72fee5a6ef5ab8d27b16d28eeef337a9e
+docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint dazzling_hawking (cf50d52d68d4): Bind for 0.0.0.0:6000 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ ps
+      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
+     1963    1962    1963      33884  pty0      197609 11:25:59 /usr/bin/bash
+     2121    1963    2121      35296  pty0      197609 11:47:49 /usr/bin/ps
+     1962       1    1962      36692  ?         197609 11:25:58 /usr/bin/mintty
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+d889a2c2690c   redis     "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes   0.0.0.0:6000->6379/tcp, [::]:6000->6379/tcp   tender_knuth
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -d -p6001:6379 redis:4.0
+638763e7f9f021d479269a01d1c7f1dfcd2903f6f24d9355e01a5d796959e452
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+638763e7f9f0   redis:4.0   "docker-entrypoint.s…"   6 seconds ago   Up 3 seconds   0.0.0.0:6001->6379/tcp, [::]:6001->6379/tcp   quirky_cartwright
+d889a2c2690c   redis       "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:6000->6379/tcp, [::]:6000->6379/tcp   tender_knuth
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+redis        latest    1f073813b641   5 days ago    202MB
+redis        4.0       2e03fdd159f4   5 years ago   133MB
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs 638763e7f9f0
+1:C 12 Apr 06:18:50.773 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 12 Apr 06:18:50.774 # Redis version=4.0.14, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 12 Apr 06:18:50.774 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+1:M 12 Apr 06:18:50.777 * Running mode=standalone, port=6379.
+1:M 12 Apr 06:18:50.777 # Server initialized
+1:M 12 Apr 06:18:50.777 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with  > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restart
+1:M 12 Apr 06:18:50.777 * Ready to accept connections
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs quirky_cartwright
+1:C 12 Apr 06:18:50.773 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 12 Apr 06:18:50.774 # Redis version=4.0.14, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 12 Apr 06:18:50.774 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+1:M 12 Apr 06:18:50.777 * Running mode=standalone, port=6379.
+1:M 12 Apr 06:18:50.777 # Server initialized
+1:M 12 Apr 06:18:50.777 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with  > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restart
+1:M 12 Apr 06:18:50.777 * Ready to accept connections
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+638763e7f9f0   redis:4.0   "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:6001->6379/tcp, [::]:6001->6379/tcp   quirky_cartwright
+d889a2c2690c   redis       "docker-entrypoint.s…"   7 minutes ago   Up 7 minutes   0.0.0.0:6000->6379/tcp, [::]:6000->6379/tcp   tender_knuth
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker stop 638763e7f9f0
+638763e7f9f0
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -d -p6001:6379 --name redis-older redis:4.0
+4da716a5239531bc8403d2174f78cf6bfde2378cab55f4309315492112b527bf
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+4da716a52395   redis:4.0   "docker-entrypoint.s…"   8 seconds ago   Up 4 seconds   0.0.0.0:6001->6379/tcp, [::]:6001->6379/tcp   redis-older
+d889a2c2690c   redis       "docker-entrypoint.s…"   8 minutes ago   Up 7 minutes   0.0.0.0:6000->6379/tcp, [::]:6000->6379/tcp   tender_knuth
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker exec -it 4da716a52395 /bin/bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Files/Git/usr/bin/bash": stat C:/Program Files/Git/usr/bin/bash: no
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker exec -it d889a2c2690c /bin/bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Files/Git/usr/bin/bash": stat C:/Program Files/Git/usr/bin/bash: no
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker exec -it 4da716a52395 sh
+# pwd
+/data
+# cd /
+# ls
+bin  boot  data  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+# env
+HOSTNAME=4da716a52395
+REDIS_DOWNLOAD_SHA=1e1e18420a86cfb285933123b04a82e1ebda20bfb0a289472745a087587e93a7
+HOME=/root
+OLDPWD=/data
+TERM=xterm
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-4.0.14.tar.gz
+REDIS_VERSION=4.0.14
+GOSU_VERSION=1.12
+PWD=/
+# exit
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+ab041d639564   bridge    bridge    local
+ae17a136dd75   host      host      local
+6770dd1e5c63   none      null      local
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker network create mongo-network
+b15154b63075f1e2c7d590b0e6c9b47b88e3d9f0b7c5906105055365d02b087e
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker network ls
+NETWORK ID     NAME            DRIVER    SCOPE
+ab041d639564   bridge          bridge    local
+ae17a136dd75   host            host      local
+b15154b63075   mongo-network   bridge    local
+6770dd1e5c63   none            null      local
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --net mongo-network mongo
+c21a1c093357df9bf7fdaa1e0622274d4fd6425d2b632e84ce6c9ee00a53b112
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs c21a1c093357df9bf7fdaa1e0622274d4fd6425d2b632e84ce6c9ee00a53b112
+{"t":{"$date":"2026-04-12T07:44:47.662+00:00"},"s":"I",  "c":"-",        "id":8991200, "ctx":"main","msg":"Shuffling initializers","attr":{"seed":2245315032}}
+about to fork child process, waiting until server is ready for connections.
+forked process: 28
+
+{"t":{"$date":"2026-04-12T07:44:47.715+00:00"},"s":"I",  "c":"CONTROL",  "id":20698,   "ctx":"main","msg":"***** SERVER RESTARTED *****"}
+{"t":{"$date":"2026-04-12T07:44:47.733+00:00"},"s":"I",  "c":"CONTROL",  "id":97374,   "ctx":"main","msg":"Automatically disabling TLS 1.0 and TLS 1.1, to force-enable TLS 1.1 specify --sslDisabledProtocols 'TLS1_0'; to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2026-04-12T07:44:47.749+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":27},"outgoing":{"minWireVersion":6,"maxWireVersion":27},"isInternalClient":true}}}
+{"t":{"$date":"2026-04-12T07:44:47.755+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+{"t":{"$date":"2026-04-12T07:44:47.757+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":28,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"c21a1c093357"}}
+{"t":{"$date":"2026-04-12T07:44:47.757+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"8.2.6","gitVersion":"5d25c835745d06f712320b6cdae9d50b7b43663e","openSSLVersion":"OpenSSL 3.0.13 30 Jan 2024","modules":[],"allocator":"tcmalloc-google","environment":{"distmod":"ubuntu2404","distarch":"x86_64","target_arch":"x86_64"}}}}
+{"t":{"$date":"2026-04-12T07:44:47.757+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"24.04"}}}
+{"t":{"$date":"2026-04-12T07:44:47.757+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"127.0.0.1","port":27017,"tls":{"mode":"disabled"}},"processManagement":{"fork":true,"pidFilePath":"/tmp/docker-entrypoint-temp-mongod.pid"},"systemLog":{"destination":"file","logAppend":true,"path":"/proc/1/fd/1"}}}}
+{"t":{"$date":"2026-04-12T07:44:47.759+00:00"},"s":"W",  "c":"NETWORK",  "id":11621101,"ctx":"initandlisten","msg":"Overriding max connections to honor `capMemoryConsumptionForPreAuthBuffers` settings","attr":{"limit":96488}}
+{"t":{"$date":"2026-04-12T07:44:47.777+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"initandlisten","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set at least one of the related parameters","attr":{"relatedParameters":["tcpFastOpenServer","tcpFastOpenClient","tcpFastOpenQueueSize"]}}
+{"t":{"$date":"2026-04-12T07:44:47.784+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:47.785+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=3257M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,live_restore_progress:1,backup:0,checkpoint:0,compact:0,eviction:0,fileops:0,history_store:0,live_restore:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],prefetch=(available=true,default=false),"}}
+{"t":{"$date":"2026-04-12T07:44:47.809+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979887,"ts_usec":808790,"thread":"28:0x76b7ef5c8400","session_name":"wiredtiger_open","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"opening the WiredTiger library"}}}
+{"t":{"$date":"2026-04-12T07:44:47.976+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979887,"ts_usec":975935,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"connection configuration string parsing completed"}}}
+{"t":{"$date":"2026-04-12T07:44:47.994+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979887,"ts_usec":994653,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting WiredTiger utility threads"}}}
+{"t":{"$date":"2026-04-12T07:44:48.007+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":7161,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting WiredTiger recovery"}}}
+{"t":{"$date":"2026-04-12T07:44:48.009+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":9015,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"scanning metadata to find the largest file ID"}}}
+{"t":{"$date":"2026-04-12T07:44:48.009+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":9200,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"largest file ID found in the metadata 0"}}}
+{"t":{"$date":"2026-04-12T07:44:48.009+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":9255,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery log replay has successfully finished and ran for 1 milliseconds"}}}
+{"t":{"$date":"2026-04-12T07:44:48.009+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":9295,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:48.009+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":9368,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:48.009+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":9501,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1493201,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery was completed successfully and took 2ms, including 1ms for the log replay, 0ms for the rollback to stable, and 0ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:48.009+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":9608,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1493201,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery was completed successfully and took 2ms, including 1ms for the log replay, 0ms for the rollback to stable, and 0ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:48.026+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":26832,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting eviction threads"}}}
+{"t":{"$date":"2026-04-12T07:44:48.051+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":51873,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"WiredTiger utility threads started successfully"}}}
+{"t":{"$date":"2026-04-12T07:44:48.052+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":52008,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"the WiredTiger library has successfully opened"}}}
+{"t":{"$date":"2026-04-12T07:44:48.052+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":267}}
+{"t":{"$date":"2026-04-12T07:44:48.052+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+{"t":{"$date":"2026-04-12T07:44:48.052+00:00"},"s":"I",  "c":"STORAGE",  "id":9086700, "ctx":"initandlisten","msg":"WiredTiger session cache max value has been set","attr":{"sessionCacheMax":16500}}
+{"t":{"$date":"2026-04-12T07:44:48.066+00:00"},"s":"I",  "c":"STORAGE",  "id":10158000,"ctx":"initandlisten","msg":"Opening spill WiredTiger","attr":{"config":"create,cache_size=188M,session_max=1024,eviction=(threads_min=1,threads_max=1),eviction_dirty_target=9MB,eviction_dirty_trigger=150MB,eviction_updates_trigger=150MB,config_base=false,statistics=(fast),log=(enabled=false),builtin_extension_config=(zstd=(compression_level=-7)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,live_restore_progress:1,backup:0,checkpoint:0,compact:0,eviction:0,fileops:0,history_store:0,live_restore:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],"}}
+{"t":{"$date":"2026-04-12T07:44:48.072+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":72782,"thread":"28:0x76b7ef5c8400","session_name":"wiredtiger_open","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"opening the WiredTiger library"}}}
+{"t":{"$date":"2026-04-12T07:44:48.084+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":84616,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"connection configuration string parsing completed"}}}
+{"t":{"$date":"2026-04-12T07:44:48.099+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":99899,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting WiredTiger utility threads"}}}
+{"t":{"$date":"2026-04-12T07:44:48.100+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":100763,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting WiredTiger recovery"}}}
+{"t":{"$date":"2026-04-12T07:44:48.101+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":101051,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"scanning metadata to find the largest file ID"}}}
+{"t":{"$date":"2026-04-12T07:44:48.101+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":101193,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"largest file ID found in the metadata 0"}}}
+{"t":{"$date":"2026-04-12T07:44:48.101+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":101245,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery log replay has successfully finished and ran for 0 milliseconds"}}}
+{"t":{"$date":"2026-04-12T07:44:48.101+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":101283,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:48.101+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":101310,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:48.101+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":101364,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1493201,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery was completed successfully and took 0ms, including 0ms for the log replay, 0ms for the rollback to stable, and 0ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:48.101+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":101437,"thread":"28:0x76b7ef5c8400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1493201,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery was completed successfully and took 0ms, including 0ms for the log replay, 0ms for the rollback to stable, and 0ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:48.127+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":127689,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting eviction threads"}}}
+{"t":{"$date":"2026-04-12T07:44:48.130+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":130096,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"WiredTiger utility threads started successfully"}}}
+{"t":{"$date":"2026-04-12T07:44:48.130+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979888,"ts_usec":130228,"thread":"28:0x76b7ef5c8400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"the WiredTiger library has successfully opened"}}}
+{"t":{"$date":"2026-04-12T07:44:48.130+00:00"},"s":"I",  "c":"STORAGE",  "id":10158001,"ctx":"initandlisten","msg":"Spill WiredTiger opened","attr":{"durationMillis":63}}
+{"t":{"$date":"2026-04-12T07:44:48.145+00:00"},"s":"I",  "c":"STORAGE",  "id":9529901, "ctx":"initandlisten","msg":"Initializing durable catalog","attr":{"numRecords":0}}
+{"t":{"$date":"2026-04-12T07:44:48.145+00:00"},"s":"I",  "c":"STORAGE",  "id":9529902, "ctx":"initandlisten","msg":"Retrieving all idents from storage engine"}
+{"t":{"$date":"2026-04-12T07:44:48.145+00:00"},"s":"I",  "c":"STORAGE",  "id":9529903, "ctx":"initandlisten","msg":"Initializing all collections in durable catalog","attr":{"numEntries":0}}
+{"t":{"$date":"2026-04-12T07:44:48.157+00:00"},"s":"W",  "c":"CONTROL",  "id":22120,   "ctx":"initandlisten","msg":"Access control is not enabled for the database. Read and write access to data and configuration is unrestricted","tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:48.157+00:00"},"s":"W",  "c":"CONTROL",  "id":9068900, "ctx":"initandlisten","msg":"For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile","attr":{"allocator":"tcmalloc-google","sysfsFile":"/sys/kernel/mm/transparent_hugepage/enabled","currentValue":"never","desiredValue":"always"},"tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:48.158+00:00"},"s":"W",  "c":"CONTROL",  "id":9068900, "ctx":"initandlisten","msg":"For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile","attr":{"allocator":"tcmalloc-google","sysfsFile":"/sys/kernel/mm/transparent_hugepage/defrag","currentValue":"madvise","desiredValue":"defer+madvise"},"tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:48.158+00:00"},"s":"W",  "c":"CONTROL",  "id":8640302, "ctx":"initandlisten","msg":"We suggest setting the contents of sysfsFile to 0.","attr":{"sysfsFile":"/sys/kernel/mm/transparent_hugepage/khugepaged/max_ptes_none","currentValue":511},"tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:48.158+00:00"},"s":"W",  "c":"CONTROL",  "id":8386700, "ctx":"initandlisten","msg":"We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.","attr":{"sysfsFile":"/proc/sys/vm/swappiness","currentValue":60},"tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:48.160+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"initandlisten","msg":"createCollection","attr":{"namespace":"admin.system.version","uuidDisposition":"provided","uuid":{"uuid":{"$uuid":"c93ddb75-3f7e-445c-9375-6152685056e3"}},"options":{"uuid":{"$uuid":"c93ddb75-3f7e-445c-9375-6152685056e3"}}}}
+{"t":{"$date":"2026-04-12T07:44:48.184+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"initandlisten","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"c93ddb75-3f7e-445c-9375-6152685056e3"}},"namespace":"admin.system.version","index":"_id_","ident":"index-f4ad943e-6cc7-4d3d-bbf6-a86ffb924cf7","collectionIdent":"collection-5643544e-7b68-418f-8877-309aa0f295cf","commitTimestamp":null}}
+{"t":{"$date":"2026-04-12T07:44:48.184+00:00"},"s":"I",  "c":"REPL",     "id":20459,   "ctx":"initandlisten","msg":"Setting featureCompatibilityVersion","attr":{"newVersion":"8.2"}}
+{"t":{"$date":"2026-04-12T07:44:48.184+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"8.2","context":"setFCV"}}
+{"t":{"$date":"2026-04-12T07:44:48.184+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":27},"outgoing":{"minWireVersion":6,"maxWireVersion":27},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":27,"maxWireVersion":27},"outgoing":{"minWireVersion":27,"maxWireVersion":27},"isInternalClient":true}}}
+{"t":{"$date":"2026-04-12T07:44:48.185+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":27,"maxWireVersion":27},"outgoing":{"minWireVersion":27,"maxWireVersion":27},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":27,"maxWireVersion":27},"outgoing":{"minWireVersion":27,"maxWireVersion":27},"isInternalClient":true}}}
+{"t":{"$date":"2026-04-12T07:44:48.185+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"8.2","context":"startup"}}
+{"t":{"$date":"2026-04-12T07:44:48.186+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+{"t":{"$date":"2026-04-12T07:44:48.186+00:00"},"s":"I",  "c":"STORAGE",  "id":10682200,"ctx":"initandlisten","msg":"Dropping spill idents","attr":{"numIdents":0}}
+{"t":{"$date":"2026-04-12T07:44:48.186+00:00"},"s":"I",  "c":"CONTROL",  "id":6608200, "ctx":"initandlisten","msg":"Initializing cluster server parameters from disk"}
+{"t":{"$date":"2026-04-12T07:44:48.186+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+{"t":{"$date":"2026-04-12T07:44:48.198+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+{"t":{"$date":"2026-04-12T07:44:48.215+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"initandlisten","msg":"createCollection","attr":{"namespace":"local.startup_log","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"275dbb9c-abdd-44f9-bfd7-638006347cc5"}},"options":{"capped":true,"size":10485760}}}
+{"t":{"$date":"2026-04-12T07:44:48.237+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"initandlisten","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"275dbb9c-abdd-44f9-bfd7-638006347cc5"}},"namespace":"local.startup_log","index":"_id_","ident":"index-1e92780d-7327-45f7-96ab-5ce9be1cbd56","collectionIdent":"collection-b800a6ae-feec-4384-9623-1f1dd33f432d","commitTimestamp":null}}
+{"t":{"$date":"2026-04-12T07:44:48.238+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+{"t":{"$date":"2026-04-12T07:44:48.238+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+{"t":{"$date":"2026-04-12T07:44:48.239+00:00"},"s":"I",  "c":"STORAGE",  "id":7333401, "ctx":"initandlisten","msg":"Starting the DiskSpaceMonitor"}
+{"t":{"$date":"2026-04-12T07:44:48.246+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+{"t":{"$date":"2026-04-12T07:44:48.246+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"127.0.0.1:27017"}}
+{"t":{"$date":"2026-04-12T07:44:48.246+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+{"t":{"$date":"2026-04-12T07:44:48.247+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"setUpPeriodicRunnerMillis":0,"setUpOCSPMillis":0,"setUpTransportLayerMillis":21,"initSyncCrashRecoveryMillis":0,"createLockFileMillis":0,"getStorageEngineMetadataMillis":0,"createStorageEngineMillis":362,"writePIDMillis":0,"writeNewMetadataMillis":10,"initializeFCVForIndexMillis":1,"dropAbandonedIdentsMillis":0,"standaloneClusterParamsMillis":0,"userAndRolesGraphMillis":0,"waitForMajorityServiceMillis":1,"startUpReplCoordMillis":1,"recoverChangeStreamMillis":0,"logStartupOptionsMillis":0,"startUpTransportLayerMillis":1,"initAndListenTotalMillis":489}}}}
+child process started successfully, parent exiting
+{"t":{"$date":"2026-04-12T07:44:48.257+00:00"},"s":"I",  "c":"CONTROL",  "id":20712,   "ctx":"LogicalSessionCacheReap","msg":"Sessions collection is not set up; waiting until next sessions reap interval","attr":{"error":"NamespaceNotFound: config.system.sessions does not exist"}}
+{"t":{"$date":"2026-04-12T07:44:48.257+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"LogicalSessionCacheRefresh","msg":"createCollection","attr":{"namespace":"config.system.sessions","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"948abd99-1bdf-4092-93fe-d59b07cbc06e"}},"options":{}}}
+{"t":{"$date":"2026-04-12T07:44:48.292+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"LogicalSessionCacheRefresh","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"948abd99-1bdf-4092-93fe-d59b07cbc06e"}},"namespace":"config.system.sessions","index":"_id_","ident":"index-20ac23ef-b3f1-4b97-afc4-8b0d52dc48ee","collectionIdent":"collection-e7e0800b-0b6f-41d1-9b7b-b8e6f35084c7","commitTimestamp":null}}
+{"t":{"$date":"2026-04-12T07:44:48.292+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"LogicalSessionCacheRefresh","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"948abd99-1bdf-4092-93fe-d59b07cbc06e"}},"namespace":"config.system.sessions","index":"lsidTTLIndex","ident":"index-4d05f127-dbad-4e1d-9e6e-45a9b87d99da","collectionIdent":"collection-e7e0800b-0b6f-41d1-9b7b-b8e6f35084c7","commitTimestamp":null}}
+{"t":{"$date":"2026-04-12T07:44:49.987+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:56526","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"e5aa70c7-a1cf-4bbe-826e-5f3647da6052"}},"connectionId":1,"connectionCount":1}}
+{"t":{"$date":"2026-04-12T07:44:49.991+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn1","msg":"client metadata","attr":{"remote":"127.0.0.1:56526","client":"conn1","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:49.991+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn1","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:56526","doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:49.998+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:56538","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"39489d41-592c-40cf-be73-83b5652554d6"}},"connectionId":2,"connectionCount":2}}
+{"t":{"$date":"2026-04-12T07:44:49.999+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn2","msg":"client metadata","attr":{"remote":"127.0.0.1:56538","client":"conn2","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:49.999+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn2","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:56538","doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:50.020+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn2","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":20}}
+{"t":{"$date":"2026-04-12T07:44:50.186+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn2","msg":"Connection ended","attr":{"remote":"127.0.0.1:56538","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"39489d41-592c-40cf-be73-83b5652554d6"}},"connectionId":2,"connectionCount":1}}
+{"t":{"$date":"2026-04-12T07:44:50.189+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:56554","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"11a2cae4-71e5-4684-9b7c-5ce2af076c46"}},"connectionId":3,"connectionCount":2}}
+{"t":{"$date":"2026-04-12T07:44:50.190+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:56570","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"c15d7cb0-9142-4c5e-b02c-56c0799e28ce"}},"connectionId":4,"connectionCount":3}}
+{"t":{"$date":"2026-04-12T07:44:50.191+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn3","msg":"client metadata","attr":{"remote":"127.0.0.1:56554","client":"conn3","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:50.191+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn3","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:56554","doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:50.192+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn4","msg":"client metadata","attr":{"remote":"127.0.0.1:56570","client":"conn4","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:50.192+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn4","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:56570","doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:50.196+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn1","msg":"Connection ended","attr":{"remote":"127.0.0.1:56526","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"e5aa70c7-a1cf-4bbe-826e-5f3647da6052"}},"connectionId":1,"connectionCount":2}}
+{"t":{"$date":"2026-04-12T07:44:50.197+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn3","msg":"Connection ended","attr":{"remote":"127.0.0.1:56554","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"11a2cae4-71e5-4684-9b7c-5ce2af076c46"}},"connectionId":3,"connectionCount":1}}
+{"t":{"$date":"2026-04-12T07:44:50.200+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn4","msg":"Connection ended","attr":{"remote":"127.0.0.1:56570","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"c15d7cb0-9142-4c5e-b02c-56c0799e28ce"}},"connectionId":4,"connectionCount":0}}
+{"t":{"$date":"2026-04-12T07:44:51.215+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:56586","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0394f835-6de3-4c9a-833c-0174de983def"}},"connectionId":5,"connectionCount":1}}
+{"t":{"$date":"2026-04-12T07:44:51.219+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn5","msg":"client metadata","attr":{"remote":"127.0.0.1:56586","client":"conn5","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:51.219+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn5","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:56586","doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:51.226+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:56592","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"37d7293c-b483-4079-b430-aec83af691ff"}},"connectionId":6,"connectionCount":2}}
+{"t":{"$date":"2026-04-12T07:44:51.228+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn6","msg":"client metadata","attr":{"remote":"127.0.0.1:56592","client":"conn6","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:51.228+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn6","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:56592","doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:51.249+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn6","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":21}}
+{"t":{"$date":"2026-04-12T07:44:51.381+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:56608","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"cda66b86-1da7-473a-8ea3-86eeeb8a51e9"}},"connectionId":7,"connectionCount":3}}
+{"t":{"$date":"2026-04-12T07:44:51.382+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:56624","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"ecb60ef7-a9d3-45f4-8f29-23253e9679f1"}},"connectionId":8,"connectionCount":4}}
+{"t":{"$date":"2026-04-12T07:44:51.387+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn7","msg":"client metadata","attr":{"remote":"127.0.0.1:56608","client":"conn7","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:51.388+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn7","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:56608","doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:51.389+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn8","msg":"client metadata","attr":{"remote":"127.0.0.1:56624","client":"conn8","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:51.389+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn8","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:56624","doc":{"application":{"name":"mongosh 2.8.2"},"driver":{"name":"nodejs|mongosh","version":"7.1.0|2.8.2"},"platform":"Node.js v24.14.1, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+{"t":{"$date":"2026-04-12T07:44:51.397+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn8","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":8}}
+admin> | | | | {"t":{"$date":"2026-04-12T07:44:51.694+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"conn8","msg":"createCollection","attr":{"namespace":"admin.system.users","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"4bd1706b-f760-4a51-ac91-78197e2ca83e"}},"options":{}}}
+{"t":{"$date":"2026-04-12T07:44:51.725+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"conn8","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"4bd1706b-f760-4a51-ac91-78197e2ca83e"}},"namespace":"admin.system.users","index":"_id_","ident":"index-8f03c445-3f0b-4a47-aeb6-560d2f5cd0a6","collectionIdent":"collection-6852a150-f0b3-4134-b6f3-4a85647bb4f7","commitTimestamp":null}}
+{"t":{"$date":"2026-04-12T07:44:51.725+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"conn8","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"4bd1706b-f760-4a51-ac91-78197e2ca83e"}},"namespace":"admin.system.users","index":"user_1_db_1","ident":"index-ee91f265-2a62-4bfd-97d7-b9ea95a0d25c","collectionIdent":"collection-6852a150-f0b3-4134-b6f3-4a85647bb4f7","commitTimestamp":null}}
+{ ok: 1 }
+admin> {"t":{"$date":"2026-04-12T07:44:51.737+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn5","msg":"Connection ended","attr":{"remote":"127.0.0.1:56586","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0394f835-6de3-4c9a-833c-0174de983def"}},"connectionId":5,"connectionCount":3}}
+{"t":{"$date":"2026-04-12T07:44:51.738+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn8","msg":"Connection ended","attr":{"remote":"127.0.0.1:56624","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"ecb60ef7-a9d3-45f4-8f29-23253e9679f1"}},"connectionId":8,"connectionCount":2}}
+{"t":{"$date":"2026-04-12T07:44:51.738+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn6","msg":"Connection ended","attr":{"remote":"127.0.0.1:56592","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"37d7293c-b483-4079-b430-aec83af691ff"}},"connectionId":6,"connectionCount":1}}
+{"t":{"$date":"2026-04-12T07:44:51.738+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn7","msg":"Connection ended","attr":{"remote":"127.0.0.1:56608","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"cda66b86-1da7-473a-8ea3-86eeeb8a51e9"}},"connectionId":7,"connectionCount":0}}
+
+/usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+
+{"t":{"$date":"2026-04-12T07:44:51.933+00:00"},"s":"I",  "c":"-",        "id":8991200, "ctx":"main","msg":"Shuffling initializers","attr":{"seed":3259029029}}
+
+{"t":{"$date":"2026-04-12T07:44:51.954+00:00"},"s":"I",  "c":"CONTROL",  "id":20698,   "ctx":"main","msg":"***** SERVER RESTARTED *****"}
+{"t":{"$date":"2026-04-12T07:44:51.959+00:00"},"s":"I",  "c":"CONTROL",  "id":97374,   "ctx":"main","msg":"Automatically disabling TLS 1.0 and TLS 1.1, to force-enable TLS 1.1 specify --sslDisabledProtocols 'TLS1_0'; to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2026-04-12T07:44:51.961+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":27},"outgoing":{"minWireVersion":6,"maxWireVersion":27},"isInternalClient":true}}}
+Killing process with pid: 28
+{"t":{"$date":"2026-04-12T07:44:51.964+00:00"},"s":"I",  "c":"CONTROL",  "id":23377,   "ctx":"SignalHandler","msg":"Received signal","attr":{"signal":15,"error":"Terminated"}}
+{"t":{"$date":"2026-04-12T07:44:51.964+00:00"},"s":"I",  "c":"CONTROL",  "id":23378,   "ctx":"SignalHandler","msg":"Signal was sent by kill(2)","attr":{"pid":120,"uid":999}}
+{"t":{"$date":"2026-04-12T07:44:51.964+00:00"},"s":"I",  "c":"CONTROL",  "id":23381,   "ctx":"SignalHandler","msg":"will terminate after current cmd ends"}
+{"t":{"$date":"2026-04-12T07:44:51.964+00:00"},"s":"I",  "c":"REPL",     "id":4784900, "ctx":"SignalHandler","msg":"Stepping down the ReplicationCoordinator for shutdown","attr":{"waitTimeMillis":15000}}
+{"t":{"$date":"2026-04-12T07:44:51.967+00:00"},"s":"I",  "c":"REPL",     "id":4794602, "ctx":"SignalHandler","msg":"Attempting to enter quiesce mode"}
+{"t":{"$date":"2026-04-12T07:44:51.967+00:00"},"s":"I",  "c":"STORAGE",  "id":7333402, "ctx":"SignalHandler","msg":"Shutting down the DiskSpaceMonitor"}
+{"t":{"$date":"2026-04-12T07:44:51.968+00:00"},"s":"I",  "c":"-",        "id":6371601, "ctx":"SignalHandler","msg":"Shutting down the FLE Crud thread pool"}
+{"t":{"$date":"2026-04-12T07:44:51.968+00:00"},"s":"I",  "c":"COMMAND",  "id":4784901, "ctx":"SignalHandler","msg":"Shutting down the MirrorMaestro"}
+{"t":{"$date":"2026-04-12T07:44:51.968+00:00"},"s":"I",  "c":"SHARDING", "id":4784902, "ctx":"SignalHandler","msg":"Shutting down the WaitForMajorityService"}
+{"t":{"$date":"2026-04-12T07:44:51.970+00:00"},"s":"I",  "c":"CONTROL",  "id":4784903, "ctx":"SignalHandler","msg":"Shutting down the LogicalSessionCache"}
+{"t":{"$date":"2026-04-12T07:44:51.971+00:00"},"s":"I",  "c":"NETWORK",  "id":8314100, "ctx":"SignalHandler","msg":"Shutdown: Closing listener sockets"}
+{"t":{"$date":"2026-04-12T07:44:51.971+00:00"},"s":"I",  "c":"NETWORK",  "id":23017,   "ctx":"listener","msg":"removing socket file","attr":{"path":"/tmp/mongodb-27017.sock"}}
+{"t":{"$date":"2026-04-12T07:44:51.972+00:00"},"s":"I",  "c":"NETWORK",  "id":4784905, "ctx":"SignalHandler","msg":"Shutting down the global connection pool"}
+{"t":{"$date":"2026-04-12T07:44:51.972+00:00"},"s":"I",  "c":"CONTROL",  "id":4784906, "ctx":"SignalHandler","msg":"Shutting down the FlowControlTicketholder"}
+{"t":{"$date":"2026-04-12T07:44:51.972+00:00"},"s":"I",  "c":"-",        "id":20520,   "ctx":"SignalHandler","msg":"Stopping further Flow Control ticket acquisitions."}
+{"t":{"$date":"2026-04-12T07:44:51.972+00:00"},"s":"I",  "c":"CONTROL",  "id":4784908, "ctx":"SignalHandler","msg":"Shutting down PeriodicThreadToAbortExpiredTransactions"}
+{"t":{"$date":"2026-04-12T07:44:51.972+00:00"},"s":"I",  "c":"CONTROL",  "id":10036707,"ctx":"SignalHandler","msg":"Shutting down PeriodicThreadToRollbackUnderCachePressure"}
+{"t":{"$date":"2026-04-12T07:44:51.972+00:00"},"s":"I",  "c":"REPL",     "id":4784909, "ctx":"SignalHandler","msg":"Shutting down the ReplicationCoordinator"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"SHARDING", "id":4784910, "ctx":"SignalHandler","msg":"Shutting down the ShardingInitializationMongoD"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"REPL",     "id":4784911, "ctx":"SignalHandler","msg":"Enqueuing the ReplicationStateTransitionLock for shutdown"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"-",        "id":4784912, "ctx":"SignalHandler","msg":"Killing all operations for shutdown"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"-",        "id":4695300, "ctx":"SignalHandler","msg":"Interrupted all currently running operations","attr":{"opsKilled":3}}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"COMMAND",  "id":4784913, "ctx":"SignalHandler","msg":"Shutting down all open transactions"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"REPL",     "id":4784914, "ctx":"SignalHandler","msg":"Acquiring the ReplicationStateTransitionLock for shutdown"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"INDEX",    "id":4784915, "ctx":"SignalHandler","msg":"Shutting down the IndexBuildsCoordinator"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"NETWORK",  "id":4784918, "ctx":"SignalHandler","msg":"Shutting down the ReplicaSetMonitor"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"SHARDING", "id":9439300, "ctx":"SignalHandler","msg":"Shutting down the filtering metadata cache"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"NETWORK",  "id":20562,   "ctx":"SignalHandler","msg":"Shutdown: Closing open transport sessions"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"NETWORK",  "id":4784923, "ctx":"SignalHandler","msg":"Shutting down the ASIO transport SessionManager"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"CONTROL",  "id":4784927, "ctx":"SignalHandler","msg":"Shutting down the HealthLog"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"CONTROL",  "id":4784928, "ctx":"SignalHandler","msg":"Shutting down the TTL monitor"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"INDEX",    "id":3684100, "ctx":"SignalHandler","msg":"Shutting down TTL collection monitor thread"}
+{"t":{"$date":"2026-04-12T07:44:51.973+00:00"},"s":"I",  "c":"CONNPOOL", "id":22582,   "ctx":"SignalHandler","msg":"Killing all outstanding egress activity","attr":{"instanceName":"NetworkInterfaceTL-TTLMonitorMetadataRefreshNetwork","numKilledByType":{}}}
+{"t":{"$date":"2026-04-12T07:44:51.974+00:00"},"s":"I",  "c":"INDEX",    "id":3684101, "ctx":"SignalHandler","msg":"Finished shutting down TTL collection monitor thread"}
+{"t":{"$date":"2026-04-12T07:44:51.974+00:00"},"s":"I",  "c":"CONTROL",  "id":4784929, "ctx":"SignalHandler","msg":"Acquiring the global lock for shutdown"}
+{"t":{"$date":"2026-04-12T07:44:51.974+00:00"},"s":"I",  "c":"CONTROL",  "id":4784930, "ctx":"SignalHandler","msg":"Shutting down the storage engine"}
+{"t":{"$date":"2026-04-12T07:44:51.974+00:00"},"s":"I",  "c":"STORAGE",  "id":22320,   "ctx":"SignalHandler","msg":"Shutting down journal flusher thread"}
+{"t":{"$date":"2026-04-12T07:44:51.974+00:00"},"s":"I",  "c":"STORAGE",  "id":22321,   "ctx":"SignalHandler","msg":"Finished shutting down journal flusher thread"}
+{"t":{"$date":"2026-04-12T07:44:51.974+00:00"},"s":"I",  "c":"STORAGE",  "id":22322,   "ctx":"SignalHandler","msg":"Shutting down checkpoint thread"}
+{"t":{"$date":"2026-04-12T07:44:51.974+00:00"},"s":"I",  "c":"STORAGE",  "id":22323,   "ctx":"SignalHandler","msg":"Finished shutting down checkpoint thread"}
+{"t":{"$date":"2026-04-12T07:44:51.974+00:00"},"s":"I",  "c":"STORAGE",  "id":20282,   "ctx":"SignalHandler","msg":"Deregistering all the collections"}
+{"t":{"$date":"2026-04-12T07:44:51.975+00:00"},"s":"I",  "c":"STORAGE",  "id":22261,   "ctx":"SignalHandler","msg":"Timestamp monitor shutting down"}
+{"t":{"$date":"2026-04-12T07:44:51.975+00:00"},"s":"I",  "c":"STORAGE",  "id":10158003,"ctx":"SignalHandler","msg":"SpillWiredTigerKVEngine shutting down"}
+{"t":{"$date":"2026-04-12T07:44:51.975+00:00"},"s":"I",  "c":"STORAGE",  "id":10158006,"ctx":"SignalHandler","msg":"Closing spill WiredTiger","attr":{"closeConfig":"leak_memory=true,"}}
+{"t":{"$date":"2026-04-12T07:44:51.975+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":975563,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"closing WiredTiger library."}}}
+{"t":{"$date":"2026-04-12T07:44:51.975+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":975652,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"rolling back all running transactions."}}}
+{"t":{"$date":"2026-04-12T07:44:51.975+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":975689,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"closing all running sessions."}}}
+{"t":{"$date":"2026-04-12T07:44:51.975+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":975714,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"closing some of the internal threads."}}}
+{"t":{"$date":"2026-04-12T07:44:51.976+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":976633,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"perform final checkpoint and shutting down the global transaction state"}}}
+{"t":{"$date":"2026-04-12T07:44:51.976+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":976784,"thread":"28:0x76b7ef5a66c0","session_name":"close_ckpt","category":"WT_VERB_CHECKPOINT","log_id":1000000,"category_id":5,"verbose_level":"INFO","verbose_level_id":0,"msg":"Checkpoint requested at stable timestamp (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:51.976+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":976931,"thread":"28:0x76b7ef5a66c0","session_name":"close_ckpt","category":"WT_VERB_CHECKPOINT_PROGRESS","log_id":1000000,"category_id":7,"verbose_level":"INFO","verbose_level_id":0,"msg":"saving checkpoint snapshot min: 2, snapshot max: 2 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1"}}}
+{"t":{"$date":"2026-04-12T07:44:51.989+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":988989,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"shutdown checkpoint has successfully finished and ran for 12 milliseconds"}}}
+{"t":{"$date":"2026-04-12T07:44:51.989+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":989386,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1493200,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"shutdown was completed successfully and took 13ms, including 0ms for the rollback to stable, and 12ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:51.989+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":989499,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"stopping eviction threads"}}}
+{"t":{"$date":"2026-04-12T07:44:51.989+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":989605,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"waiting for eviction threads to stop"}}}
+{"t":{"$date":"2026-04-12T07:44:51.989+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"thread41","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979891,"ts_usec":989673,"thread":"28:0x76b7e158a6c0","session_name":"eviction-server","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"eviction thread exiting"}}}
+{"t":{"$date":"2026-04-12T07:44:51.998+00:00"},"s":"I",  "c":"STORAGE",  "id":10158007,"ctx":"SignalHandler","msg":"Closed spill WiredTiger ","attr":{"durationMillis":23}}
+{"t":{"$date":"2026-04-12T07:44:51.998+00:00"},"s":"I",  "c":"STORAGE",  "id":22317,   "ctx":"SignalHandler","msg":"WiredTigerKVEngine shutting down"}
+{"t":{"$date":"2026-04-12T07:44:51.998+00:00"},"s":"I",  "c":"STORAGE",  "id":22318,   "ctx":"SignalHandler","msg":"Shutting down session sweeper thread"}
+{"t":{"$date":"2026-04-12T07:44:51.998+00:00"},"s":"I",  "c":"STORAGE",  "id":22319,   "ctx":"SignalHandler","msg":"Finished shutting down session sweeper thread"}
+{"t":{"$date":"2026-04-12T07:44:52.002+00:00"},"s":"I",  "c":"STORAGE",  "id":4795902, "ctx":"SignalHandler","msg":"Closing WiredTiger","attr":{"closeConfig":"leak_memory=true,use_timestamp=false,"}}
+{"t":{"$date":"2026-04-12T07:44:52.002+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":2792,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"closing WiredTiger library."}}}
+{"t":{"$date":"2026-04-12T07:44:52.002+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":2848,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"rolling back all running transactions."}}}
+{"t":{"$date":"2026-04-12T07:44:52.002+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":2878,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"closing all running sessions."}}}
+{"t":{"$date":"2026-04-12T07:44:52.002+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":2904,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"closing some of the internal threads."}}}
+{"t":{"$date":"2026-04-12T07:44:52.004+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":4471,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"perform final checkpoint and shutting down the global transaction state"}}}
+{"t":{"$date":"2026-04-12T07:44:52.007+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":7382,"thread":"28:0x76b7ef5a66c0","session_name":"close_ckpt","category":"WT_VERB_CHECKPOINT_PROGRESS","log_id":1000000,"category_id":7,"verbose_level":"INFO","verbose_level_id":0,"msg":"saving checkpoint snapshot min: 45, snapshot max: 45 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1"}}}
+{"t":{"$date":"2026-04-12T07:44:52.053+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":53865,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"shutdown checkpoint has successfully finished and ran for 49 milliseconds"}}}
+{"t":{"$date":"2026-04-12T07:44:52.054+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":54272,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1493200,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"shutdown was completed successfully and took 51ms, including 0ms for the rollback to stable, and 49ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:52.054+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":54390,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"stopping eviction threads"}}}
+{"t":{"$date":"2026-04-12T07:44:52.054+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":54610,"thread":"28:0x76b7ef5a66c0","session_name":"WT_CONNECTION.close","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"waiting for eviction threads to stop"}}}
+{"t":{"$date":"2026-04-12T07:44:52.054+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"thread42","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979892,"ts_usec":54728,"thread":"28:0x76b7e9d9b6c0","session_name":"eviction-server","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"eviction thread exiting"}}}
+{"t":{"$date":"2026-04-12T07:44:52.083+00:00"},"s":"I",  "c":"STORAGE",  "id":4795901, "ctx":"SignalHandler","msg":"WiredTiger closed","attr":{"durationMillis":81}}
+{"t":{"$date":"2026-04-12T07:44:52.083+00:00"},"s":"I",  "c":"STORAGE",  "id":22279,   "ctx":"SignalHandler","msg":"shutdown: removing fs lock..."}
+{"t":{"$date":"2026-04-12T07:44:52.083+00:00"},"s":"I",  "c":"-",        "id":4784931, "ctx":"SignalHandler","msg":"Dropping the scope cache for shutdown"}
+{"t":{"$date":"2026-04-12T07:44:52.083+00:00"},"s":"I",  "c":"FTDC",     "id":20626,   "ctx":"SignalHandler","msg":"Shutting down full-time diagnostic data capture"}
+{"t":{"$date":"2026-04-12T07:44:52.090+00:00"},"s":"I",  "c":"-",        "id":10175800,"ctx":"SignalHandler","msg":"Shutting down the standalone executor"}
+{"t":{"$date":"2026-04-12T07:44:52.091+00:00"},"s":"I",  "c":"CONNPOOL", "id":22582,   "ctx":"SignalHandler","msg":"Killing all outstanding egress activity","attr":{"instanceName":"NetworkInterfaceTL-StandaloneNetwork","numKilledByType":{}}}
+{"t":{"$date":"2026-04-12T07:44:52.091+00:00"},"s":"I",  "c":"CONTROL",  "id":20565,   "ctx":"SignalHandler","msg":"Now exiting"}
+{"t":{"$date":"2026-04-12T07:44:52.091+00:00"},"s":"I",  "c":"CONTROL",  "id":8423404, "ctx":"SignalHandler","msg":"mongod shutdown complete","attr":{"Summary of time elapsed":{"Statistics":{"enterTerminalShutdownMillis":0,"stepDownReplCoordMillis":3,"quiesceModeMillis":0,"stopFLECrudMillis":1,"shutDownMirrorMaestroMillis":0,"shutDownWaitForMajorityServiceMillis":2,"shutDownLogicalSessionCacheMillis":0,"shutDownGlobalConnectionPoolMillis":1,"shutDownSearchTaskExecutorsMillis":0,"shutDownFlowControlTicketHolderMillis":0,"shutDownAbortExpiredTransactionsThreadMillis":0,"shutDownRollbackUnderCachePressureThreadMillis":0,"killAllOperationsMillis":0,"shutDownOpenTransactionsMillis":0,"acquireRSTLMillis":0,"shutDownIndexBuildsCoordinatorMillis":0,"shutDownReplicaSetMonitorMillis":0,"shutDownTransportLayerMillis":0,"shutDownHealthLogMillis":0,"shutDownTTLMonitorMillis":1,"shutDownExpiredDocumentRemoverMillis":0,"shutDownStorageEngineMillis":109,"shutDownOtelMetricsMillis":0,"shutDownFTDCMillis":0,"shutDownReplicaSetNodeExecutorMillis":8,"shutDownOCSPMillis":0,"shutdownTaskTotalMillis":127}}}}
+{"t":{"$date":"2026-04-12T07:44:52.091+00:00"},"s":"I",  "c":"CONTROL",  "id":23138,   "ctx":"SignalHandler","msg":"Shutting down","attr":{"exitCode":0}}
+
+MongoDB init process complete; ready for start up.
+
+{"t":{"$date":"2026-04-12T07:44:53.095+00:00"},"s":"I",  "c":"-",        "id":8991200, "ctx":"main","msg":"Shuffling initializers","attr":{"seed":3647733886}}
+{"t":{"$date":"2026-04-12T07:44:53.116+00:00"},"s":"I",  "c":"CONTROL",  "id":97374,   "ctx":"main","msg":"Automatically disabling TLS 1.0 and TLS 1.1, to force-enable TLS 1.1 specify --sslDisabledProtocols 'TLS1_0'; to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2026-04-12T07:44:53.124+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":27},"outgoing":{"minWireVersion":6,"maxWireVersion":27},"isInternalClient":true}}}
+{"t":{"$date":"2026-04-12T07:44:53.126+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+{"t":{"$date":"2026-04-12T07:44:53.126+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"c21a1c093357"}}
+{"t":{"$date":"2026-04-12T07:44:53.126+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"8.2.6","gitVersion":"5d25c835745d06f712320b6cdae9d50b7b43663e","openSSLVersion":"OpenSSL 3.0.13 30 Jan 2024","modules":[],"allocator":"tcmalloc-google","environment":{"distmod":"ubuntu2404","distarch":"x86_64","target_arch":"x86_64"}}}}
+{"t":{"$date":"2026-04-12T07:44:53.126+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"24.04"}}}
+{"t":{"$date":"2026-04-12T07:44:53.126+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"*"},"security":{"authorization":"enabled"}}}}
+{"t":{"$date":"2026-04-12T07:44:53.128+00:00"},"s":"W",  "c":"NETWORK",  "id":11621101,"ctx":"initandlisten","msg":"Overriding max connections to honor `capMemoryConsumptionForPreAuthBuffers` settings","attr":{"limit":96488}}
+{"t":{"$date":"2026-04-12T07:44:53.128+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"initandlisten","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set at least one of the related parameters","attr":{"relatedParameters":["tcpFastOpenServer","tcpFastOpenClient","tcpFastOpenQueueSize"]}}
+{"t":{"$date":"2026-04-12T07:44:53.131+00:00"},"s":"I",  "c":"STORAGE",  "id":22270,   "ctx":"initandlisten","msg":"Storage engine to use detected by data files","attr":{"dbpath":"/data/db","storageEngine":"wiredTiger"}}
+{"t":{"$date":"2026-04-12T07:44:53.131+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:53.131+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=3257M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,live_restore_progress:1,backup:0,checkpoint:0,compact:0,eviction:0,fileops:0,history_store:0,live_restore:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],prefetch=(available=true,default=false),"}}
+{"t":{"$date":"2026-04-12T07:44:53.143+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":143573,"thread":"1:0x797b02d25400","session_name":"wiredtiger_open","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"opening the WiredTiger library"}}}
+{"t":{"$date":"2026-04-12T07:44:53.234+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":234372,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"connection configuration string parsing completed"}}}
+{"t":{"$date":"2026-04-12T07:44:53.235+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":235820,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting WiredTiger utility threads"}}}
+{"t":{"$date":"2026-04-12T07:44:53.247+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":247768,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting WiredTiger recovery"}}}
+{"t":{"$date":"2026-04-12T07:44:53.248+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":248569,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 1 through 2"}}}
+{"t":{"$date":"2026-04-12T07:44:53.443+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":443692,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 2 through 2"}}}
+{"t":{"$date":"2026-04-12T07:44:53.728+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":728209,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"scanning metadata to find the largest file ID"}}}
+{"t":{"$date":"2026-04-12T07:44:53.728+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":728922,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"largest file ID found in the metadata 13"}}}
+{"t":{"$date":"2026-04-12T07:44:53.730+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":730179,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"Main recovery loop: starting at 1,32128 to 2,256"}}}
+{"t":{"$date":"2026-04-12T07:44:53.799+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":799328,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting eviction threads"}}}
+{"t":{"$date":"2026-04-12T07:44:53.802+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":802322,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 1 through 2"}}}
+{"t":{"$date":"2026-04-12T07:44:53.879+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":879785,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 2 through 2"}}}
+{"t":{"$date":"2026-04-12T07:44:53.914+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":914737,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery log replay has successfully finished and ran for 666 milliseconds"}}}
+{"t":{"$date":"2026-04-12T07:44:53.915+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":915076,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:53.915+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":915172,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:53.915+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":915250,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"[RECOVERY_RTS] performing recovery rollback_to_stable with stable_timestamp=(0, 0) and oldest_timestamp=(0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:53.919+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":919489,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery rollback to stable has successfully finished and ran for 4 milliseconds"}}}
+{"t":{"$date":"2026-04-12T07:44:53.919+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":919634,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"stopping eviction threads"}}}
+{"t":{"$date":"2026-04-12T07:44:53.919+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":919914,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"waiting for eviction threads to stop"}}}
+{"t":{"$date":"2026-04-12T07:44:53.920+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"thread8","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":920033,"thread":"1:0x797afecfb6c0","session_name":"eviction-server","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"eviction thread exiting"}}}
+{"t":{"$date":"2026-04-12T07:44:53.926+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":926000,"thread":"1:0x797b02d25400","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT","log_id":1000000,"category_id":5,"verbose_level":"INFO","verbose_level_id":0,"msg":"Checkpoint requested at stable timestamp (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:53.926+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":926560,"thread":"1:0x797b02d25400","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","log_id":1000000,"category_id":7,"verbose_level":"INFO","verbose_level_id":0,"msg":"saving checkpoint snapshot min: 1, snapshot max: 1 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 7"}}}
+{"t":{"$date":"2026-04-12T07:44:53.944+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":944440,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery checkpoint has successfully finished and ran for 23 milliseconds"}}}
+{"t":{"$date":"2026-04-12T07:44:53.944+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":944625,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1493201,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery was completed successfully and took 696ms, including 666ms for the log replay, 4ms for the rollback to stable, and 23ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:53.944+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":944678,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1493201,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery was completed successfully and took 696ms, including 666ms for the log replay, 4ms for the rollback to stable, and 23ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:53.947+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":947294,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting eviction threads"}}}
+{"t":{"$date":"2026-04-12T07:44:53.957+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":957120,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"WiredTiger utility threads started successfully"}}}
+{"t":{"$date":"2026-04-12T07:44:53.957+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":957446,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"the WiredTiger library has successfully opened"}}}
+{"t":{"$date":"2026-04-12T07:44:53.957+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":826}}
+{"t":{"$date":"2026-04-12T07:44:53.957+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+{"t":{"$date":"2026-04-12T07:44:53.957+00:00"},"s":"I",  "c":"STORAGE",  "id":9086700, "ctx":"initandlisten","msg":"WiredTiger session cache max value has been set","attr":{"sessionCacheMax":16500}}
+{"t":{"$date":"2026-04-12T07:44:53.960+00:00"},"s":"I",  "c":"STORAGE",  "id":10158000,"ctx":"initandlisten","msg":"Opening spill WiredTiger","attr":{"config":"create,cache_size=188M,session_max=1024,eviction=(threads_min=1,threads_max=1),eviction_dirty_target=9MB,eviction_dirty_trigger=150MB,eviction_updates_trigger=150MB,config_base=false,statistics=(fast),log=(enabled=false),builtin_extension_config=(zstd=(compression_level=-7)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,live_restore_progress:1,backup:0,checkpoint:0,compact:0,eviction:0,fileops:0,history_store:0,live_restore:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],"}}
+{"t":{"$date":"2026-04-12T07:44:53.966+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":966291,"thread":"1:0x797b02d25400","session_name":"wiredtiger_open","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"opening the WiredTiger library"}}}
+{"t":{"$date":"2026-04-12T07:44:53.971+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":971270,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"connection configuration string parsing completed"}}}
+{"t":{"$date":"2026-04-12T07:44:53.986+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":986297,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting WiredTiger utility threads"}}}
+{"t":{"$date":"2026-04-12T07:44:53.987+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":987279,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting WiredTiger recovery"}}}
+{"t":{"$date":"2026-04-12T07:44:53.987+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":987528,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"scanning metadata to find the largest file ID"}}}
+{"t":{"$date":"2026-04-12T07:44:53.987+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":987671,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"largest file ID found in the metadata 0"}}}
+{"t":{"$date":"2026-04-12T07:44:53.987+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":987723,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery log replay has successfully finished and ran for 0 milliseconds"}}}
+{"t":{"$date":"2026-04-12T07:44:53.987+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":987761,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:53.987+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":987833,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1000000,"category_id":33,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+{"t":{"$date":"2026-04-12T07:44:53.987+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":987941,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY","log_id":1493201,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery was completed successfully and took 0ms, including 0ms for the log replay, 0ms for the rollback to stable, and 0ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:53.988+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979893,"ts_usec":988036,"thread":"1:0x797b02d25400","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","log_id":1493201,"category_id":33,"verbose_level":"INFO","verbose_level_id":0,"msg":"recovery was completed successfully and took 0ms, including 0ms for the log replay, 0ms for the rollback to stable, and 0ms for the checkpoint."}}}
+{"t":{"$date":"2026-04-12T07:44:54.015+00:00"},"s":"I",  "c":"WTEVICT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979894,"ts_usec":15478,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_EVICTION","log_id":1000000,"category_id":15,"verbose_level":"INFO","verbose_level_id":0,"msg":"starting eviction threads"}}}
+{"t":{"$date":"2026-04-12T07:44:54.018+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979894,"ts_usec":18506,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"WiredTiger utility threads started successfully"}}}
+{"t":{"$date":"2026-04-12T07:44:54.018+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775979894,"ts_usec":18612,"thread":"1:0x797b02d25400","session_name":"connection","category":"WT_VERB_RECOVERY","log_id":1000000,"category_id":32,"verbose_level":"INFO","verbose_level_id":0,"msg":"the WiredTiger library has successfully opened"}}}
+{"t":{"$date":"2026-04-12T07:44:54.018+00:00"},"s":"I",  "c":"STORAGE",  "id":10158001,"ctx":"initandlisten","msg":"Spill WiredTiger opened","attr":{"durationMillis":58}}
+{"t":{"$date":"2026-04-12T07:44:54.020+00:00"},"s":"I",  "c":"STORAGE",  "id":9529901, "ctx":"initandlisten","msg":"Initializing durable catalog","attr":{"numRecords":4}}
+{"t":{"$date":"2026-04-12T07:44:54.021+00:00"},"s":"I",  "c":"STORAGE",  "id":9529902, "ctx":"initandlisten","msg":"Retrieving all idents from storage engine"}
+{"t":{"$date":"2026-04-12T07:44:54.021+00:00"},"s":"I",  "c":"STORAGE",  "id":9529903, "ctx":"initandlisten","msg":"Initializing all collections in durable catalog","attr":{"numEntries":4}}
+{"t":{"$date":"2026-04-12T07:44:54.027+00:00"},"s":"W",  "c":"CONTROL",  "id":9068900, "ctx":"initandlisten","msg":"For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile","attr":{"allocator":"tcmalloc-google","sysfsFile":"/sys/kernel/mm/transparent_hugepage/enabled","currentValue":"never","desiredValue":"always"},"tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:54.027+00:00"},"s":"W",  "c":"CONTROL",  "id":9068900, "ctx":"initandlisten","msg":"For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile","attr":{"allocator":"tcmalloc-google","sysfsFile":"/sys/kernel/mm/transparent_hugepage/defrag","currentValue":"madvise","desiredValue":"defer+madvise"},"tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:54.027+00:00"},"s":"W",  "c":"CONTROL",  "id":8640302, "ctx":"initandlisten","msg":"We suggest setting the contents of sysfsFile to 0.","attr":{"sysfsFile":"/sys/kernel/mm/transparent_hugepage/khugepaged/max_ptes_none","currentValue":511},"tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:54.027+00:00"},"s":"W",  "c":"CONTROL",  "id":8386700, "ctx":"initandlisten","msg":"We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.","attr":{"sysfsFile":"/proc/sys/vm/swappiness","currentValue":60},"tags":["startupWarnings"]}
+{"t":{"$date":"2026-04-12T07:44:54.029+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":27},"outgoing":{"minWireVersion":6,"maxWireVersion":27},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":27},"incomingInternalClient":{"minWireVersion":27,"maxWireVersion":27},"outgoing":{"minWireVersion":27,"maxWireVersion":27},"isInternalClient":true}}}
+{"t":{"$date":"2026-04-12T07:44:54.029+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"8.2","context":"startup"}}
+{"t":{"$date":"2026-04-12T07:44:54.029+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+{"t":{"$date":"2026-04-12T07:44:54.029+00:00"},"s":"I",  "c":"STORAGE",  "id":10682200,"ctx":"initandlisten","msg":"Dropping spill idents","attr":{"numIdents":0}}
+{"t":{"$date":"2026-04-12T07:44:54.030+00:00"},"s":"I",  "c":"CONTROL",  "id":6608200, "ctx":"initandlisten","msg":"Initializing cluster server parameters from disk"}
+{"t":{"$date":"2026-04-12T07:44:54.030+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+{"t":{"$date":"2026-04-12T07:44:54.031+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+{"t":{"$date":"2026-04-12T07:44:54.037+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+{"t":{"$date":"2026-04-12T07:44:54.039+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+{"t":{"$date":"2026-04-12T07:44:54.040+00:00"},"s":"I",  "c":"STORAGE",  "id":7333401, "ctx":"initandlisten","msg":"Starting the DiskSpaceMonitor"}
+{"t":{"$date":"2026-04-12T07:44:54.047+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+{"t":{"$date":"2026-04-12T07:44:54.047+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0:27017"}}
+{"t":{"$date":"2026-04-12T07:44:54.047+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+{"t":{"$date":"2026-04-12T07:44:54.047+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"setUpPeriodicRunnerMillis":0,"setUpOCSPMillis":0,"setUpTransportLayerMillis":0,"initSyncCrashRecoveryMillis":0,"createLockFileMillis":0,"getStorageEngineMetadataMillis":0,"validateMetadataMillis":0,"createStorageEngineMillis":890,"writePIDMillis":0,"initializeFCVForIndexMillis":2,"dropAbandonedIdentsMillis":0,"standaloneClusterParamsMillis":0,"userAndRolesGraphMillis":0,"createSystemUsersIndexMillis":0,"waitForMajorityServiceMillis":1,"startUpReplCoordMillis":2,"recoverChangeStreamMillis":0,"logStartupOptionsMillis":0,"startUpTransportLayerMillis":1,"initAndListenTotalMillis":921}}}}
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -p 8081:8081 -d -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password -e ME_CONFIG_MONGODB_SERVER=mongodb --net mongo-network --name mongo-express mongo-express
+74c0bd7a4a60063da79eb6403f16a0ef4b30546239a97092f2bf91e05857bff4
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs 74c0bd7a4a60063da79eb6403f16a0ef4b30546239a97092f2bf91e05857bff4
+Waiting for mongo:27017...
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 07:57:07 UTC 2026 retrying to connect to mongo:27017 (2/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 07:57:13 UTC 2026 retrying to connect to mongo:27017 (3/10)
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs 74c0bd7a4a60063da79eb6403f16a0ef4b30546239a97092f2bf91e05857bff4
+Waiting for mongo:27017...
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 07:57:07 UTC 2026 retrying to connect to mongo:27017 (2/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 07:57:13 UTC 2026 retrying to connect to mongo:27017 (3/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 07:57:19 UTC 2026 retrying to connect to mongo:27017 (4/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 07:57:25 UTC 2026 retrying to connect to mongo:27017 (5/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 07:57:29 UTC 2026 retrying to connect to mongo:27017 (6/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker rm -f mongo-express
+mongo-express
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -d \
+-p 8081:8081 \
+--net mongo-network \
+--name mongo-express \
+-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+-e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+-e ME_CONFIG_MONGODB_SERVER=mongodb \
+-e ME_CONFIG_MONGODB_ENABLE_ADMIN=true \
+mongo-express
+d8a2892f905914215b06ff831d71e87075f62611ae28434d7bfd09fbc3e65db9
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs d8a2892f905914215b06ff831d71e87075f62611ae28434d7bfd09fbc3e65db9
+Waiting for mongo:27017...
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 08:00:22 UTC 2026 retrying to connect to mongo:27017 (2/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs d8a2892f905914215b06ff831d71e87075f62611ae28434d7bfd09fbc3e65db9
+Waiting for mongo:27017...
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 08:00:22 UTC 2026 retrying to connect to mongo:27017 (2/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 08:00:28 UTC 2026 retrying to connect to mongo:27017 (3/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 08:00:34 UTC 2026 retrying to connect to mongo:27017 (4/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 08:00:40 UTC 2026 retrying to connect to mongo:27017 (5/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 08:00:44 UTC 2026 retrying to connect to mongo:27017 (6/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 08:00:50 UTC 2026 retrying to connect to mongo:27017 (7/10)
+/docker-entrypoint.sh: line 15: mongo: Try again
+/docker-entrypoint.sh: line 15: /dev/tcp/mongo/27017: Invalid argument
+Sun Apr 12 08:00:56 UTC 2026 retrying to connect to mongo:27017 (8/10)
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker rm -f mongo-express
+mongo-express
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker run -d \
+-p 8081:8081 \
+--net mongo-network \
+--name mongo-express \
+-e ME_CONFIG_MONGODB_URL="mongodb://admin:password@mongodb:27017/" \
+mongo-express
+62dd47bc50bf67aba25eb7575b2809ee8ea9a5602b7e891d78a75b9f947f48c7
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs 62dd47bc50bf67aba25eb7575b2809ee8ea9a5602b7e891d78a75b9f947f48c7
+Waiting for mongodb:27017...
+No custom config.js found, loading config.default.js
+Welcome to mongo-express 1.0.2
+------------------------
+
+
+Mongo Express server listening at http://0.0.0.0:8081
+Server is open to allow connections from anyone (0.0.0.0)
+basicAuth credentials are "admin:pass", it is recommended you change this in your config.js!
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker rm -f mongo-express
+
+docker run -d \
+-p 8081:8081 \
+--net mongo-network \
+--name mongo-express \
+-e ME_CONFIG_MONGODB_URL="mongodb://admin:password@mongodb:27017/" \
+-e ME_CONFIG_BASICAUTH_USERNAME=admin \
+-e ME_CONFIG_BASICAUTH_PASSWORD=password \
+mongo-express
+mongo-express
+e4b0dded1b6bdd8fb1ac600a687cabb8849c5311490d1e6700c48d6135c6ccf9
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs e4b0dded1b6bdd8fb1ac600a687cabb8849c5311490d1e6700c48d6135c6ccf9
+Waiting for mongodb:27017...
+No custom config.js found, loading config.default.js
+Welcome to mongo-express 1.0.2
+------------------------
+
+
+Mongo Express server listening at http://0.0.0.0:8081
+Server is open to allow connections from anyone (0.0.0.0)
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+e4b0dded1b6b   mongo-express   "/sbin/tini -- /dock…"   2 minutes ago    Up 2 minutes    0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       mongo-express
+c21a1c093357   mongo           "docker-entrypoint.s…"   21 minutes ago   Up 21 minutes   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongodb
+4da716a52395   redis:4.0       "docker-entrypoint.s…"   2 hours ago      Up 2 hours      0.0.0.0:6001->6379/tcp, [::]:6001->6379/tcp       redis-older
+d889a2c2690c   redis           "docker-entrypoint.s…"   2 hours ago      Up 2 hours      0.0.0.0:6000->6379/tcp, [::]:6000->6379/tcp       tender_knuth
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker stop 4da716a52395
+4da716a52395
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker stop d889a2c2690c
+d889a2c2690c
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+e4b0dded1b6b   mongo-express   "/sbin/tini -- /dock…"   2 minutes ago    Up 2 minutes    0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       mongo-express
+c21a1c093357   mongo           "docker-entrypoint.s…"   22 minutes ago   Up 22 minutes   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongodb
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~
+$ docker logs c21a1c093357 | tail
+{"t":{"$date":"2026-04-12T08:14:35.329+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn22","msg":"Connection ended","attr":{"remote":"172.18.0.1:57320","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0d90b3ca-ce54-4687-a968-8e161d8e9d35"}},"connectionId":22,"connectionCount":4}}
+{"t":{"$date":"2026-04-12T08:14:43.091+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.1:40238","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"74eb356a-d055-4404-9943-0a42f91eaad2"}},"connectionId":23,"connectionCount":5}}
+{"t":{"$date":"2026-04-12T08:14:43.092+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn23","msg":"client metadata","attr":{"remote":"172.18.0.1:40238","client":"conn23","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs-core","version":"3.3.3"},"os":{"type":"Windows_NT","name":"win32","architecture":"x64","version":"10.0.26200"},"platform":"Node.js v22.18.0, LE"}}}
+{"t":{"$date":"2026-04-12T08:14:43.138+00:00"},"s":"I",  "c":"ACCESS",   "id":6788604, "ctx":"conn23","msg":"Auth metrics report","attr":{"metric":"acquireUser","micros":0}}
+{"t":{"$date":"2026-04-12T08:14:43.236+00:00"},"s":"I",  "c":"ACCESS",   "id":5286306, "ctx":"conn23","msg":"Successfully authenticated","attr":{"client":"172.18.0.1:40238","isSpeculative":false,"isClusterMember":false,"mechanism":"SCRAM-SHA-256","user":"admin","db":"admin","result":0,"metrics":{"conversation_duration":{"micros":97991,"summary":{"0":{"step":1,"step_total":3,"duration_micros":172},"1":{"step":2,"step_total":3,"duration_micros":32},"2":{"step":3,"step_total":3,"duration_micros":1}}}},"doc":{"driver":{"name":"nodejs-core","version":"3.3.3"},"os":{"type":"Windows_NT","name":"win32","architecture":"x64","version":"10.0.26200"},"platform":"Node.js v22.18.0, LE"},"extraInfo":{}}}
+{"t":{"$date":"2026-04-12T08:14:43.287+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn23","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":51}}
+{"t":{"$date":"2026-04-12T08:14:43.307+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn23","msg":"Connection ended","attr":{"remote":"172.18.0.1:40238","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"74eb356a-d055-4404-9943-0a42f91eaad2"}},"connectionId":23,"connectionCount":4}}
+{"t":{"$date":"2026-04-12T08:15:23.081+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775981723,"ts_usec":81023,"thread":"1:0x797af24e26c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","log_id":1000000,"category_id":7,"verbose_level":"INFO","verbose_level_id":0,"msg":"saving checkpoint snapshot min: 77, snapshot max: 77 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 7"}}}
+{"t":{"$date":"2026-04-12T08:16:17.340+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775981777,"ts_usec":340590,"thread":"1:0x797af24e26c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","log_id":1000000,"category_id":7,"verbose_level":"INFO","verbose_level_id":0,"msg":"saving checkpoint snapshot min: 78, snapshot max: 78 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 7"}}}
+{"t":{"$date":"2026-04-12T08:17:13.928+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1775981833,"ts_usec":927629,"thread":"1:0x797af24e26c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","log_id":1000000,"category_id":7,"verbose_level":"INFO","verbose_level_id":0,"msg":"saving checkpoint snapshot min: 79, snapshot max: 79 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 7"}}}
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker-compose -f docker-compose.yaml up -d
+[+] Running 2/2
+ ✔ Container demo-app-mongodb-1        Started                                                                                                           0.4s
+ ✔ Container demo-app-mongo-express-1  Started                                                                                                           0.4s
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker pd
+docker: unknown command: docker pd
+
+Run 'docker --help' for more information
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+b0536d029b7c   mongo-express   "/sbin/tini -- /dock…"   6 minutes ago    Up 13 seconds   0.0.0.0:8080->8081/tcp, [::]:8080->8081/tcp       demo-app-mongo-express-1
+f3cd2bce4d9f   mongo           "docker-entrypoint.s…"   11 minutes ago   Up 13 seconds   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   demo-app-mongodb-1
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker-compose -f docker-compose.yaml down
+[+] Running 3/3
+ ✔ Container demo-app-mongo-express-1  Removed                                                                                                           0.4s
+ ✔ Container demo-app-mongodb-1        Removed                                                                                                           0.5s
+ ✔ Network demo-app_default            Removed                                                                                                           0.4s
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker build -t my-app:1.0 .
+[+] Building 77.4s (10/10) FINISHED                                                                                                      docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                     0.1s
+ => => transferring dockerfile: 216B                                                                                                                     0.0s
+ => [internal] load metadata for docker.io/library/node:latest                                                                                           5.8s
+ => [internal] load .dockerignore                                                                                                                        0.0s
+ => => transferring context: 2B                                                                                                                          0.0s
+ => [1/5] FROM docker.io/library/node:latest@sha256:3953ec6a2c10154a58ccf4ba48083ddfe3f8641d63f0d1d5cb8a4a78169123a7                                    64.0s
+ => => resolve docker.io/library/node:latest@sha256:3953ec6a2c10154a58ccf4ba48083ddfe3f8641d63f0d1d5cb8a4a78169123a7                                     0.0s
+ => => sha256:9b416da03c6f1510fad79242cdba8daa40f57b8743fde2674dad1a1b61feaf6d 57.76MB / 57.76MB                                                        31.3s
+ => => sha256:26d6ad1df3834e820dc5ac77eb25eeac602755e1ad063c88c5011b2a630941cd 446B / 446B                                                               1.9s
+ => => sha256:346d18ee0f46159ec75075e2cfb4b23e714341895b4201bdd823b896bbb2d8d0 1.25MB / 1.25MB                                                           6.6s
+ => => sha256:13b95ad598281f742fff1e39e6c4708006c47a775575b56cdb52f7d1c3f11c2a 3.33kB / 3.33kB                                                           1.7s
+ => => sha256:b267853a2602be02c651d45a79ece242837985d07267fe166ad1109a4b3baa39 211.53MB / 211.53MB                                                      45.3s
+ => => sha256:de73ef470b7b271fede6f98a4c8376971bd059ce04ebc13b9f86e34e534b89ae 64.40MB / 64.40MB                                                        26.7s
+ => => sha256:c2c3414b1d6b49c54c305584faac46aad75c67644cf4f8495e8145206d28e416 24.04MB / 24.04MB                                                         6.7s
+ => => sha256:c150dd3f5fc91eabd1818cc30298a4a956782621583cadfd369c4d327584008e 48.49MB / 48.49MB                                                        16.1s
+ => => extracting sha256:c150dd3f5fc91eabd1818cc30298a4a956782621583cadfd369c4d327584008e                                                                4.4s
+ => => extracting sha256:c2c3414b1d6b49c54c305584faac46aad75c67644cf4f8495e8145206d28e416                                                                1.4s
+ => => extracting sha256:de73ef470b7b271fede6f98a4c8376971bd059ce04ebc13b9f86e34e534b89ae                                                                5.0s
+ => => extracting sha256:b267853a2602be02c651d45a79ece242837985d07267fe166ad1109a4b3baa39                                                               11.3s
+ => => extracting sha256:13b95ad598281f742fff1e39e6c4708006c47a775575b56cdb52f7d1c3f11c2a                                                                0.0s
+ => => extracting sha256:9b416da03c6f1510fad79242cdba8daa40f57b8743fde2674dad1a1b61feaf6d                                                                5.2s
+ => => extracting sha256:346d18ee0f46159ec75075e2cfb4b23e714341895b4201bdd823b896bbb2d8d0                                                                0.1s
+ => => extracting sha256:26d6ad1df3834e820dc5ac77eb25eeac602755e1ad063c88c5011b2a630941cd                                                                0.0s
+ => [internal] load build context                                                                                                                        0.5s
+ => => transferring context: 10.49MB                                                                                                                     0.5s
+ => [2/5] RUN mkdir -p /home/app                                                                                                                         2.1s
+ => [3/5] COPY ./app /home/app                                                                                                                           0.4s
+ => [4/5] WORKDIR /home/app                                                                                                                              0.1s
+ => [5/5] RUN npm install                                                                                                                                4.2s
+ => exporting to image                                                                                                                                   3.4s
+ => => exporting layers                                                                                                                                  0.9s
+ => => exporting manifest sha256:5f5325e42c6fcba85c9d188a1b8b1c6c5e8f5b5b0fdfba216a8928e360e75d89                                                        0.0s
+ => => exporting config sha256:8ac5da182be7e9726ad3913dc79f4e2509e9e2e6206918af6635306437e790f5                                                          0.0s
+ => => exporting attestation manifest sha256:1b196ed8198100f9df3d4615324d4b5c78453551e0c3c11e1631cae0c4fe9391                                            0.0s
+ => => exporting manifest list sha256:b7f990e03f3df432c2676e15febf94f96762fe5f6a665322cd084fe62588f30f                                                   0.0s
+ => => naming to docker.io/library/my-app:1.0                                                                                                            0.0s
+ => => unpacking to docker.io/library/my-app:1.0                                                                                                         2.3s
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker images
+REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+my-app          1.0       b7f990e03f3d   22 seconds ago   1.65GB
+mongo           latest    f071cbf97a6e   5 days ago       1.3GB
+redis           latest    1f073813b641   5 days ago       202MB
+mongo-express   latest    1b23d7976f02   2 years ago      286MB
+redis           4.0       2e03fdd159f4   5 years ago      133MB
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker run -d my-app:1.0
+bcc4a9b32e840ed6ff117b82bfdbb0a53d035b615553ed91abba7ae57bed05ab
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker ps
+CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS         PORTS     NAMES
+bcc4a9b32e84   my-app:1.0   "docker-entrypoint.s…"   12 seconds ago   Up 8 seconds             naughty_euclid
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker logs bcc4a9b32e84
+(node:1) Warning: Accessing non-existent property 'count' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1) Warning: Accessing non-existent property 'findOne' of module exports inside circular dependency
+(node:1) Warning: Accessing non-existent property 'remove' of module exports inside circular dependency
+(node:1) Warning: Accessing non-existent property 'updateOne' of module exports inside circular dependency
+app listening on port 3000!
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker exce -it bcc4a9b32e84 /bin/bash
+unknown shorthand flag: 'i' in -it
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker exce -it bcc4a9b32e84 /bin/sh
+unknown shorthand flag: 'i' in -it
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker exec -it bcc4a9b32e84 /bin/bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Files/Git/usr/bin/bash": stat C:/Program Files/Git/usr/bin/bash: no such file or directory: unknown
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker exec -it bcc4a9b32e84 /bin/sh
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Files/Git/usr/bin/sh": stat C:/Program Files/Git/usr/bin/sh: no such file or directory: unknown
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker exec -it bcc4a9b32e84 "/bin/bash"
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Files/Git/usr/bin/bash": stat C:/Program Files/Git/usr/bin/bash: no such file or directory: unknown
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker exec -it bcc4a9b32e84 "/bin/sh"
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Files/Git/usr/bin/sh": stat C:/Program Files/Git/usr/bin/sh: no such file or directory: unknown
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ winpty docker exec -it bcc4a9b32e84 /bin/sh
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Files/Git/usr/bin/sh.exe": stat C:/Program Files/Git/usr/bin/sh.exe
+: no such file or directory: unknown
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker exec -it bcc4a9b32e84 sh
+# ls
+images  index.html  node_modules  package-lock.json  package.json  server.js
+# pwd
+/home/app
+# env
+NODE_VERSION=25.9.0
+HOSTNAME=bcc4a9b32e84
+YARN_VERSION=1.22.22
+HOME=/root
+MONGO_DB_USERNAME=admin
+TERM=xterm
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MONGO_DB_PWD=password
+PWD=/home/app
+# exit
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ aws ecr get-login-password --region ap-south-1 \
+| docker login --username AWS --password-stdin 741448924894.dkr.ecr.ap-south-1.amazonaws.com
+Login Succeeded
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker tag my-app:1.0 \
+741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app:1.0
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker images
+REPOSITORY                                             TAG       IMAGE ID       CREATED          SIZE
+741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app   1.0       b7f990e03f3d   51 minutes ago   1.65GB
+my-app                                                 1.0       b7f990e03f3d   51 minutes ago   1.65GB
+mongo                                                  latest    f071cbf97a6e   5 days ago       1.3GB
+redis                                                  latest    1f073813b641   5 days ago       202MB
+mongo-express                                          latest    1b23d7976f02   2 years ago      286MB
+redis                                                  4.0       2e03fdd159f4   5 years ago      133MB
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker push 741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app:1.0
+The push refers to repository [741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app]
+b267853a2602: Pushed
+a2d36cc63f8d: Pushed
+13b95ad59828: Pushed
+8a76695b819a: Pushed
+4f4fb700ef54: Pushed
+9b416da03c6f: Pushed
+346d18ee0f46: Pushed
+4cdded365558: Pushed
+02f8457caad5: Pushed
+c150dd3f5fc9: Pushed
+26d6ad1df383: Pushed
+c2c3414b1d6b: Pushed
+de73ef470b7b: Pushed
+1.0: digest: sha256:b7f990e03f3df432c2676e15febf94f96762fe5f6a665322cd084fe62588f30f size: 856
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ ^C
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker build -t my-app:1.1 .
+[+] Building 7.9s (10/10) FINISHED                                                                                                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                                   0.0s
+ => => transferring dockerfile: 216B                                                                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/node:latest                                                                                                         2.0s
+ => [internal] load .dockerignore                                                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                                                        0.0s
+ => [internal] load build context                                                                                                                                      0.2s
+ => => transferring context: 41.65kB                                                                                                                                   0.1s
+ => [1/5] FROM docker.io/library/node:latest@sha256:3953ec6a2c10154a58ccf4ba48083ddfe3f8641d63f0d1d5cb8a4a78169123a7                                                   0.1s
+ => => resolve docker.io/library/node:latest@sha256:3953ec6a2c10154a58ccf4ba48083ddfe3f8641d63f0d1d5cb8a4a78169123a7                                                   0.0s
+ => CACHED [2/5] RUN mkdir -p /home/app                                                                                                                                0.0s
+ => [3/5] COPY ./app /home/app                                                                                                                                         0.7s
+ => [4/5] WORKDIR /home/app                                                                                                                                            0.1s
+ => [5/5] RUN npm install                                                                                                                                              3.6s
+ => exporting to image                                                                                                                                                 1.8s
+ => => exporting layers                                                                                                                                                0.7s
+ => => exporting manifest sha256:47cb091b8dd7c88135c63bef989d8758e6998223e7d7e82a7576e273134aaa5e                                                                      0.0s
+ => => exporting config sha256:d1f154e482ff623ddc822adb29b963e9b6c38ad144117205cd7a7d1b9378197d                                                                        0.0s
+ => => exporting attestation manifest sha256:742c7ccac9ecee0796b1a9d17e16f7cad7b211e12504d44ef50e487edfb45f66                                                          0.0s
+ => => exporting manifest list sha256:b7e5ab52d1c82c0fd72a3d731e4f9782d71463d57b0f23f925d8948bc3533b56                                                                 0.0s
+ => => naming to docker.io/library/my-app:1.1                                                                                                                          0.0s
+ => => unpacking to docker.io/library/my-app:1.1                                                                                                                       0.9s
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$  docker images
+REPOSITORY                                             TAG       IMAGE ID       CREATED             SIZE
+my-app                                                 1.1       b7e5ab52d1c8   48 seconds ago      1.65GB
+741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app   1.0       b7f990e03f3d   About an hour ago   1.65GB
+my-app                                                 1.0       b7f990e03f3d   About an hour ago   1.65GB
+mongo                                                  latest    f071cbf97a6e   5 days ago          1.3GB
+redis                                                  latest    1f073813b641   5 days ago          202MB
+mongo-express                                          latest    1b23d7976f02   2 years ago         286MB
+redis                                                  4.0       2e03fdd159f4   5 years ago         133MB
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker tag my-app:1.1 741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app:1.1
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$  docker images
+REPOSITORY                                             TAG       IMAGE ID       CREATED              SIZE
+741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app   1.1       b7e5ab52d1c8   About a minute ago   1.65GB
+my-app                                                 1.1       b7e5ab52d1c8   About a minute ago   1.65GB
+741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app   1.0       b7f990e03f3d   About an hour ago    1.65GB
+my-app                                                 1.0       b7f990e03f3d   About an hour ago    1.65GB
+mongo                                                  latest    f071cbf97a6e   5 days ago           1.3GB
+redis                                                  latest    1f073813b641   5 days ago           202MB
+mongo-express                                          latest    1b23d7976f02   2 years ago          286MB
+redis                                                  4.0       2e03fdd159f4   5 years ago          133MB
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker push 741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app:1.1
+The push refers to repository [741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app]
+a2d36cc63f8d: Layer already exists
+346d18ee0f46: Layer already exists
+26d6ad1df383: Layer already exists
+4f4fb700ef54: Layer already exists
+e9bf924f2891: Pushed
+c2c3414b1d6b: Layer already exists
+de73ef470b7b: Layer already exists
+9b416da03c6f: Layer already exists
+b267853a2602: Layer already exists
+6b4b6e310b8a: Pushed
+6f1cfd40c5f4: Pushed
+c150dd3f5fc9: Layer already exists
+13b95ad59828: Layer already exists
+1.1: digest: sha256:b7e5ab52d1c82c0fd72a3d731e4f9782d71463d57b0f23f925d8948bc3533b56 size: 856
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker-compose -f docker-compose.yaml up -d
+services.image must be a mapping
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker ps
+CONTAINER ID   IMAGE        COMMAND                  CREATED             STATUS             PORTS     NAMES
+bcc4a9b32e84   my-app:1.0   "docker-entrypoint.s…"   About an hour ago   Up About an hour             naughty_euclid
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker-compose -f docker-compose.yaml down
+services.image must be a mapping
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker-compose -f docker-compose.yaml up
+services.ports must be a mapping
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker-compose -f docker-compose.yaml up -d
+[+] Running 4/4
+ ✔ Network demo-app_default            Created                                                                                                                         0.1s
+ ✔ Container demo-app-my-app-1         Started                                                                                                                         1.0s
+ ✔ Container demo-app-mongodb-1        Started                                                                                                                         0.9s
+ ✔ Container demo-app-mongo-express-1  Started                                                                                                                         1.1s
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker ps
+CONTAINER ID   IMAGE                                                      COMMAND                  CREATED             STATUS             PORTS
+                NAMES
+5495507f52d7   mongo-express                                              "/sbin/tini -- /dock…"   13 seconds ago      Up 9 seconds       0.0.0.0:8080->8081/tcp, [::]:8080->8081/tcp       demo-app-mongo-express-1
+fee159c85af2   mongo                                                      "docker-entrypoint.s…"   13 seconds ago      Up 10 seconds      0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   demo-app-mongodb-1
+922e1f53adf9   741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app:1.0   "docker-entrypoint.s…"   13 seconds ago      Up 10 seconds      0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp       demo-app-my-app-1
+bcc4a9b32e84   my-app:1.0                                                 "docker-entrypoint.s…"   About an hour ago   Up About an hour
+                naughty_euclid
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker logs 922e1f53adf9
+(node:1) Warning: Accessing non-existent property 'count' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1) Warning: Accessing non-existent property 'findOne' of module exports inside circular dependency
+(node:1) Warning: Accessing non-existent property 'remove' of module exports inside circular dependency
+(node:1) Warning: Accessing non-existent property 'updateOne' of module exports inside circular dependency
+app listening on port 3000!
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker stop bcc4a9b32e84
+bcc4a9b32e84
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker ps
+CONTAINER ID   IMAGE                                                      COMMAND                  CREATED         STATUS         PORTS
+        NAMES
+5495507f52d7   mongo-express                                              "/sbin/tini -- /dock…"   3 minutes ago   Up 3 minutes   0.0.0.0:8080->8081/tcp, [::]:8080->8081/tcp       demo-app-mongo-express-1
+fee159c85af2   mongo                                                      "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   demo-app-mongodb-1
+922e1f53adf9   741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app:1.0   "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp       demo-app-my-app-1
+
+VIRAJ SURVE@LAPTOP-UBD4FAL1 MINGW64 ~/Documents/Entrata_Training/Docker/demo-app (main)
+$ docker ps
+CONTAINER ID   IMAGE                                                      COMMAND                  CREATED         STATUS         PORTS                                             NAMES
+5495507f52d7   mongo-express                                              "/sbin/tini -- /dock…"   4 minutes ago   Up 3 minutes   0.0.0.0:8080->8081/tcp, [::]:8080->8081/tcp       demo-app-mongo-express-1
+fee159c85af2   mongo                                                      "docker-entrypoint.s…"   4 minutes ago   Up 3 minutes   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   demo-app-mongodb-1
+922e1f53adf9   741448924894.dkr.ecr.ap-south-1.amazonaws.com/my-app:1.0   "docker-entrypoint.s…"   4 minutes ago   Up 3 minutes   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp       demo-app-my-app-1

@@ -37,5 +37,12 @@
         $name="Viraj";
         var_dump($name);
     ?>
+    <?php
+        // 6. NULL
+        $city = null;
+        echo "<b>NULL value:</b> ";
+        var_dump($city);
+    ?>
+
 </body>
 </html>
